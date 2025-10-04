@@ -29,7 +29,7 @@
 ## وب‌سایت
 
 - [www.roozegaar.ir](https://www.roozegaar.ir)
-- [roozegaar.github.io](https://roozegaar.github.io)
+- <a href="https://roozegaar.github.io" target="_blank">roozegaar.github.io</a>
 
 </details>
 
@@ -61,6 +61,7 @@ Special thanks to the developers of **Brackets** on Windows and **Acode** on And
 
 ## Website
 - [www.roozegaar.ir](https://www.roozegaar.ir)
-- [roozegaar.github.io](https://roozegaar.github.io)
+- <a href="https://roozegaar.github.io" target="_blank">roozegaar.github.io</a>
+
 </details>
 
