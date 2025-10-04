@@ -16,8 +16,7 @@
 
 ## فایل‌ها
 - HTML, CSS, JS برای وب  
-- JSON برای داده‌ها و ترجمه‌ها  
-- کامنت کپی‌رایت برای همه فایل‌ها
+- JSON برای داده‌ها و ترجمه‌ها
 
 ## نصب و اجرا
 1. فایل‌ها را دانلود کنید یا از گیت‌هاب کلون بگیرید.  
@@ -45,8 +44,7 @@ All apps are built with a focus on **excellent user experience, security, synchr
 
 ## Files
 - HTML, CSS, JS for web  
-- JSON for data and translations  
-- Copyright comments for all files
+- JSON for data and translations
 
 ## Installation & Usage
 1. Download the files or clone from GitHub.  
