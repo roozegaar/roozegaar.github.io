@@ -1,0 +1,70 @@
+{
+  "features": [
+    {
+      "icon": "fas fa-shield-alt",
+      "title": {
+        "fa": "امنیت بالا",
+        "en": "High Security"
+      },
+      "desc": {
+        "fa": "محافظت کامل از داده‌ها و اطلاعات شخصی شما.",
+        "en": "Full protection of your personal data and information."
+      }
+    },
+    {
+      "icon": "fas fa-sync-alt",
+      "title": {
+        "fa": "همگام‌سازی آسان",
+        "en": "Easy Sync"
+      },
+      "desc": {
+        "fa": "داده‌ها و تنظیمات شما به صورت خودکار در همه دستگاه‌ها همگام می‌شوند.",
+        "en": "Your data and settings automatically sync across all devices."
+      }
+    },
+    {
+      "icon": "fas fa-palette",
+      "title": {
+        "fa": "قالب‌ها و تم‌ها",
+        "en": "Themes & Templates"
+      },
+      "desc": {
+        "fa": "رنگ و ظاهر برنامه را مطابق سلیقه خود تغییر دهید.",
+        "en": "Customize the app’s look and feel according to your preference."
+      }
+    },
+    {
+      "icon": "fas fa-tachometer-alt",
+      "title": {
+        "fa": "عملکرد بهینه",
+        "en": "Optimized Performance"
+      },
+      "desc": {
+        "fa": "اجرای روان و سریع برنامه حتی با حجم داده زیاد.",
+        "en": "Smooth and fast performance even with large data."
+      }
+    },
+    {
+      "icon": "fas fa-bolt",
+      "title": {
+        "fa": "سرعت بالا",
+        "en": "High Speed"
+      },
+      "desc": {
+        "fa": "اجرای سریع عملیات و پاسخ‌دهی لحظه‌ای.",
+        "en": "Fast execution of operations and real-time responsiveness."
+      }
+    },
+    {
+      "icon": "fas fa-cogs",
+      "title": {
+        "fa": "قابلیت شخصی‌سازی",
+        "en": "Customizability"
+      },
+      "desc": {
+        "fa": "تنظیمات گسترده برای سفارشی کردن تجربه کاربری.",
+        "en": "Extensive settings to tailor the user experience."
+      }
+    }
+  ]
+}

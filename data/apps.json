@@ -1,0 +1,150 @@
+{
+  "translations": {
+    "version": {
+      "fa": "نسخه",
+      "en": "Version"
+    },
+    "learn_more_tooltip": {
+      "fa": "اطلاعات بیشتر",
+      "en": "Learn more"
+    },
+    "download_tooltip": {
+      "fa": "دانلود",
+      "en": "Download"
+    }
+  },
+  "apps": [
+    {
+      "title": {
+        "fa": "تقویم روزگار",
+        "en": "Roozegaar Calendar"
+      },
+      "desc": {
+        "fa": "اپلیکیشن تقویم فارسی مدرن با پشتیبانی از تقویم شمسی، میلادی و قمری همراه با مدیریت رویدادها و یادآوری‌ها.",
+        "en": "A modern Persian calendar app supporting Solar, Gregorian, and Hijri calendars with event management and reminders."
+      },
+      "features": [
+        {
+          "fa": "پشتیبانی از چند تقویم (شمسی، میلادی، قمری)",
+          "en": "Multi-calendar support (Solar, Gregorian, Hijri)"
+        },
+        {
+          "fa": "مدیریت رویدادها و یادآوری‌ها",
+          "en": "Event and reminder management"
+        },
+        {
+          "fa": "نمایش اوقات شرعی دقیق",
+          "en": "Accurate prayer times display"
+        },
+        {
+          "fa": "رابط کاربری مدرن و زیبا با WinUI 3",
+          "en": "Modern and elegant UI with WinUI 3"
+        }
+      ],
+      "image": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarCalendar-Releases/refs/heads/main/image/Screenshot%201%20EN.png",
+      "repo": "MEHDIMYADI/RoozegaarCalendar-Releases",
+      "details_link": "https://github.com/MEHDIMYADI/RoozegaarCalendar-Releases?tab=readme-ov-file#roozegaar-calendar",
+      "download_link": "https://github.com/MEHDIMYADI/RoozegaarCalendar-Releases/releases"
+    },
+    {
+      "title": {
+        "fa": "پلتفرم مالی روزگار",
+        "en": "Roozegaar Finance Platform"
+      },
+      "desc": {
+        "fa": "نرم‌افزار جامع مدیریت مالی و حسابداری برای ویندوز با داشبوردهای هوشمند، مدیریت تراکنش‌ها، موجودی کالا، و گزارش‌های مالی.",
+        "en": "A comprehensive financial management and accounting software for Windows with smart dashboards, transaction management, inventory control, and financial reporting."
+      },
+      "features": [
+        {
+          "fa": "داشبوردهای هوشمند مالی",
+          "en": "Smart Financial Dashboards"
+        },
+        {
+          "fa": "مدیریت تراکنش‌ها و حساب‌ها",
+          "en": "Transaction and Account Management"
+        },
+        {
+          "fa": "کنترل موجودی کالا",
+          "en": "Inventory Control"
+        },
+        {
+          "fa": "گزارش‌های مالی دقیق و قابل تنظیم",
+          "en": "Accurate and Customizable Financial Reports"
+        }
+      ],
+      "image": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%201.png",
+      "repo": "MEHDIMYADI/RoozegaarFinance-Releases",
+      "details_link": "https://github.com/MEHDIMYADI/RoozegaarFinance-Releases?tab=readme-ov-file#roozegaar-finance-platform",
+      "download_link": "https://github.com/MEHDIMYADI/RoozegaarFinance-Releases/releases"
+    },
+    {
+      "title": {
+        "fa": "دستیار صوتی روزگار",
+        "en": "Roozegaar Voice Assistant"
+      },
+      "desc": {
+        "fa": "دستیار صوتی مدرن برای ویندوز با پشتیبانی از زبان‌های فارسی و انگلیسی، تشخیص گفتار در لحظه، فرمان‌های صوتی سفارشی و نشانه‌گذاری صوتی.",
+        "en": "A modern voice assistant for Windows supporting Persian and English languages, real-time speech recognition, custom voice commands, and spoken punctuation."
+      },
+      "features": [
+        {
+          "fa": "تشخیص گفتار در لحظه و تایپ خودکار متن در هر نرم‌افزار",
+          "en": "Real-time speech recognition with smart auto-typing in any app"
+        },
+        {
+          "fa": "فرمان‌های صوتی سفارشی و اجرای دستورات دلخواه",
+          "en": "Customizable voice commands and executing custom actions"
+        },
+        {
+          "fa": "نشانه‌گذاری صوتی و مدیریت کامل متن‌های شنیده‌شده",
+          "en": "Speech-based punctuation and full control over recognized text"
+        },
+        {
+          "fa": "رابط کاربری مدرن با تنظیمات کامل زبان، تم، صدا و ساعت",
+          "en": "Modern UI with comprehensive settings for language, theme, audio, and time format"
+        }
+      ],
+      "image": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20EN%2001.png",
+      "repo": "MEHDIMYADI/RoozegaarVoiceAssistant-Releases",
+      "details_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases?tab=readme-ov-file#roozegaar-voice-assistant",
+      "download_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/releases"
+    },
+    {
+      "title": {
+        "fa": "Debloater Pro",
+        "en": "Debloater Pro"
+      },
+      "desc": {
+        "fa": "ابزار جامع بهینه‌سازی ویندوز برای حذف برنامه‌های اضافی، افزایش حریم خصوصی، مدیریت سرویس‌ها، اعمال تنظیمات سیستم و انجام وظایف نگهداری به‌صورت آسان.",
+        "en": "A comprehensive Windows optimization tool to remove bloatware, enhance privacy, manage services, apply system tweaks, and perform maintenance tasks with ease."
+      },
+      "features": [
+        {
+          "fa": "حذف برنامه‌های پیش‌نصب‌شده و اضافی ویندوز",
+          "en": "Remove pre-installed and bloatware apps"
+        },
+        {
+          "fa": "غیرفعال‌سازی جمع‌آوری داده‌ها و تشخیص فعالیت‌ها",
+          "en": "Disable telemetry and activity history"
+        },
+        {
+          "fa": "مدیریت سرویس‌های ویندوز و تنظیم وضعیت آن‌ها",
+          "en": "Manage Windows services and configure their status"
+        },
+        {
+          "fa": "اعمال تنظیمات بهینه‌سازی سیستم و شبکه",
+          "en": "Apply system and network optimization tweaks"
+        },
+        {
+          "fa": "پاک‌سازی فایل‌های موقت و انجام تعمیرات سیستم",
+          "en": "Clean temporary files and perform system repairs"
+        }
+      ],
+      "image": "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(1).png",
+      "repo": "MEHDIMYADI/Debloater-Pro",
+      "details_link": "https://github.com/MEHDIMYADI/Debloater-Pro?tab=readme-ov-file#debloater-pro---windows-optimization-tool",
+      "download_link": "https://github.com/MEHDIMYADI/Debloater-Pro/releases"
+    }
+  ]
+}
