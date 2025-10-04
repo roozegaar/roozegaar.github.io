@@ -26,6 +26,11 @@
 ## تشکر
 تشکر ویژه از توسعه‌دهندگان برنامه **Brackets** در ویندوز و **Acode** در اندروید برای کمک به توسعه و ویرایش این پروژه دارم.
 
+## وب‌سایت
+
+- [www.roozegaar.ir](https://www.roozegaar.ir)
+- [roozegaar.github.io](roozegaar.github.io)
+
 </details>
 
 <details>
@@ -54,5 +59,8 @@ All apps are built with a focus on **excellent user experience, security, synchr
 ## Thanks
 Special thanks to the developers of **Brackets** on Windows and **Acode** on Android for assisting in developing and editing this project.
 
+## Website
+- [www.roozegaar.ir](https://www.roozegaar.ir)
+- [roozegaar.github.io](roozegaar.github.io)
 </details>
 
