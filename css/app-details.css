@@ -99,3 +99,24 @@
   border:none;
   cursor:pointer;
 }
+@media (max-width: 768px) {
+  .app-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .app-description-column,
+  .app-info-column {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .app-info-column .app-download-info {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .app-screenshots {
+    justify-content: center;
+  }
+}
