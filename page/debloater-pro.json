@@ -1,0 +1,69 @@
+{
+  "title": { 
+    "fa": "سبک‌ساز حرفه‌ای", 
+    "en": "Debloater Pro" 
+  },
+  "repo": "MEHDIMYADI/Debloater-Pro",
+  "repo_link": "https://github.com/MEHDIMYADI/Debloater-Pro?tab=readme-ov-file#debloater-pro---windows-optimization-tool",
+  "download_link": "https://github.com/MEHDIMYADI/Debloater-Pro/releases",
+  "icon": "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(1).png",
+
+"description": {
+  "fa": [
+    "سبک‌ساز حرفه‌ای یک ابزار حرفه‌ای و جامع برای بهینه‌سازی ویندوز است که به شما امکان می‌دهد نرم‌افزارهای اضافی و پیش‌فرض (bloatware) را حذف کرده، فضای ذخیره‌سازی را آزاد کنید و سرعت سیستم را افزایش دهید.",
+    "این برنامه با امکانات گسترده شامل مدیریت سرویس‌ها و برنامه‌های فعال، اعمال تنظیمات بهینه‌سازی سیستم، افزایش حریم خصوصی و انجام وظایف نگهداری ویندوز، تجربه‌ای کاربرپسند و حرفه‌ای ارائه می‌دهد.",
+    "سبک‌ساز حرفه‌ای همچنین به کاربران اجازه می‌دهد تنظیمات امنیتی و حریم خصوصی را کنترل کنند، سرویس‌ها و ویژگی‌های غیرضروری ویندوز را غیرفعال کنند، و سیستم خود را برای اجرای روان‌تر و سبک‌تر آماده کنند.",
+    "با استفاده از این ابزار می‌توانید به راحتی سیستم خود را پاکسازی و سبک کنید، از منابع بهینه استفاده کنید و تجربه ویندوزی سریع‌تر و مطمئن‌تر داشته باشید."
+  ],
+  "en": [
+    "Debloater Pro is a comprehensive and professional Windows optimization tool that allows you to remove unnecessary and pre-installed software (bloatware), free up storage space, and boost system performance.",
+    "The application offers extensive features including managing running services and applications, applying system optimization tweaks, enhancing privacy, and performing maintenance tasks — all in a user-friendly and professional interface.",
+    "Debloater Pro also enables users to control privacy and security settings, disable unnecessary Windows services and features, and prepare the system for a faster and lighter operation.",
+    "Using this tool, you can easily clean and streamline your system, make optimal use of resources, and enjoy a faster, safer, and smoother Windows experience."
+  ]
+},
+
+  "features": [
+    { "fa": "حذف نرم‌افزارهای پیش‌فرض و اضافی (Bloatware)", "en": "Remove default and unnecessary software (Bloatware)" },
+    { "fa": "افزایش حریم خصوصی سیستم", "en": "Enhance system privacy" },
+    { "fa": "مدیریت سرویس‌ها و برنامه‌های فعال", "en": "Manage services and running apps" },
+    { "fa": "اعمال تنظیمات بهینه‌سازی ویندوز", "en": "Apply Windows optimization tweaks" },
+    { "fa": "انجام وظایف نگهداری سیستم", "en": "Perform system maintenance tasks" }
+  ],
+
+"screenshots": {
+    "fa": [
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(1).png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(2).png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(3).png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(4).png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(5).png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(6).png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(7).png"
+    ],
+    "en": [
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(1).png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(2).png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(3).png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(4).png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(5).png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(6).png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(7).png"
+    ]
+  },
+
+  "translations": {
+    "version": {
+      "fa": "نسخه",
+      "en": "Version"
+    },
+    "learn_more_tooltip": {
+      "fa": "اطلاعات بیشتر",
+      "en": "Learn more"
+    },
+    "download_tooltip": {
+      "fa": "دانلود",
+      "en": "Download"
+    }
+  }
+}

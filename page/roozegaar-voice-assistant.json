@@ -1,0 +1,68 @@
+{
+  "title": { 
+    "fa": "دستیار صوتی روزگار", 
+    "en": "Roozegaar Voice Assistant" 
+  },
+  "repo": "MEHDIMYADI/RoozegaarVoiceAssistant-Releases",
+  "repo_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases?tab=readme-ov-file#roozegaar-voice-assistant",
+  "download_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/releases",
+  "icon": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20FA%2001.png",
+
+  "description": {
+    "fa": [
+      "دستیار صوتی روزگار یک نرم‌افزار پیشرفته و مدرن برای ویندوز است که با استفاده از موتور تشخیص گفتار Vosk و رابط کاربری WinUI 3 توسعه یافته است.",
+      "این برنامه توانایی درک گفتار به زبان‌های فارسی و انگلیسی را دارد و می‌تواند متن تشخیص داده‌شده را به صورت خودکار تایپ کند، فرمان‌های صوتی سفارشی را اجرا نماید و نشانه‌گذاری گفتاری را انجام دهد.",
+      "کاربران می‌توانند تنظیمات کاملی برای زبان، تم گرافیکی، حالت صوت، فرمت ساعت و سایر گزینه‌ها اعمال کنند و از قابلیت‌های کپی و پاک‌کردن سریع متن‌های تشخیص‌داده‌شده بهره‌مند شوند.",
+      "دستیار صوتی روزگار تجربه‌ای روان و مدرن در محیط ویندوز ۱۰ و ۱۱ ارائه می‌دهد و به کاربران امکان کنترل کامل سیستم با فرمان‌های صوتی را می‌دهد."
+    ],
+    "en": [
+      "Roozegaar Voice Assistant is a modern and advanced Windows application built with the Vosk speech recognition engine and WinUI 3.",
+      "It supports Persian and English speech, automatically types recognized text, executes custom voice commands, and handles speech-based punctuation.",
+      "Users can fully customize settings for language, theme, audio feedback, time format, and more, while easily copying or clearing recognized text.",
+      "Roozegaar Voice Assistant provides a smooth, modern experience on Windows 10 and 11, giving users complete control of their system through voice commands."
+    ]
+  },
+
+  "features": [
+    { "fa": "تشخیص گفتار لحظه‌ای با پشتیبانی از زبان فارسی و انگلیسی", "en": "Real-time speech recognition in Persian and English" },
+    { "fa": "تایپ خودکار متن‌های تشخیص داده‌شده در هر نرم‌افزار", "en": "Automatic typing of recognized text in any application" },
+    { "fa": "اجرای فرمان‌های صوتی سفارشی (باز کردن برنامه، تایپ متن، باز کردن لینک و...) ", "en": "Custom voice commands (launch apps, type text, open links, etc.)" },
+    { "fa": "تشخیص و اجرای نشانه‌گذاری صوتی (نقطه، ویرگول، علامت سوال و...) ", "en": "Speech-based punctuation (period, comma, question mark, etc.)" },
+    { "fa": "تنظیمات کامل برای زبان، تم گرافیکی، حالت صوت و فرمت ساعت", "en": "Full customization for language, theme, audio, and time format" },
+    { "fa": "قابلیت کپی و پاک‌کردن سریع متن‌های تشخیص داده‌شده", "en": "Quick copy and clear recognized text" },
+    { "fa": "طراحی مدرن و روان با WinUI 3 برای ویندوز ۱۰ و ۱۱", "en": "Modern and responsive design with WinUI 3 on Windows 10 & 11" },
+    { "fa": "کنترل کامل سیستم با فرمان‌های صوتی", "en": "Full system control via voice commands" }
+  ],
+
+ "screenshots": {
+    "fa": [
+      "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20FA%2001.png",
+      "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20%20FA%2002.png",
+      "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20%20FA%2003.png",
+      "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20%20FA%2004.png",
+      "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20%20FA%2005.png"
+    ],
+    "en": [
+      "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20EN%2001.png",
+      "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20EN%2002.png",
+      "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20EN%2003.png",
+      "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20EN%2004.png",
+      "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20EN%2005.png"
+    ]
+  },
+
+  "translations": {
+    "version": {
+      "fa": "نسخه",
+      "en": "Version"
+    },
+    "learn_more_tooltip": {
+      "fa": "اطلاعات بیشتر",
+      "en": "Learn more"
+    },
+    "download_tooltip": {
+      "fa": "دانلود",
+      "en": "Download"
+    }
+  }
+}

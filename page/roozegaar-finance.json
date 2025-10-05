@@ -1,0 +1,76 @@
+{
+  "title": { 
+    "fa": "سامانه مالی روزگار", 
+    "en": "Roozegaar Finance Platform" 
+  },
+  "repo": "MEHDIMYADI/RoozegaarFinance-Releases",
+  "repo_link": "https://github.com/MEHDIMYADI/RoozegaarFinance-Releases",
+  "download_link": "https://github.com/MEHDIMYADI/RoozegaarFinance-Releases",
+  "icon": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%201.png",
+
+    "description": {
+      "fa": [
+        "سامانه مالی روزگار یک نرم‌افزار جامع و حرفه‌ای مدیریت مالی و حسابداری برای ویندوز است که به کاربران امکان کنترل کامل بر تراکنش‌ها، موجودی، فروش و صدور فاکتورها را می‌دهد.",
+        "این برنامه شامل داشبوردهای هوشمند، گزارش‌ها و نمودارهای تحلیلی پیشرفته است که مدیریت منابع مالی و تجاری را ساده و بهینه می‌کند.",
+        "کاربران می‌توانند تراکنش‌ها را به صورت دقیق ثبت و پیگیری کنند، موجودی کالا و خدمات را مدیریت نمایند، فروش‌ها را رصد و تحلیل کنند و فاکتورها را با قالب‌های قابل شخصی‌سازی صادر کنند.",
+        "سامانه مالی روزگار امکاناتی برای افزایش بهره‌وری و کنترل بهتر فرآیندهای مالی ارائه می‌دهد و با امکان شخصی‌سازی کامل سیستم و قالب‌های فاکتور، مناسب نیازهای کسب‌وکارهای کوچک و بزرگ است.",
+        "با استفاده از این نرم‌افزار، مدیریت مالی شفاف‌تر، تصمیم‌گیری هوشمندانه‌تر و فرآیندهای حسابداری سریع‌تر و دقیق‌تر انجام می‌شود."
+      ],
+      "en": [
+        "Roozegaar Finance Platform is a comprehensive and professional Windows software for financial and accounting management, giving users full control over transactions, inventory, sales, and invoicing.",
+        "The application includes smart dashboards, advanced reports, and analytical charts to simplify and optimize financial and business management.",
+        "Users can accurately record and track transactions, manage inventory of goods and services, monitor and analyze sales, and issue invoices with customizable templates.",
+        "Roozegaar Finance provides tools to improve productivity and better control financial processes, with full customization options for the system and invoice templates suitable for small and large businesses.",
+        "Using this software ensures clearer financial management, smarter decision-making, and faster, more accurate accounting processes."
+      ]
+    },
+
+"features": [
+  { "fa": "ثبت و پیگیری دقیق تراکنش‌های مالی", "en": "Accurate recording and tracking of financial transactions" },
+  { "fa": "مدیریت موجودی کالا و خدمات به صورت لحظه‌ای", "en": "Real-time inventory management of goods and services" },
+  { "fa": "پیگیری، تحلیل و گزارش‌گیری فروش‌ها", "en": "Track, analyze, and report sales" },
+  { "fa": "صدور فاکتور با قالب‌های قابل شخصی‌سازی", "en": "Issue invoices with customizable templates" },
+  { "fa": "داشبوردهای هوشمند با گزارش‌ها و نمودارهای تحلیلی پیشرفته", "en": "Smart dashboards with advanced reports and charts" },
+  { "fa": "امکان شخصی‌سازی کامل سیستم و قالب‌ها", "en": "Full system and template customization options" },
+  { "fa": "افزایش بهره‌وری و کنترل فرآیندهای مالی", "en": "Enhance productivity and financial process control" },
+  { "fa": "پشتیبانی از کسب‌وکارهای کوچک و بزرگ", "en": "Support for small and large businesses" }
+],
+
+     "screenshots": {
+    "fa": [
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%201.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%202.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%203.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%204.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%205.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%206.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%207.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%208.png"
+    ],
+    "en": [
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%201.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%202.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%203.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%204.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%205.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%206.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%207.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%208.png"
+    ]
+  },
+
+  "translations": {
+    "version": {
+      "fa": "نسخه",
+      "en": "Version"
+    },
+    "learn_more_tooltip": {
+      "fa": "اطلاعات بیشتر",
+      "en": "Learn more"
+    },
+    "download_tooltip": {
+      "fa": "دانلود",
+      "en": "Download"
+    }
+  }
+}
