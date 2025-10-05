@@ -12,6 +12,7 @@
     "title": { "fa": "روزگار", "en": "Roozegaar" },
     "links": [
       { "fa": "خانه", "en": "Home", "href": "index.html" },
+      { "fa": "تصاویر", "en": "Screenshots", "href": "#app-screenshots" },
       { "fa": "درباره", "en": "About", "href": "#footer" }
     ]
   }
