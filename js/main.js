@@ -351,10 +351,16 @@ async function loadAppDetails(section, lang = 'fa') {
 
         const t = app.translations || {};
 
+        document.title = app.title[lang];
+
         const titleEl = document.getElementById('app-title');
         if (titleEl) titleEl.textContent = app.title[lang];
 
-        document.title = app.title[lang];
+        const sectionTitle = document.getElementById('section-title');
+        if (sectionTitle) sectionTitle.textContent = app.title[lang];
+        
+        const sectioScreenshots = document.getElementById('section-screenshots');
+        if (sectioScreenshots) sectioScreenshots.textContent = t.screenshots_title[lang];
         
         const descContainer = document.getElementById('app-description');
         if (descContainer) {
