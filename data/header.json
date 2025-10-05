@@ -1,0 +1,18 @@
+{
+  "main": {
+    "title": { "fa": "روزگار", "en": "ROOZEGAAR" },
+    "links": [
+      { "fa": "خانه", "en": "Home", "href": "#home" },
+      { "fa": "برنامه‌ها", "en": "Apps", "href": "#apps" },
+      { "fa": "ویژگی‌ها", "en": "Features", "href": "#features" },
+      { "fa": "درباره", "en": "About", "href": "#footer" }
+    ]
+  },
+  "blog": {
+    "title": { "fa": "روزگار", "en": "Roozegaar" },
+    "links": [
+      { "fa": "خانه", "en": "Home", "href": "index.html" },
+      { "fa": "درباره", "en": "About", "href": "#footer" }
+    ]
+  }
+}

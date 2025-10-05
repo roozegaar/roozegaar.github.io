@@ -11,6 +11,10 @@
     "download_tooltip": {
       "fa": "دانلود",
       "en": "Download"
+    },
+    "overview_tooltip": {
+      "fa": "نمای کلی برنامه",
+      "en": "App overview"
     }
   },
   "apps": [
@@ -43,6 +47,7 @@
       ],
       "image": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarCalendar-Releases/refs/heads/main/image/Screenshot%201%20EN.png",
       "repo": "MEHDIMYADI/RoozegaarCalendar-Releases",
+      "overview_link": "roozegaar-calendar.html",
       "details_link": "https://github.com/MEHDIMYADI/RoozegaarCalendar-Releases?tab=readme-ov-file#roozegaar-calendar",
       "download_link": "https://github.com/MEHDIMYADI/RoozegaarCalendar-Releases/releases"
     },
@@ -75,6 +80,7 @@
       ],
       "image": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarFinance-Releases/refs/heads/main/image/Screenshot%201.png",
       "repo": "MEHDIMYADI/RoozegaarFinance-Releases",
+      "overview_link": "roozegaar-finance.html",
       "details_link": "https://github.com/MEHDIMYADI/RoozegaarFinance-Releases?tab=readme-ov-file#roozegaar-finance-platform",
       "download_link": "https://github.com/MEHDIMYADI/RoozegaarFinance-Releases/releases"
     },
@@ -107,6 +113,7 @@
       ],
       "image": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20EN%2001.png",
       "repo": "MEHDIMYADI/RoozegaarVoiceAssistant-Releases",
+      "overview_link": "roozegaar-voice-assistant.html",
       "details_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases?tab=readme-ov-file#roozegaar-voice-assistant",
       "download_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/releases"
     },
@@ -143,6 +150,7 @@
       ],
       "image": "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(1).png",
       "repo": "MEHDIMYADI/Debloater-Pro",
+      "overview_link": "debloater-pro.html",
       "details_link": "https://github.com/MEHDIMYADI/Debloater-Pro?tab=readme-ov-file#debloater-pro---windows-optimization-tool",
       "download_link": "https://github.com/MEHDIMYADI/Debloater-Pro/releases"
     }
