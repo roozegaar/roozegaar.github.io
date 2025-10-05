@@ -304,6 +304,7 @@ function initPage() {
 }
 
 document.querySelectorAll('a[href^="#"], .hero .cta-button').forEach(link => {
+    if (link.classList.contains('logo')) return;
     link.addEventListener('click', e => {
         e.preventDefault();
         const targetSelector = link.getAttribute('href');
