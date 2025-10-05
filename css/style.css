@@ -82,7 +82,6 @@ body {
 	margin: 0 auto;
 	padding: 0 20px;
 }
-/* Header Styles */
 header {
 	background-color: var(--header-bg);
 	padding: 1rem 0;
@@ -160,7 +159,6 @@ header {
 	font-size: 1.5rem;
 	cursor: pointer;
 }
-/* Hero Section */
 .hero {
 	padding: 5rem 0;
 	text-align: center;
@@ -215,6 +213,7 @@ header {
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .app-card:hover {
+	transform: translateY(-10px);
 	transform: translateY(-10px);
 	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
@@ -288,7 +287,6 @@ header {
 	margin: 0;
 	font-size: 1rem;
 }
-/* Features Section */
 .features {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -348,7 +346,6 @@ header {
 	border: none;
 	cursor: pointer;
 }
-/* Footer */
 footer {
 	background-color: var(--footer-bg);
 	color: var(--footer-text);
@@ -403,7 +400,6 @@ footer {
 	padding-top: 1.5rem;
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-/* Responsive Styles */
 @media (max-width: 768px) {
 	.nav-links {
 		display: none;
@@ -437,7 +433,6 @@ footer {
 		font-size: 1rem;
 	}
 }
-/* Language-specific styles */
 [lang="en"] {
 	direction: ltr;
 	text-align: left;
@@ -461,4 +456,29 @@ footer {
 [lang="en"] .close-modal {
 	left: auto;
 	right: 0;
+}
+
+[lang="fa"] {
+    direction: rtl;
+    text-align: right;
+}
+[lang="fa"] .nav-links li {
+    margin-left: 0;
+    margin-right: 1.5rem;
+}
+[lang="fa"] .nav-links a::after {
+    left: auto;
+    right: 0;
+}
+[lang="fa"] .app-features li {
+    padding-left: 0;
+    padding-right: 1.5rem;
+}
+[lang="fa"] .app-features li::before {
+    left: auto;
+    right: 0;
+}
+[lang="fa"] .close-modal {
+    right: auto;
+    left: 0;
 }

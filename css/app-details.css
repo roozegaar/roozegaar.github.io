@@ -1,0 +1,101 @@
+/*
+  ----------------------------------------------------------------------------
+  © 2025 Mehdi Dimyadi
+  Roozegaar Apps Collection
+  All rights reserved.
+
+  Author: Mehdi Dimyadi
+  GitHub: https://github.com/MEHDIMYADI
+
+  Description:
+  This file is part of the Roozegaar Apps projects, including web, JSON,
+  CSS, and JavaScript files. You may use, modify, and distribute this code
+  in accordance with the project license.
+
+  ----------------------------------------------------------------------------
+*/
+.app-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 2rem;
+    align-items: flex-start;
+}
+.app-description-column {
+  flex: 3;
+  text-align: justify;
+}
+.app-info-column {
+  flex: 1;
+  border-radius: 10px;
+  align-self: flex-start;
+  height: auto;
+}
+.app-info-column .download-btn {
+  display: block;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+}
+.app-download-info {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-top: auto;
+    padding: 1rem;
+}
+.app-details-card {
+    display: block;
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.app-details-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+.app-details-card .app-content {
+    margin-bottom: 1rem;
+}
+.app-screenshots {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 1rem;
+}
+.app-screenshots img {
+  width: 150px;
+  height: 90px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.2s;
+}
+.app-screenshots img:hover {
+  transform: scale(1.05);
+}
+.modal {
+  display: none;
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.modal .modal-image {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+.modal .close-modal {
+  position: absolute;
+  top:20px;
+  right:20px;
+  font-size: 2rem;
+  color: white;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
