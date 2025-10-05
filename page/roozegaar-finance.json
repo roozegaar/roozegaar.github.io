@@ -71,6 +71,10 @@
     "download_tooltip": {
       "fa": "دانلود",
       "en": "Download"
+    },
+    "screenshots_title": {
+      "fa": "تصاویر",
+      "en": "Screenshots"
     }
   }
 }
