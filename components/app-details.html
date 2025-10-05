@@ -1,0 +1,33 @@
+<section id="app-details">
+  <div class="container">
+    <div class="app-row">
+      <div class="app-description-column app-details-card app-content">
+        <h2 id="app-title"></h2>
+        <div id="app-description"></div>
+        <ul id="app-features" class="app-features"></ul>
+      </div>
+      <div class="app-info-column app-details-card">
+        <img id="icon" class="app-image" alt="App Icon">
+        <div class="app-download-info">
+            <span class="app-version">
+                <span id="version"></span>: 
+                <span class="ver-text" id="app-version-text">...</span>
+            </span>
+            <a id="repo-btn" class="download-btn" title="">
+                <i class="fas fa-info-circle"></i>
+            </a>
+            <a id="download-btn" class="download-btn" title="">
+                <i class="fas fa-download"></i>
+            </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-screenshots app-details-card" id="app-screenshots"></div>
+  </div>
+
+  <div class="modal" id="imageModal">
+    <button class="close-modal">&times;</button>
+    <img class="modal-image" id="modalImage">
+  </div>
+</section>
