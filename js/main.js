@@ -14,24 +14,84 @@
 
   ----------------------------------------------------------------------------
 */
+
 document.addEventListener('DOMContentLoaded', () => {
+    const htmlEl = document.documentElement;
+    const savedLang = localStorage.getItem('language') || 'en';
+    htmlEl.lang = savedLang;
+    htmlEl.dir = savedLang === 'fa' ? 'rtl' : 'ltr';
+
     loadAllComponents();
 });
 
+async function fetchLatestRelease(repo) {
+    const tagsUrl = `https://api.github.com/repos/${repo}/tags`;
+    const releasesUrl = `https://api.github.com/repos/${repo}/releases/latest`;
+
+    try {
+        const res = await fetch(tagsUrl);
+        if (res.ok) {
+            const data = await res.json();
+            if (data && data.length) return data[0].name || null;
+        }
+    } catch (err) {
+        console.warn(`fetchLatestRelease(tags) ${repo} →`, err.message);
+    }
+
+    try {
+        const res = await fetch(releasesUrl);
+        if (res.ok) {
+            const data = await res.json();
+            return data.tag_name || null;
+        }
+    } catch (err) {
+        console.warn(`fetchLatestRelease(releases) ${repo} →`, err.message);
+    }
+
+    return null;
+}
+
+async function loadFooterLinks(lang = 'en', section = 'main', ulId = 'footer-links') {
+    try {
+        const res = await fetch('data/footer.json');
+        const data = await res.json();
+        const links = data.quick_links[section];
+
+        const ul = document.getElementById(ulId);
+        if (!ul || !links) return;
+
+        ul.innerHTML = '';
+
+        links.forEach(link => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = link.href;
+            a.textContent = link.text[lang] || link.text['en'];
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+    } catch (err) {
+        console.error('Error loading footer links:', err);
+    }
+}
+
 async function loadAllComponents() {
-    const components = [{
-        id: 'header',
-        url: 'components/header.html'
-    }, {
-        id: 'apps',
-        url: 'components/apps.html'
-    }, {
-        id: 'features',
-        url: 'components/features.html'
-    }, {
-        id: 'footer',
-        url: 'components/footer.html'
-    }];
+  const components = [];
+
+  if (document.getElementById('header')) 
+    components.push({ id: 'header', url: 'components/header.html' });
+
+  if (document.getElementById('apps')) 
+    components.push({ id: 'apps', url: 'components/apps.html' });
+
+  if (document.getElementById('app-details')) 
+    components.push({ id: 'app-details', url: 'components/app-details.html' });
+
+  if (document.getElementById('features')) 
+    components.push({ id: 'features', url: 'components/features.html' });
+
+  if (document.getElementById('footer')) 
+    components.push({ id: 'footer', url: 'components/footer.html' });
 
     let progress = 0;
     const step = 100 / components.length;
@@ -59,22 +119,28 @@ function initPage() {
     const htmlElement = document.documentElement;
     let currentLang = 'en';
 
-    // Check the saved language
     const savedLang = localStorage.getItem('language');
     if (savedLang) {
         currentLang = savedLang;
         htmlElement.lang = currentLang;
         htmlElement.dir = currentLang === 'fa' ? 'rtl' : 'ltr';
     }
-
+    
+    const headerSection = document.body.dataset.headerSection || 'main';
+    const appSection = document.body.dataset.appSection;
+        
     updateLangToggle();
     loadTranslations(currentLang);
+    loadHeader(currentLang, headerSection);
     waitForElement('#appsGrid').then(() => {
         loadApps(currentLang);
     });
     waitForElement('#features').then(() => {
         loadFeatures(currentLang);
     });
+    
+    loadAppDetails(appSection, currentLang);
+    
     updateCopyright(currentLang);
 
     const themeToggle = document.querySelector('.theme-toggle');
@@ -89,7 +155,6 @@ function initPage() {
         updateThemeIcon('dark');
     }
 
-    // Change theme
     langToggle.addEventListener('click', function() {
         currentLang = currentLang === 'fa' ? 'en' : 'fa';
         htmlElement.lang = currentLang;
@@ -97,12 +162,13 @@ function initPage() {
         localStorage.setItem('language', currentLang);
         updateLangToggle();
         loadTranslations(currentLang);
+        loadHeader(currentLang, headerSection);
         loadApps(currentLang);
         loadFeatures(currentLang);
+        loadAppDetails(appSection, currentLang);
         updateCopyright(currentLang);
     });
 
-    // Change theme
     themeToggle.addEventListener('click', function() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
@@ -111,14 +177,12 @@ function initPage() {
         updateThemeIcon(newTheme);
     });
 
-    // Mobile menu
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     mobileMenuBtn.addEventListener('click', function() {
         navLinks.classList.toggle('active');
     });
 
-    // Images modal
     const appImages = document.querySelectorAll('.app-image');
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
@@ -175,19 +239,6 @@ function initPage() {
             .catch(err => console.error('Error loading translation:', err));
     }
 
-    async function fetchLatestRelease(repo) {
-        // repo = "username/repo" e.g. "octocat/Hello-World"
-        try {
-            const res = await fetch(`https://api.github.com/repos/${repo}/releases/latest`);
-            if (!res.ok) throw new Error('خطا در گرفتن ریلیز');
-            const data = await res.json();
-            return data.tag_name;
-        } catch (err) {
-            console.error(err);
-            return null;
-        }
-    }
-
     async function loadApps(lang) {
         try {
             const appsRes = await fetch('data/apps.json');
@@ -215,6 +266,9 @@ function initPage() {
                             <span data-i18n="version">${translations.version[lang]}</span>: 
                             <span class="ver-text">...</span>
                         </span>
+                        <a href="${app.overview_link}" class="download-btn" title="${translations.overview_tooltip[lang]}">
+                            <i class="fas fa-file-lines"></i>
+                        </a>
                         <a href="${app.details_link}" class="download-btn" title="${translations.learn_more_tooltip[lang]}">
                             <i class="fas fa-info-circle"></i>
                         </a>
@@ -242,6 +296,8 @@ function initPage() {
                 if (verEl) verEl.textContent = app.version || '—';
             }
         }
+            
+            loadFooterLinks(lang, 'main');
     } catch (err) {
         console.error('Error loading apps:', err);
     }
@@ -256,6 +312,148 @@ document.querySelectorAll('a[href^="#"], .hero .cta-button').forEach(link => {
     });
 });
 }
+
+async function loadHeader(lang = 'fa', section = 'main') {
+  try {
+    const res = await fetch('data/header.json');
+    const data = await res.json();
+    const sectionData = data[section];
+    const header = document.querySelector('header');
+    if (!header || !sectionData) return;
+
+    const logo = header.querySelector('.logo');
+    logo.textContent = sectionData.title[lang];
+    logo.href = 'index.html';
+
+    const navLinks = header.querySelector('.nav-links');
+    navLinks.innerHTML = '';
+    sectionData.links.forEach(link => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.textContent = link[lang];
+      a.href = link.href;
+      li.appendChild(a);
+      navLinks.appendChild(li);
+    });
+
+  } catch (err) {
+    console.error('Error loading header.json:', err);
+  }
+}
+
+async function loadAppDetails(section, lang = 'fa') {
+    try {
+        const res = await fetch(`page/${section}.json`);
+        if (!res.ok) throw new Error('Failed to load JSON');
+        const app = await res.json();
+
+        if (!app) return;
+
+        const t = app.translations || {};
+
+        const titleEl = document.getElementById('app-title');
+        if (titleEl) titleEl.textContent = app.title[lang];
+
+        document.title = app.title[lang];
+        
+        const descContainer = document.getElementById('app-description');
+        if (descContainer) {
+            descContainer.innerHTML = '';
+            app.description[lang].forEach(p => {
+                const para = document.createElement('p');
+                para.textContent = p;
+                para.style.textAlign = 'justify';
+                para.style.lineHeight = '1.8';
+                para.style.marginBottom = '14px';
+                para.style.direction = (lang === 'fa') ? 'rtl' : 'ltr';
+                descContainer.appendChild(para);
+            });
+        }
+
+        const featuresEl = document.getElementById('app-features');
+        if (featuresEl) {
+            featuresEl.innerHTML = '';
+            app.features.forEach(f => {
+                const li = document.createElement('li');
+                li.textContent = f[lang];
+                featuresEl.appendChild(li);
+            });
+        }
+        
+        const verEl = document.getElementById('version');
+        const verTextEl = document.getElementById('app-version-text');
+        const downloadBtn = document.getElementById('download-btn');
+        const repoBtn = document.getElementById('repo-btn');
+        const icon = document.getElementById('icon');
+        
+        if (verEl) {
+           verEl.textContent = t.version[lang];
+        }
+        
+        if (downloadBtn) {
+            downloadBtn.href = app.download_link;
+            downloadBtn.title = t.download_tooltip[lang];
+        }
+
+        if (repoBtn) {
+            repoBtn.href = app.repo_link;
+            repoBtn.title = t.learn_more_tooltip[lang];
+        }
+        
+        if (icon) {
+            icon.src = app.icon;
+            icon.alt = app.title[lang] || 'App Icon';
+        }        
+
+        const gallery = document.getElementById('app-screenshots');
+        if (gallery) {
+            gallery.innerHTML = '';
+            const screenshots = (app.screenshots && app.screenshots[lang]) ? app.screenshots[lang] : [];
+            screenshots.forEach(img => {
+                const thumb = document.createElement('img');
+                thumb.src = img;
+                thumb.alt = '';
+                thumb.style.cursor = 'pointer';
+                thumb.addEventListener('click', () => openModal(img));
+                gallery.appendChild(thumb);
+            });
+        }
+        
+        if (app.repo) {
+            try {
+                const latestTag = await fetchLatestRelease(app.repo);
+                const versionText = latestTag ? latestTag.replace(/^v/, '') : '—';
+                if (verTextEl) verTextEl.textContent = versionText;
+            } catch (err) {
+                if (verTextEl) verTextEl.textContent = '—';
+            }
+        } else {
+            if (verTextEl) verTextEl.textContent = app.version || '—';
+        }
+        
+        loadFooterLinks(lang, 'app');
+
+    } catch (err) {
+        console.error('Error loading app details:', err);
+    }
+}
+
+function openModal(src) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = src;
+    modal.style.display = 'flex';
+}
+
+document.querySelector('.close-modal').addEventListener('click', () => {
+    document.getElementById('imageModal').style.display = 'none';
+});
+
+document.getElementById('imageModal').addEventListener('click', (e) => {
+    if (e.target.id === 'imageModal') {
+        e.currentTarget.style.display = 'none';
+    }
+});
 
 function loadFeatures(lang) {
     fetch('data/features.json')
@@ -326,8 +524,8 @@ function updateCopyright(lang) {
     }
 
     const baseText = lang === 'fa' 
-        ? "روزگار، همه حقوق محفوظ" 
-        : "Roozegaar, all rights reserved";
+        ? "کپی‌برداری از بخش یا کل مطالب روزگار تنها با کسب مجوز کتبی امکان‌پذیر است." 
+        : "Copying any part or all of Roozegaar’s content is only permitted with written authorization.";
     p.textContent = `${baseText} © ${yearText}`;
 }
 
