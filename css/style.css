@@ -400,6 +400,17 @@ footer {
 	padding-top: 1.5rem;
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+.footer-link {
+	color: var(--footer-text);
+	text-decoration: none;
+	font-weight: normal;
+	font-size: 0.85rem;
+	transition: var(--transition);
+}
+.footer-link:hover {
+	color: white;
+	text-decoration: underline;
+}
 @media (max-width: 768px) {
 	.nav-links {
 		display: none;
