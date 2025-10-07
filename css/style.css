@@ -165,6 +165,9 @@ header.scrolled {
 .theme-toggle:hover, .lang-toggle:hover {
 	background-color: rgba(0, 0, 0, 0.05);
 }
+[lang="en"] .lang-toggle {
+	font-family: 'Vazir', Tahoma, Arial, sans-serif;
+}
 .mobile-menu-btn {
 	display: none;
 	background: none;
@@ -204,7 +207,6 @@ header.scrolled {
 	transform: translateY(-3px);
 	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
-/* Apps Section */
 .section-title {
 	text-align: center;
 	margin-bottom: 3rem;
@@ -326,7 +328,6 @@ header.scrolled {
 .feature-description {
 	color: var(--secondary-color);
 }
-/* Image Modal */
 .modal {
 	display: none;
 	position: fixed;
