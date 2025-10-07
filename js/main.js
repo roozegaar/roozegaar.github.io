@@ -206,7 +206,7 @@ function initPage() {
 
     function updateLangToggle() {
         const langText = langToggle.querySelector('span');
-        langText.textContent = currentLang === 'fa' ? 'EN' : 'FA';
+        langText.textContent = currentLang === 'fa' ? 'EN' : 'فا';
     }
 
     function updateThemeIcon(theme) {
