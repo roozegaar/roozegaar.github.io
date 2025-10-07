@@ -336,10 +336,26 @@ async function loadHeader(lang = 'fa', section = 'main') {
       li.appendChild(a);
       navLinks.appendChild(li);
     });
-
+    
+    requestAnimationFrame(() => {
+      setupHeaderScrollEffect(header);
+    });
   } catch (err) {
     console.error('Error loading header.json:', err);
   }
+}
+
+function setupHeaderScrollEffect(header) {
+  if (!header) return;
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  };
+  handleScroll();
+  window.addEventListener('scroll', handleScroll);
 }
 
 async function loadAppDetails(section, lang = 'fa') {
