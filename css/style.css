@@ -502,6 +502,9 @@ footer {
 [lang="fa"] {
     direction: rtl;
     text-align: right;
+	font-feature-settings: "ss01" on;
+    font-variant-numeric: normal;
+    unicode-bidi: embed;
 }
 [lang="fa"] .nav-links li {
     margin-left: 0;
