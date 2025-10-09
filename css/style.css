@@ -433,6 +433,43 @@ footer {
 	color: white;
 	text-decoration: underline;
 }
+.noscript-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.noscript-box {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  max-width: 550px;
+  width: 100%;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+.noscript-box p {
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+.noscript-box strong {
+  font-size: 18px;
+}
+.noscript-box hr {
+  border: none;
+  border-top: 1.5px solid #721c24;
+  margin: 20px 0;
+  opacity: 0.4;
+}
 @media (max-width: 768px) {
 	.header-content {
 		display: flex;
