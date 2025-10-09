@@ -30,7 +30,7 @@
   align-self: flex-start;
   height: auto;
 }
-.app-info-column .download-btn {
+.app-info-column {
   display: block;
   text-decoration: none;
   color: white;
