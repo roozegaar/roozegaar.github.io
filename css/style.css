@@ -178,10 +178,13 @@ header.scrolled {
 .hero {
 	padding: 5rem 0;
 	text-align: center;
-	background: linear-gradient(135deg, var(--primary-color) 0%, #6c5ce7 100%);
+	background: linear-gradient(135deg, #6c5ce7, #a29bfe, #74b9ff, #6c5ce7);
 	color: white;
 	border-radius: 0 0 30px 30px;
 	margin-bottom: 3rem;
+}
+[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, #4b3ecf, #5c54d4, #4d8ac9, #4b3ecf);
 }
 .hero h1 {
 	font-size: 2.5rem;
