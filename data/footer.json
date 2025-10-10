@@ -2,7 +2,7 @@
     "quick_links": {
         "main": [
             { "href": "#", "text": { "en": "Home", "fa": "خانه" } },
-            { "href": "#apps", "text": { "en": "Apps", "fa": "اپ‌ها" } },
+            { "href": "#apps", "text": { "en": "Software", "fa": "نرم‌افزار" } },
             { "href": "#features", "text": { "en": "Features", "fa": "امکانات" } }
         ],
         "app": [
