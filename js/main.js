@@ -359,6 +359,11 @@ function setupHeaderScrollEffect(header) {
 }
 
 async function loadAppDetails(section, lang = 'fa') {
+    if (!section || section === 'undefined') {
+        console.warn('No app section provided, skipping app details load');
+        return;
+    }
+  
     try {
         const res = await fetch(`page/${section}.json`);
         if (!res.ok) throw new Error('Failed to load JSON');
