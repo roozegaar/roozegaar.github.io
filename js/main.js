@@ -17,9 +17,18 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const htmlEl = document.documentElement;
-    const savedLang = localStorage.getItem('language') || 'en';
-    htmlEl.lang = savedLang;
-    htmlEl.dir = savedLang === 'fa' ? 'rtl' : 'ltr';
+    
+    const hash = window.location.hash.replace('#', '').toLowerCase();
+    const isLangHash = hash === 'fa' || hash === 'en';
+
+    const currentLang = isLangHash
+        ? hash
+        : localStorage.getItem('language') || 'en';
+        
+    htmlEl.lang = currentLang;
+    htmlEl.dir = currentLang === 'fa' ? 'rtl' : 'ltr';
+
+    if (isLangHash) localStorage.setItem('language', currentLang);
 
     loadAllComponents();
 });
@@ -160,6 +169,9 @@ function initPage() {
         htmlElement.lang = currentLang;
         htmlElement.dir = currentLang === 'fa' ? 'rtl' : 'ltr';
         localStorage.setItem('language', currentLang);
+        
+        history.replaceState(null, '', `#${currentLang}`);
+        
         updateLangToggle();
         loadTranslations(currentLang);
         loadHeader(currentLang, headerSection);
