@@ -1,0 +1,14 @@
+@import url("//giscus.app/themes/preferred_color_scheme.css");
+@import url("https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css");
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+html[lang="fa"] body {
+  font-family: 'Vazir', Tahoma, sans-serif !important;
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0d1117 !important;
+    color: #e6edf3 !important;
+  }
+}

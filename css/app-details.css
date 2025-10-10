@@ -77,6 +77,14 @@
 .app-screenshots img:hover {
   transform: scale(1.05);
 }
+.app-comments {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 1rem;
+	  margin-bottom: 4rem;
+}
 .modal {
   display: none;
   position: fixed;
@@ -105,18 +113,15 @@
     flex-direction: column;
     gap: 1rem;
   }
-
   .app-description-column,
   .app-info-column {
     flex: 1 1 100%;
     width: 100%;
   }
-
   .app-info-column .app-download-info {
     justify-content: flex-start;
     flex-wrap: wrap;
   }
-
   .app-screenshots {
     justify-content: center;
   }
