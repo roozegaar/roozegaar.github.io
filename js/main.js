@@ -473,7 +473,7 @@ function openModal(src) {
     modal.style.display = 'flex';
 }
 
-document.querySelector('.close-modal').addEventListener('click', () => {
+document.querySelector('.close-modal')?.addEventListener('click', () => {
     document.getElementById('imageModal').style.display = 'none';
 });
 
