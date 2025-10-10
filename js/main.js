@@ -200,7 +200,7 @@ function initPage() {
         modal.style.display = 'none';
     });
 
-    modal.addEventListener('click', function(e) {
+    modal?.addEventListener('click', function(e) {
         if (e.target === modal) modal.style.display = 'none';
     });
 
