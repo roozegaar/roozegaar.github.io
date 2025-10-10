@@ -168,10 +168,7 @@ function initPage() {
         currentLang = currentLang === 'fa' ? 'en' : 'fa';
         htmlElement.lang = currentLang;
         htmlElement.dir = currentLang === 'fa' ? 'rtl' : 'ltr';
-        localStorage.setItem('language', currentLang);
-        
-        history.replaceState(null, '', `#${currentLang}`);
-        
+        localStorage.setItem('language', currentLang);        
         updateLangToggle();
         loadTranslations(currentLang);
         loadHeader(currentLang, headerSection);
