@@ -164,6 +164,8 @@ function initPage() {
         updateThemeIcon('dark');
     }
 
+    loadGiscus(currentLang);
+    
     langToggle.addEventListener('click', function() {
         currentLang = currentLang === 'fa' ? 'en' : 'fa';
         htmlElement.lang = currentLang;
@@ -175,6 +177,9 @@ function initPage() {
         loadApps(currentLang);
         loadFeatures(currentLang);
         loadAppDetails(appSection, currentLang);
+        
+        loadGiscus(currentLang);
+
         updateCopyright(currentLang);
     });
 
@@ -184,6 +189,8 @@ function initPage() {
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
+        
+        loadGiscus(currentLang);
     });
 
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -393,8 +400,11 @@ async function loadAppDetails(section, lang = 'fa') {
         const sectionTitle = document.getElementById('section-title');
         if (sectionTitle) sectionTitle.textContent = app.title[lang];
         
-        const sectioScreenshots = document.getElementById('section-screenshots');
-        if (sectioScreenshots) sectioScreenshots.textContent = t.screenshots_title[lang];
+        const sectionScreenshots = document.getElementById('section-screenshots');
+        if (sectionScreenshots) sectionScreenshots.textContent = t.screenshots_title[lang];
+    
+        const sectionComments = document.getElementById('section-comments');
+        if (sectionComments) sectionComments.textContent = t.comments_title[lang];
         
         const descContainer = document.getElementById('app-description');
         if (descContainer) {
@@ -517,6 +527,36 @@ function loadFeatures(lang) {
             });
         })
         .catch(err => console.error('Error loading features:', err));
+}
+
+function loadGiscus(giscusLang) {
+    const container = document.getElementById('comments');
+    if (!container) return;
+
+    container.innerHTML = '';
+    
+    const appSection = document.body.dataset.appSection || 'main';
+
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+
+    const script = document.createElement('script');
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    script.setAttribute("data-repo", "roozegaar/roozegaar.github.io");
+    script.setAttribute("data-repo-id", "R_kgDOP6luHw");
+    script.setAttribute("data-category", "Q&A");
+    script.setAttribute("data-category-id", "DIC_kwDOP6luH84CwZKt");
+    script.setAttribute("data-mapping", "specific");
+    script.setAttribute("data-term", appSection);
+    script.setAttribute("data-strict", "0");
+    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "bottom");
+    script.setAttribute("data-theme", currentTheme);
+    script.setAttribute("data-lang", giscusLang);
+
+    container.appendChild(script);
 }
 
 function waitForElement(selector) {
