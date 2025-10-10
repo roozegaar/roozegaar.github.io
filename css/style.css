@@ -230,6 +230,7 @@ header.scrolled {
 	flex-direction: column;
 	background-color: var(--card-bg);
 	border-radius: 15px;
+	position: relative;
 	overflow: hidden;
 	box-shadow: var(--card-shadow);
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -238,6 +239,17 @@ header.scrolled {
 	transform: translateY(-10px);
 	transform: translateY(-10px);
 	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+.app-card .ribbon {
+  opacity: 0;
+  transform: translateY(-10px) perspective(300px) rotateX(10deg);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.app-card:hover .ribbon {
+  opacity: 1;
+  transform: translateY(0) perspective(300px) rotateX(0);
+  pointer-events: auto;
 }
 .app-image {
 	width: 100%;
