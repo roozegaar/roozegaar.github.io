@@ -68,6 +68,10 @@
     "screenshots_title": {
       "fa": "تصاویر",
       "en": "Screenshots"
+    },
+    "comments_title": {
+      "fa": "دیدگاه",
+      "en": "Comments"
     }
   }
 }
