@@ -228,7 +228,6 @@ function initPage() {
                         }
                     }
 
-                    // tooltip
                     const tooltipKey = el.getAttribute('data-i18n-tooltip');
                     if (tooltipKey && data[tooltipKey]) {
                         el.title = data[tooltipKey];
@@ -240,14 +239,18 @@ function initPage() {
     }
 
     async function loadApps(lang) {
+        const appsGrid = document.getElementById('appsGrid');
+        if (!appsGrid) {
+            console.warn('No apps section provided, skipping apps list load');
+            return;
+        }
+      
         try {
             const appsRes = await fetch('data/apps.json');
             const data = await appsRes.json();
             const translations = data.translations;
             const apps = data.apps;
 
-            const appsGrid = document.getElementById('appsGrid');
-            if (!appsGrid) return console.error('appsGrid پیدا نشد');
             appsGrid.innerHTML = '';
 
             for (let app of apps) {
