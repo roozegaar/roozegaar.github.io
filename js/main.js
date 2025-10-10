@@ -196,7 +196,7 @@ function initPage() {
         });
     });
 
-    closeModal.addEventListener('click', function() {
+    closeModal?.addEventListener('click', function() {
         modal.style.display = 'none';
     });
 
@@ -477,7 +477,7 @@ document.querySelector('.close-modal')?.addEventListener('click', () => {
     document.getElementById('imageModal').style.display = 'none';
 });
 
-document.getElementById('imageModal').addEventListener('click', (e) => {
+document.getElementById('imageModal')?.addEventListener('click', (e) => {
     if (e.target.id === 'imageModal') {
         e.currentTarget.style.display = 'none';
     }
