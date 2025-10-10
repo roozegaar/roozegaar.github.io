@@ -442,7 +442,7 @@ async function loadAppDetails(section, lang = 'fa') {
         
         if (icon) {
             icon.src = app.icon;
-            icon.alt = app.title[lang] || 'App Icon';
+            icon.alt = app.title[lang] || 'ROOZEGAAR';
         }        
 
         const gallery = document.getElementById('app-screenshots');
@@ -452,7 +452,7 @@ async function loadAppDetails(section, lang = 'fa') {
             screenshots.forEach(img => {
                 const thumb = document.createElement('img');
                 thumb.src = img;
-                thumb.alt = '';
+                thumb.alt = app.title[lang] || 'ROOZEGAAR';;
                 thumb.style.cursor = 'pointer';
                 thumb.addEventListener('click', () => openModal(img));
                 gallery.appendChild(thumb);
