@@ -1,46 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-  http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-  <!-- Main site -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
   <url>
     <loc>https://roozegaar.github.io/</loc>
-    <lastmod>2025-10-05T00:00:00+03:30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Roozegaar Calendar -->
   <url>
     <loc>https://roozegaar.github.io/roozegaar-calendar.html</loc>
-    <lastmod>2025-10-05T00:00:00+03:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Roozegaar Finance -->
   <url>
     <loc>https://roozegaar.github.io/roozegaar-finance.html</loc>
-    <lastmod>2025-10-05T00:00:00+03:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Roozegaar Voice Assistant -->
   <url>
     <loc>https://roozegaar.github.io/roozegaar-voice-assistant.html</loc>
-    <lastmod>2025-10-05T00:00:00+03:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Debloater Pro -->
   <url>
     <loc>https://roozegaar.github.io/debloater-pro.html</loc>
-    <lastmod>2025-10-05T00:00:00+03:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
