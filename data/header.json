@@ -13,7 +13,7 @@
     "links": [
       { "fa": "خانه", "en": "Home", "href": "index.html" },
       { "fa": "تصاویر", "en": "Screenshots", "href": "#screenshots" },
-      { "fa": "دیدگاه", "en": "Comments", "href": "#comments" },
+      { "fa": "‌دیدگاه", "en": "Comment", "href": "#comment" },
       { "fa": "درباره", "en": "About", "href": "#footer" }
     ]
   }
