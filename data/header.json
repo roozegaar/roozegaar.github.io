@@ -3,7 +3,7 @@
     "title": { "fa": "روزگار", "en": "ROOZEGAAR" },
     "links": [
       { "fa": "خانه", "en": "Home", "href": "#home" },
-      { "fa": "نرم‌افزار", "en": "Software", "href": "#apps" },
+      { "fa": "پروژه‌ها", "en": "Projects", "href": "#projects" },
       { "fa": "ویژگی‌ها", "en": "Features", "href": "#features" },
       { "fa": "درباره", "en": "About", "href": "#footer" }
     ]
@@ -12,8 +12,8 @@
     "title": { "fa": "روزگار", "en": "ROOZEGAAR" },
     "links": [
       { "fa": "خانه", "en": "Home", "href": "index.html" },
-      { "fa": "تصاویر", "en": "Screenshots", "href": "#section-screenshots" },
-      { "fa": "دیدگاه", "en": "Comments", "href": "#section-comments" },
+      { "fa": "تصاویر", "en": "Screenshots", "href": "#screenshots" },
+      { "fa": "دیدگاه", "en": "Comments", "href": "#comments" },
       { "fa": "درباره", "en": "About", "href": "#footer" }
     ]
   }
