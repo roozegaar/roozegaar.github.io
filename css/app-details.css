@@ -108,6 +108,13 @@
   border:none;
   cursor:pointer;
 }
+.giscus-loading {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-color, #aaa);
+  transition: opacity 0.4s ease;
+}
 @media (max-width: 768px) {
   .app-row {
     flex-direction: column;
