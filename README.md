@@ -1,16 +1,16 @@
-# Roozegaar Apps Collection
+# Roozegaar Projects Collection
 
 <details>
 <summary>🇮🇷 فارسی</summary>
 
 ## توضیحات کلی
-این مجموعه شامل چندین اپلیکیشن کاربردی و با کیفیت است که توسط **مهدی دیمیادی** توسعه داده شده‌اند.  
-تمام اپلیکیشن‌ها با تمرکز بر **تجربه کاربری عالی، امنیت، همگام‌سازی، و ظاهر قابل شخصی‌سازی** ساخته شده‌اند.
+این مجموعه شامل چندین پروژه کاربردی و با کیفیت است که توسط **مهدی دیمیادی** توسعه داده شده‌اند.  
+تمام پروژه‌ها با تمرکز بر **تجربه کاربری عالی، امنیت، همگام‌سازی، و ظاهر قابل شخصی‌سازی** ساخته شده‌اند.
 
 ## ویژگی‌ها
 - امنیت بالا و محافظت کامل از داده‌ها  
 - همگام‌سازی آسان بین دستگاه‌ها  
-- قالب‌ها و تم‌ها برای شخصی‌سازی ظاهر برنامه  
+- قالب‌ها و تم‌ها برای شخصی‌سازی ظاهر پروژه  
 - عملکرد و سرعت بهینه  
 - قابلیت شخصی‌سازی گسترده  
 
@@ -37,13 +37,13 @@
 <summary>🇬🇧 English</summary>
 
 ## Overview
-This collection contains multiple practical and high-quality applications developed by **Mehdi Dimyadi**.  
-All apps are built with a focus on **excellent user experience, security, synchronization, and customizable UI**.
+This collection contains multiple practical and high-quality projects developed by **Mehdi Dimyadi**.  
+All projects are built with a focus on **excellent user experience, security, synchronization, and customizable UI**.
 
 ## Features
 - High security and full data protection  
 - Easy synchronization across devices  
-- Themes & templates for customizing app appearance  
+- Themes & templates for customizing project appearance  
 - Optimized performance and speed  
 - Extensive customizability  
 
