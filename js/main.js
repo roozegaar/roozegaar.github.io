@@ -538,8 +538,11 @@ function loadGiscus(giscusLang) {
     
     const appSection = document.body.dataset.appSection || 'main';
 
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-
+    //const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+  
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark'
+      ? 'dark'
+      : 'light';
     const script = document.createElement('script');
     script.src = "https://giscus.app/client.js";
     script.async = true;
@@ -554,7 +557,8 @@ function loadGiscus(giscusLang) {
     script.setAttribute("data-reactions-enabled", "1");
     script.setAttribute("data-emit-metadata", "0");
     script.setAttribute("data-input-position", "bottom");
-    script.setAttribute("data-theme", currentTheme);
+    //script.setAttribute("data-theme", currentTheme);
+    script.setAttribute("data-theme", `https://roozegaar.github.io/css/giscus-theme-${theme}.css`);
     script.setAttribute("data-lang", giscusLang);
 
     container.appendChild(script);
