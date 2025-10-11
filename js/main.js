@@ -404,8 +404,8 @@ async function loadProject(section, lang = 'fa') {
         const sectionScreenshots = document.getElementById('screenshots');
         if (sectionScreenshots) sectionScreenshots.textContent = t.screenshots_title[lang];
     
-        const sectionComments = document.getElementById('comments');
-        if (sectionComments) sectionComments.textContent = t.comments_title[lang];
+        const sectionComment = document.getElementById('comment');
+        if (sectionComment) sectionComment.textContent = t.comments_title[lang];
         
         const descContainer = document.getElementById('project-description');
         if (descContainer) {
