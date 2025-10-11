@@ -1,0 +1,21 @@
+{
+  "name": "Roozegaar",
+  "short_name": "Roozegaar",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "description": "YESTERDAY IS HISTORY, TOMORROW IS A MYSTERY, TODAY IS A GIFT!",
+  "background_color": "#ffffff",
+  "theme_color": "#4a6cf7",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
