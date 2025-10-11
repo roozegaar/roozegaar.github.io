@@ -511,7 +511,7 @@ function loadFeatures(lang) {
         .then(res => res.json())
         .then(data => {
             const featuresContainer = document.querySelector('.features');
-            if (!featuresContainer) return console.error('features container پیدا نشد');
+            if (!featuresContainer) return console.warn('Features container not found!');
             featuresContainer.innerHTML = '';
 
             data.features.forEach(f => {
