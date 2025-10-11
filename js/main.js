@@ -273,7 +273,7 @@ function initPage() {
                 const card = document.createElement('div');
                 card.className = 'app-card';
                 card.innerHTML = `
-                <div class="ribbon"><span>${app.platform[lang]}</span></div
+                <div class="ribbon"><span>${app.platform[lang]}</span></div>
                 <a href="${app.overview_link}"><img class="app-image" src="${app.image}" alt="${app.title[lang]}"></a>
                 <div class="app-content">
                     <h3 class="app-title">${app.title[lang]}</h3>
