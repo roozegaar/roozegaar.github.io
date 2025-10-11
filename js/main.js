@@ -534,15 +534,16 @@ function loadGiscus(giscusLang) {
     const container = document.getElementById('comments');
     if (!container) return;
 
-    container.innerHTML = '';
-    
-    const appSection = document.body.dataset.appSection || 'main';
+    const oldGiscus = container.querySelector('iframe.giscus-frame');
+    if (oldGiscus) oldGiscus.remove();
+    const oldScript = container.querySelector('script[src*="giscus.app"]');
+    if (oldScript) oldScript.remove();
 
+    const loadingElement = document.getElementById('giscus-loading');
+    const appSection = document.body.dataset.appSection || 'main';
     //const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-  
-    const theme = document.documentElement.getAttribute('data-theme') === 'dark'
-      ? 'dark'
-      : 'light';
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+
     const script = document.createElement('script');
     script.src = "https://giscus.app/client.js";
     script.async = true;
@@ -559,9 +560,27 @@ function loadGiscus(giscusLang) {
     script.setAttribute("data-input-position", "bottom");
     //script.setAttribute("data-theme", currentTheme);
     script.setAttribute("data-theme", `https://roozegaar.github.io/css/giscus-theme-${theme}.css`);
-    script.setAttribute("data-lang", giscusLang);
-
+    script.setAttribute("data-lang", giscusLang); 
     container.appendChild(script);
+
+    const successMessage = giscusLang === 'fa' 
+      ? "✅ دیدگاه‌ها با موفقیت بارگذاری شد!" 
+      : "✅ Comments loaded successfully!";
+    const errorMessage = giscusLang === 'fa' 
+      ? "❌ بارگذاری دیدگاه‌ها با خطا مواجه شد!" 
+      : "❌ Failed to load comments!";
+
+    script.onload = () => {
+      if (loadingElement) loadingElement.textContent = successMessage;
+      setTimeout(() => {
+       if (loadingElement) loadingElement.style.display = 'none';
+      }, 10000);
+    };
+
+    script.onerror = (err) => {
+      console.error("❌ Failed to load script:", err);
+      if (loadingElement) loadingElement.textContent = errorMessage;
+    };
 }
 
 function waitForElement(selector) {
