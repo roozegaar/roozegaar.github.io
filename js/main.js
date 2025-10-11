@@ -1,14 +1,14 @@
 /*
   ----------------------------------------------------------------------------
   © 2025 Mehdi Dimyadi
-  Roozegaar Apps Collection
+  Roozegaar Projects Collection
   All rights reserved.
 
   Author: Mehdi Dimyadi
   GitHub: https://github.com/MEHDIMYADI
 
   Description:
-  This file is part of the Roozegaar Apps projects, including web, JSON,
+  This file is part of the Roozegaar Projects, including web, JSON,
   CSS, and JavaScript files. You may use, modify, and distribute this code
   in accordance with the project license.
 
@@ -90,11 +90,11 @@ async function loadAllComponents() {
   if (document.getElementById('header')) 
     components.push({ id: 'header', url: 'components/header.html' });
 
-  if (document.getElementById('apps')) 
-    components.push({ id: 'apps', url: 'components/apps.html' });
+  if (document.getElementById('projects')) 
+    components.push({ id: 'projects', url: 'components/projects.html' });
 
-  if (document.getElementById('app-details')) 
-    components.push({ id: 'app-details', url: 'components/app-details.html' });
+  if (document.getElementById('project')) 
+    components.push({ id: 'project', url: 'components/project.html' });
 
   if (document.getElementById('features')) 
     components.push({ id: 'features', url: 'components/features.html' });
@@ -136,19 +136,19 @@ function initPage() {
     }
     
     const headerSection = document.body.dataset.headerSection || 'main';
-    const appSection = document.body.dataset.appSection;
+    const projectSection = document.body.dataset.projectSection;
         
     updateLangToggle();
     loadTranslations(currentLang);
     loadHeader(currentLang, headerSection);
-    waitForElement('#appsGrid').then(() => {
-        loadApps(currentLang);
+    waitForElement('#projectsGrid').then(() => {
+        loadProjects(currentLang);
     });
     waitForElement('#features').then(() => {
         loadFeatures(currentLang);
     });
     
-    loadAppDetails(appSection, currentLang);
+    loadProject(projectSection, currentLang);
     
     updateCopyright(currentLang);
 
@@ -174,9 +174,9 @@ function initPage() {
         updateLangToggle();
         loadTranslations(currentLang);
         loadHeader(currentLang, headerSection);
-        loadApps(currentLang);
+        loadProjects(currentLang);
         loadFeatures(currentLang);
-        loadAppDetails(appSection, currentLang);
+        loadProject(projectSection, currentLang);
         
         loadGiscus(currentLang);
 
@@ -199,12 +199,12 @@ function initPage() {
         navLinks.classList.toggle('active');
     });
 
-    const appImages = document.querySelectorAll('.app-image');
+    const projectImages = document.querySelectorAll('.project-image');
     const modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const closeModal = document.querySelector('.close-modal');
 
-    appImages.forEach(image => {
+    projectImages.forEach(image => {
         image.addEventListener('click', function() {
             modal.style.display = 'flex';
             modalImage.src = this.src;
@@ -254,54 +254,54 @@ function initPage() {
             .catch(err => console.error('Error loading translation:', err));
     }
 
-    async function loadApps(lang) {
-        const appsGrid = document.getElementById('appsGrid');
-        if (!appsGrid) {
-            console.warn('No apps section provided, skipping apps list load');
+    async function loadProjects(lang) {
+        const projectsGrid = document.getElementById('projectsGrid');
+        if (!projectsGrid) {
+            console.warn('No projects section provided, skipping projects list load');
             return;
         }
       
         try {
-            const appsRes = await fetch('data/apps.json');
-            const data = await appsRes.json();
+            const projectsRes = await fetch('data/projects.json');
+            const data = await projectsRes.json();
             const translations = data.translations;
-            const apps = data.apps;
+            const projects = data.projects;
 
-            appsGrid.innerHTML = '';
+            projectsGrid.innerHTML = '';
 
-            for (let app of apps) {
+            for (let project of projects) {
                 const card = document.createElement('div');
-                card.className = 'app-card';
+                card.className = 'project-card';
                 card.innerHTML = `
-                <div class="ribbon"><span>${app.platform[lang]}</span></div>
-                <a href="${app.overview_link}"><img class="app-image" src="${app.image}" alt="${app.title[lang]}"></a>
-                <div class="app-content">
-                    <h3 class="app-title">${app.title[lang]}</h3>
-                    <p class="app-description">${app.desc[lang]}</p>
-                    <ul class="app-features">
-                        ${app.features.map(f => `<li>${f[lang]}</li>`).join('')}
+                <div class="ribbon"><span>${project.platform[lang]}</span></div>
+                <a href="${project.overview_link}"><img class="project-image" src="${project.image}" alt="${project.title[lang]}"></a>
+                <div class="project-content">
+                    <h3 class="project-title">${project.title[lang]}</h3>
+                    <p class="project-description">${project.desc[lang]}</p>
+                    <ul class="project-features">
+                        ${project.features.map(f => `<li>${f[lang]}</li>`).join('')}
                     </ul>
                     <div class="download-info">
-                        <span class="app-version">
+                        <span class="project-version">
                             <span data-i18n="version">${translations.version[lang]}</span>: 
                             <span class="ver-text">...</span>
                         </span>
-                        <a href="${app.overview_link}" class="download-btn" title="${translations.overview_tooltip[lang]}">
+                        <a href="${project.overview_link}" class="download-btn" title="${translations.overview_tooltip[lang]}">
                             <i class="fas fa-file-lines"></i>
                         </a>
-                        <a href="${app.details_link}" class="download-btn" title="${translations.learn_more_tooltip[lang]}">
+                        <a href="${project.details_link}" class="download-btn" title="${translations.learn_more_tooltip[lang]}">
                             <i class="fas fa-info-circle"></i>
                         </a>
-                        <a href="${app.download_link}" class="download-btn" title="${translations.download_tooltip[lang]}">
+                        <a href="${project.download_link}" class="download-btn" title="${translations.download_tooltip[lang]}">
                             <i class="fas fa-download"></i>
                         </a>
                     </div>
                 </div>
             `;
-            appsGrid.appendChild(card);
+            projectsGrid.appendChild(card);
 
-            if (app.repo) {
-                fetchLatestRelease(app.repo)
+            if (project.repo) {
+                fetchLatestRelease(project.repo)
                     .then(latestTag => {
                         const versionText = latestTag ? latestTag.replace(/^v/, '') : '—';
                         const verEl = card.querySelector('.ver-text');
@@ -313,17 +313,17 @@ function initPage() {
                     });
             } else {
                 const verEl = card.querySelector('.ver-text');
-                if (verEl) verEl.textContent = app.version || '—';
+                if (verEl) verEl.textContent = project.version || '—';
             }
         }
             
             loadFooterLinks(lang, 'main');
     } catch (err) {
-        console.error('Error loading apps:', err);
+        console.error('Error loading projects:', err);
     }
 }
 
-document.querySelectorAll('a[href^="#"], .hero .cta-button').forEach(link => {
+document.querySelectorAll('a[href^="#"], .intro .cta-button').forEach(link => {
     if (link.classList.contains('logo')) return;
     link.addEventListener('click', e => {
         e.preventDefault();
@@ -378,39 +378,39 @@ function setupHeaderScrollEffect(header) {
   window.addEventListener('scroll', handleScroll);
 }
 
-async function loadAppDetails(section, lang = 'fa') {
+async function loadProject(section, lang = 'fa') {
     if (!section || section === 'undefined') {
-        console.warn('No app section provided, skipping app details load');
+        console.warn('No project section provided, skipping project details load');
         return;
     }
   
     try {
         const res = await fetch(`page/${section}.json`);
         if (!res.ok) throw new Error('Failed to load JSON');
-        const app = await res.json();
+        const project = await res.json();
 
-        if (!app) return;
+        if (!project) return;
 
-        const t = app.translations || {};
+        const t = project.translations || {};
 
-        document.title = app.title[lang];
+        document.title = project.title[lang];
 
-        const titleEl = document.getElementById('app-title');
-        if (titleEl) titleEl.textContent = app.title[lang];
+        const titleEl = document.getElementById('project-title');
+        if (titleEl) titleEl.textContent = project.title[lang];
 
         const sectionTitle = document.getElementById('section-title');
-        if (sectionTitle) sectionTitle.textContent = app.title[lang];
+        if (sectionTitle) sectionTitle.textContent = project.title[lang];
         
-        const sectionScreenshots = document.getElementById('section-screenshots');
+        const sectionScreenshots = document.getElementById('screenshots');
         if (sectionScreenshots) sectionScreenshots.textContent = t.screenshots_title[lang];
     
-        const sectionComments = document.getElementById('section-comments');
+        const sectionComments = document.getElementById('comments');
         if (sectionComments) sectionComments.textContent = t.comments_title[lang];
         
-        const descContainer = document.getElementById('app-description');
+        const descContainer = document.getElementById('project-description');
         if (descContainer) {
             descContainer.innerHTML = '';
-            app.description[lang].forEach(p => {
+            project.description[lang].forEach(p => {
                 const para = document.createElement('p');
                 para.textContent = p;
                 para.style.textAlign = 'justify';
@@ -421,10 +421,10 @@ async function loadAppDetails(section, lang = 'fa') {
             });
         }
 
-        const featuresEl = document.getElementById('app-features');
+        const featuresEl = document.getElementById('project-features');
         if (featuresEl) {
             featuresEl.innerHTML = '';
-            app.features.forEach(f => {
+            project.features.forEach(f => {
                 const li = document.createElement('li');
                 li.textContent = f[lang];
                 featuresEl.appendChild(li);
@@ -432,7 +432,7 @@ async function loadAppDetails(section, lang = 'fa') {
         }
         
         const verEl = document.getElementById('version');
-        const verTextEl = document.getElementById('app-version-text');
+        const verTextEl = document.getElementById('project-version-text');
         const downloadBtn = document.getElementById('download-btn');
         const repoBtn = document.getElementById('repo-btn');
         const icon = document.getElementById('icon');
@@ -442,50 +442,50 @@ async function loadAppDetails(section, lang = 'fa') {
         }
         
         if (downloadBtn) {
-            downloadBtn.href = app.download_link;
+            downloadBtn.href = project.download_link;
             downloadBtn.title = t.download_tooltip[lang];
         }
 
         if (repoBtn) {
-            repoBtn.href = app.repo_link;
+            repoBtn.href = project.repo_link;
             repoBtn.title = t.learn_more_tooltip[lang];
         }
         
         if (icon) {
-            icon.src = app.icon;
-            icon.alt = app.title[lang] || 'ROOZEGAAR';
+            icon.src = project.icon;
+            icon.alt = project.title[lang] || 'ROOZEGAAR';
         }        
 
-        const gallery = document.getElementById('app-screenshots');
+        const gallery = document.getElementById('project-screenshots');
         if (gallery) {
             gallery.innerHTML = '';
-            const screenshots = (app.screenshots && app.screenshots[lang]) ? app.screenshots[lang] : [];
+            const screenshots = (project.screenshots && project.screenshots[lang]) ? project.screenshots[lang] : [];
             screenshots.forEach(img => {
                 const thumb = document.createElement('img');
                 thumb.src = img;
-                thumb.alt = app.title[lang] || 'ROOZEGAAR';;
+                thumb.alt = project.title[lang] || 'ROOZEGAAR';;
                 thumb.style.cursor = 'pointer';
                 thumb.addEventListener('click', () => openModal(img));
                 gallery.appendChild(thumb);
             });
         }
         
-        if (app.repo) {
+        if (project.repo) {
             try {
-                const latestTag = await fetchLatestRelease(app.repo);
+                const latestTag = await fetchLatestRelease(project.repo);
                 const versionText = latestTag ? latestTag.replace(/^v/, '') : '—';
                 if (verTextEl) verTextEl.textContent = versionText;
             } catch (err) {
                 if (verTextEl) verTextEl.textContent = '—';
             }
         } else {
-            if (verTextEl) verTextEl.textContent = app.version || '—';
+            if (verTextEl) verTextEl.textContent = project.version || '—';
         }
         
-        loadFooterLinks(lang, 'app');
+        loadFooterLinks(lang, 'project');
 
     } catch (err) {
-        console.error('Error loading app details:', err);
+        console.error('Error loading project details:', err);
     }
 }
 
@@ -540,7 +540,7 @@ function loadGiscus(giscusLang) {
     if (oldScript) oldScript.remove();
 
     const loadingElement = document.getElementById('giscus-loading');
-    const appSection = document.body.dataset.appSection || 'main';
+    const projectSection = document.body.dataset.projectSection || 'main';
     //const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
 
@@ -553,7 +553,7 @@ function loadGiscus(giscusLang) {
     script.setAttribute("data-category", "Q&A");
     script.setAttribute("data-category-id", "DIC_kwDOP6luH84CwZKt");
     script.setAttribute("data-mapping", "specific");
-    script.setAttribute("data-term", appSection);
+    script.setAttribute("data-term", projectSection);
     script.setAttribute("data-strict", "0");
     script.setAttribute("data-reactions-enabled", "1");
     script.setAttribute("data-emit-metadata", "0");
