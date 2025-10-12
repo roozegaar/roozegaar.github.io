@@ -7,7 +7,39 @@
   "repo_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases?tab=readme-ov-file#roozegaar-voice-assistant",
   "download_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/releases",
   "icon": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/refs/heads/main/image/Screenshot%20FA%2001.png",
-
+  "platform": "Windows",
+  "category": "Productivity",
+  "version": "1.1.2.0",
+  "meta_description": {
+    "fa": "دستیار صوتی روزگار: تشخیص گفتار و کنترل صوتی سیستم با هوش مصنوعی",
+    "en": "Roozegaar Voice Assistant: AI-powered speech recognition and voice control system"
+  },
+  "seoData": {
+    "fa": {
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "author": {
+          "@type": "Person",
+          "name": "Mehdi Dimyadi",
+          "url": "https://github.com/MEHDIMYADI"
+        },
+        "datePublished": "2025-10-11"
+      }
+    },
+    "en": {
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "author": {
+          "@type": "Person",
+          "name": "Mehdi Dimyadi",
+          "url": "https://github.com/MEHDIMYADI"
+        },
+        "datePublished": "2025-10-11"
+      }
+    }
+  },
   "description": {
     "fa": [
       "دستیار صوتی روزگار یک نرم‌افزار پیشرفته و مدرن برای ویندوز است که با استفاده از موتور تشخیص گفتار Vosk و رابط کاربری WinUI 3 توسعه یافته است.",
