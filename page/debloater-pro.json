@@ -7,7 +7,39 @@
   "repo_link": "https://github.com/MEHDIMYADI/Debloater-Pro?tab=readme-ov-file#debloater-pro---windows-optimization-tool",
   "download_link": "https://github.com/MEHDIMYADI/Debloater-Pro/releases",
   "icon": "https://raw.githubusercontent.com/MEHDIMYADI/Debloater-Pro/refs/heads/master/Screenshots/Screenshot%20(1).png",
-
+  "platform": "Windows",
+  "category": "Optimization",
+  "version": "1.4.2",
+  "meta_description": {
+    "fa": "سبک‌ساز حرفه‌ای: حذف برنامه‌های اضافی و بهینه‌سازی ویندوز.",
+    "en": "Debloater Pro: Remove unnecessary apps and optimize Windows."
+  },
+  "seoData": {
+    "fa": {
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "author": {
+          "@type": "Person",
+          "name": "Mehdi Dimyadi",
+          "url": "https://github.com/MEHDIMYADI"
+        },
+        "datePublished": "2025-10-11"
+      }
+    },
+    "en": {
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "author": {
+          "@type": "Person",
+          "name": "Mehdi Dimyadi",
+          "url": "https://github.com/MEHDIMYADI"
+        },
+        "datePublished": "2025-10-11"
+      }
+    }
+  },
 "description": {
   "fa": [
     "سبک‌ساز حرفه‌ای یک ابزار حرفه‌ای و جامع برای بهینه‌سازی ویندوز است که به شما امکان می‌دهد نرم‌افزارهای اضافی و پیش‌فرض (bloatware) را حذف کرده، فضای ذخیره‌سازی را آزاد کنید و سرعت سیستم را افزایش دهید.",
