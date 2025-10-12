@@ -483,9 +483,59 @@ async function loadProject(section, lang = 'fa') {
         }
         
         loadFooterLinks(lang, 'project');
-
+        injectSEOData(project, lang);
     } catch (err) {
         console.error('Error loading project details:', err);
+    }
+}
+
+function injectSEOData(project, lang = 'fa') {
+    try {
+        const buildSchema = (l) => {
+            const seoLang = project.seoData?.[l] || project.seoData?.['en'] || {};
+            const schema = seoLang.schema || {};
+            const data = {
+                "@context": schema["@context"] || "https://schema.org",
+                "@type": schema["@type"] || "SoftwareApplication",
+                "name": project.title?.[l] || project.title?.en,
+                "headline": project.title?.[l] || project.title?.en,
+                "description": project.meta_description?.[l] || (project.description?.[l] || []).join(" "),
+                "inLanguage": l === "fa" ? "fa-IR" : "en-US",
+                "applicationCategory": project.category || "Software",
+                "operatingSystem": project.platform || "Windows",
+                "softwareVersion": project.version || "latest",
+                "image": project.icon || "",
+                "author": schema.author || undefined,
+                "downloadUrl": project.download_link || "",
+                "url": project.repo_link || "",
+                "datePublished": schema.datePublished || ""
+            };
+            Object.keys(data).forEach(k => {
+                if (data[k] === undefined || data[k] === null || data[k] === "")
+                    delete data[k];
+            });
+            return data;
+        };
+
+        ["fa", "en"].forEach(l => {
+            const seoData = buildSchema(l);
+            const script = document.createElement("script");
+            script.type = "application/ld+json";
+            script.text = JSON.stringify(seoData, null, 2);
+            document.head.appendChild(script);
+        });
+
+        const userLang = navigator.language.startsWith("fa") ? "fa" : "en";
+        const metaDesc = project.meta_description?.[userLang] || (project.description?.[userLang] || []).join(" ").slice(0, 160);
+        
+        const meta = document.createElement("meta");
+        meta.name = "description";
+        meta.content = metaDesc;
+        document.head.appendChild(meta);
+
+        console.log(`✅ SEO injected: JSON-LD (fa+en) + meta description (${userLang})`);
+    } catch (err) {
+        console.error("⚠️ injectSEOData Error:", err);
     }
 }
 
