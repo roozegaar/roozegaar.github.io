@@ -7,7 +7,39 @@
   "repo_link": "https://github.com/MEHDIMYADI/RoozegaarCalendar-Releases?tab=readme-ov-file#roozegaar-calendar",
   "download_link": "https://github.com/MEHDIMYADI/RoozegaarCalendar-Releases/releases",
   "icon": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarCalendar-Releases/refs/heads/main/image/Screenshot%201%20EN.png",
-
+  "platform": "Windows",
+  "category": "Productivity",
+  "version": "1.4.1.2",
+  "meta_description": {
+    "fa": "تقویم روزگار: مدیریت جامع تاریخ و رویدادها در تقویم‌های مختلف",
+    "en": "Roozegaar Calendar: Comprehensive date and event management across multiple calendars"
+  },
+  "seoData": {
+    "fa": {
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "author": {
+          "@type": "Person",
+          "name": "Mehdi Dimyadi",
+          "url": "https://github.com/MEHDIMYADI"
+        },
+        "datePublished": "2025-10-11"
+      }
+    },
+    "en": {
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "author": {
+          "@type": "Person",
+          "name": "Mehdi Dimyadi",
+          "url": "https://github.com/MEHDIMYADI"
+        },
+        "datePublished": "2025-10-11"
+      }
+    }
+  },
   "description": {
     "fa": [
       "همه تقویم‌ها در یک نگاه، همه رویدادها در یک دست. تقویم روزگار یک نرم‌افزار جامع و چندمنظوره است که در چارچوب WinUI 3 طراحی شده و به کاربران امکان مدیریت تاریخ‌ها و رویدادها را در تقویم‌های شمسی، میلادی و هجری قمری می‌دهد.",
