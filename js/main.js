@@ -534,6 +534,8 @@ function injectSEOData(project, lang = 'fa') {
         document.head.appendChild(meta);
 
         console.log(`✅ SEO injected: JSON-LD (fa+en) + meta description (${userLang})`);
+        //Does your page support rich results?
+        //https://search.google.com/test/rich-results
     } catch (err) {
         console.error("⚠️ injectSEOData Error:", err);
     }
