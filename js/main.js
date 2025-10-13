@@ -260,6 +260,10 @@ function initPage() {
             console.warn('No projects section provided, skipping projects list load');
             return;
         }
+
+        if (project.publish && project.publish.toLowerCase() !== 'true') {
+            continue;
+        }      
       
         try {
             const projectsRes = await fetch('data/projects.json');
