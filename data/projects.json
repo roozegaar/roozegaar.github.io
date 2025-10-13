@@ -53,7 +53,8 @@
       "repo": "MEHDIMYADI/RoozegaarCalendar-Releases",
       "overview_link": "roozegaar-calendar.html",
       "details_link": "https://github.com/MEHDIMYADI/RoozegaarCalendar-Releases?tab=readme-ov-file#roozegaar-calendar",
-      "download_link": "https://github.com/MEHDIMYADI/RoozegaarCalendar-Releases/releases"
+      "download_link": "https://github.com/MEHDIMYADI/RoozegaarCalendar-Releases/releases",
+	  "publish": "true"
     },
     {
       "title": {
@@ -90,7 +91,8 @@
       "repo": "MEHDIMYADI/RoozegaarFinance-Releases",
       "overview_link": "roozegaar-finance.html",
       "details_link": "https://github.com/MEHDIMYADI/RoozegaarFinance-Releases?tab=readme-ov-file#roozegaar-finance-platform",
-      "download_link": "https://github.com/MEHDIMYADI/RoozegaarFinance-Releases/releases"
+      "download_link": "https://github.com/MEHDIMYADI/RoozegaarFinance-Releases/releases",
+	  "publish": "true"
     },
     {
       "title": {
@@ -127,7 +129,8 @@
       "repo": "MEHDIMYADI/RoozegaarVoiceAssistant-Releases",
       "overview_link": "roozegaar-voice-assistant.html",
       "details_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases?tab=readme-ov-file#roozegaar-voice-assistant",
-      "download_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/releases"
+      "download_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/releases",
+	  "publish": "true"
     },
     {
       "title": {
@@ -168,7 +171,8 @@
       "repo": "MEHDIMYADI/Debloater-Pro",
       "overview_link": "debloater-pro.html",
       "details_link": "https://github.com/MEHDIMYADI/Debloater-Pro?tab=readme-ov-file#debloater-pro---windows-optimization-tool",
-      "download_link": "https://github.com/MEHDIMYADI/Debloater-Pro/releases"
+      "download_link": "https://github.com/MEHDIMYADI/Debloater-Pro/releases",
+	  "publish": "false"
     }
   ]
 }
