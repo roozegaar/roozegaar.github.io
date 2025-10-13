@@ -259,11 +259,7 @@ function initPage() {
         if (!projectsGrid) {
             console.warn('No projects section provided, skipping projects list load');
             return;
-        }
-
-        if (project.publish && project.publish.toLowerCase() !== 'true') {
-            continue;
-        }      
+        }  
       
         try {
             const projectsRes = await fetch('data/projects.json');
@@ -274,51 +270,53 @@ function initPage() {
             projectsGrid.innerHTML = '';
 
             for (let project of projects) {
-                const card = document.createElement('div');
-                card.className = 'project-card';
-                card.innerHTML = `
-                <div class="ribbon"><span>${project.platform[lang]}</span></div>
-                <a href="${project.overview_link}"><img class="project-image" src="${project.image}" alt="${project.title[lang]}"></a>
-                <div class="project-content">
-                    <h3 class="project-title">${project.title[lang]}</h3>
-                    <p class="project-description">${project.desc[lang]}</p>
-                    <ul class="project-features">
-                        ${project.features.map(f => `<li>${f[lang]}</li>`).join('')}
-                    </ul>
-                    <div class="download-info">
-                        <span class="project-version">
-                            <span data-i18n="version">${translations.version[lang]}</span>: 
-                            <span class="ver-text">...</span>
-                        </span>
-                        <a href="${project.overview_link}" class="download-btn" title="${translations.overview_tooltip[lang]}">
-                            <i class="fas fa-file-lines"></i>
-                        </a>
-                        <a href="${project.details_link}" class="download-btn" title="${translations.learn_more_tooltip[lang]}">
-                            <i class="fas fa-info-circle"></i>
-                        </a>
-                        <a href="${project.download_link}" class="download-btn" title="${translations.download_tooltip[lang]}">
-                            <i class="fas fa-download"></i>
-                        </a>
-                    </div>
-                </div>
-            `;
-            projectsGrid.appendChild(card);
-
-            if (project.repo) {
-                fetchLatestRelease(project.repo)
-                    .then(latestTag => {
-                        const versionText = latestTag ? latestTag.replace(/^v/, '') : '—';
-                        const verEl = card.querySelector('.ver-text');
-                        if (verEl) verEl.textContent = versionText;
-                    })
-                    .catch(() => {
-                        const verEl = card.querySelector('.ver-text');
-                        if (verEl) verEl.textContent = '—';
-                    });
-            } else {
-                const verEl = card.querySelector('.ver-text');
-                if (verEl) verEl.textContent = project.version || '—';
-            }
+              if (!project.publish || project.publish.toLowerCase() === 'true') {
+                  const card = document.createElement('div');
+                  card.className = 'project-card';
+                  card.innerHTML = `
+                  <div class="ribbon"><span>${project.platform[lang]}</span></div>
+                  <a href="${project.overview_link}"><img class="project-image" src="${project.image}" alt="${project.title[lang]}"></a>
+                  <div class="project-content">
+                      <h3 class="project-title">${project.title[lang]}</h3>
+                      <p class="project-description">${project.desc[lang]}</p>
+                      <ul class="project-features">
+                          ${project.features.map(f => `<li>${f[lang]}</li>`).join('')}
+                      </ul>
+                      <div class="download-info">
+                          <span class="project-version">
+                              <span data-i18n="version">${translations.version[lang]}</span>: 
+                              <span class="ver-text">...</span>
+                          </span>
+                          <a href="${project.overview_link}" class="download-btn" title="${translations.overview_tooltip[lang]}">
+                              <i class="fas fa-file-lines"></i>
+                          </a>
+                          <a href="${project.details_link}" class="download-btn" title="${translations.learn_more_tooltip[lang]}">
+                              <i class="fas fa-info-circle"></i>
+                          </a>
+                          <a href="${project.download_link}" class="download-btn" title="${translations.download_tooltip[lang]}">
+                              <i class="fas fa-download"></i>
+                          </a>
+                      </div>
+                  </div>
+              `;
+              projectsGrid.appendChild(card);
+  
+              if (project.repo) {
+                  fetchLatestRelease(project.repo)
+                      .then(latestTag => {
+                          const versionText = latestTag ? latestTag.replace(/^v/, '') : '—';
+                          const verEl = card.querySelector('.ver-text');
+                          if (verEl) verEl.textContent = versionText;
+                      })
+                      .catch(() => {
+                          const verEl = card.querySelector('.ver-text');
+                          if (verEl) verEl.textContent = '—';
+                      });
+              } else {
+                  const verEl = card.querySelector('.ver-text');
+                  if (verEl) verEl.textContent = project.version || '—';
+              }
+           }
         }
             
             loadFooterLinks(lang, 'main');
