@@ -171,11 +171,11 @@
           "en": "Dark and light theme toggle"
         }
       ],
-      "image": "https://placehold.co/800x500/0F172A/FFF?text=Roozegaar+Calendar+PWA",
+      "image": "https://raw.githubusercontent.com/MEHDIMYADI/roozegaar-calendar/refs/heads/main/screenshots/RoozegaarEN1.png",
       "repo": "MEHDIMYADI/roozegaar-calendar",
       "overview_link": "roozegaar-calendar-pwa.html",
       "details_link": "https://dimyadi.ir/roozegaar-calendar/",
-      "download_link": "",
+      "download_link": "https://dimyadi.ir/roozegaar-calendar/",
       "publish": "true"
     },
     {
