@@ -132,6 +132,52 @@
       "download_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/releases",
 	  "publish": "true"
     },
+	{
+      "title": {
+        "fa": "تقویم روزگار (نسخه PWA)",
+        "en": "Roozegaar Calendar (PWA Edition)"
+      },
+      "platform": { 
+        "fa": "وب / PWA", 
+        "en": "Web / PWA" 
+      },
+      "desc": {
+        "fa": "نسخه وب و قابل نصب تقویم روزگار با پشتیبانی از تقویم شمسی و میلادی، مدیریت رویدادها، حالت آفلاین و تم تیره/روشن.",
+        "en": "Web installable version of Roozegaar Calendar with Persian & Gregorian support, event management, offline mode, and dark/light themes."
+      },
+      "features": [
+        {
+          "fa": "پشتیبانی از تقویم شمسی و میلادی",
+          "en": "Supports Persian and Gregorian calendars"
+        },
+        {
+          "fa": "مدیریت و ذخیره رویدادها در مرورگر",
+          "en": "Manage and store events locally in browser"
+        },
+        {
+          "fa": "پشتیبانی از حالت آفلاین (Offline)",
+          "en": "Offline mode support"
+        },
+        {
+          "fa": "قابلیت نصب به عنوان اپلیکیشن PWA",
+          "en": "Installable as a PWA app"
+        },
+        {
+          "fa": "رابط کاربری واکنش‌گرا و دو زبانه",
+          "en": "Responsive and bilingual interface"
+        },
+        {
+          "fa": "تم تیره و روشن",
+          "en": "Dark and light theme toggle"
+        }
+      ],
+      "image": "https://placehold.co/800x500/0F172A/FFF?text=Roozegaar+Calendar+PWA",
+      "repo": "MEHDIMYADI/roozegaar-calendar",
+      "overview_link": "roozegaar-calendar-pwa.html",
+      "details_link": "https://dimyadi.ir/roozegaar-calendar/",
+      "download_link": "",
+      "publish": "true"
+    },
     {
       "title": {
         "fa": "سبک‌ساز حرفه‌ای",
