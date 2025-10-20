@@ -1,0 +1,111 @@
+{
+  "title": { 
+    "fa": "تقویم روزگار (نسخه وب PWA)", 
+    "en": "Roozegaar Calendar (PWA Edition)" 
+  },
+  "repo": "MEHDIMYADI/roozegaar-calendar",
+  "repo_link": "",
+  "download_link": "https://dimyadi.ir/roozegaar-calendar/",
+  "icon": "",
+  "platform": "Web / PWA",
+  "category": "Productivity",
+  "version": "1.0.0",
+  "meta_description": {
+    "fa": "نسخه PWA تقویم روزگار: تقویم دو زبانه، سبک و قابل نصب روی مرورگر با پشتیبانی آفلاین و مدیریت رویدادها.",
+    "en": "Roozegaar Calendar PWA: A lightweight bilingual calendar with offline support, event management, and installable web experience."
+  },
+  "seoData": {
+    "fa": {
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "تقویم روزگار (PWA)",
+        "author": {
+          "@type": "Person",
+          "name": "Mehdi Dimyadi",
+          "url": "https://github.com/MEHDIMYADI"
+        },
+        "operatingSystem": "Web Browser",
+        "applicationCategory": "Productivity",
+        "datePublished": "2025-10-15"
+      }
+    },
+    "en": {
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Roozegaar Calendar (PWA)",
+        "author": {
+          "@type": "Person",
+          "name": "Mehdi Dimyadi",
+          "url": "https://github.com/MEHDIMYADI"
+        },
+        "operatingSystem": "Web Browser",
+        "applicationCategory": "Productivity",
+        "datePublished": "2025-10-15"
+      }
+    }
+  },
+  "description": {
+    "fa": [
+      "تقویم روزگار (نسخه وب) یک اپلیکیشن پیش‌رونده (PWA) سبک و مدرن است که امکان مشاهده و مدیریت تاریخ‌های شمسی و میلادی را به‌صورت همزمان فراهم می‌کند.",
+      "این نسخه برای اجرا در مرورگر طراحی شده و قابلیت نصب روی دسکتاپ یا موبایل را دارد. پس از نصب، حتی بدون اتصال اینترنت هم قابل استفاده است.",
+      "کاربران می‌توانند رویدادهای شخصی خود را به سادگی اضافه، ویرایش یا حذف کنند و همه داده‌ها در مرورگر به‌صورت محلی ذخیره می‌شوند.",
+      "با رابط کاربری واکنش‌گرا، پشتیبانی از حالت تیره/روشن، و دو زبان فارسی و انگلیسی، تجربه‌ای روان و کاربردی را در هر دستگاهی ارائه می‌دهد.",
+      "تقویم روزگار PWA گزینه‌ای ایده‌آل برای افرادی است که می‌خواهند همیشه و همه‌جا به تقویم شمسی و رویدادهای خود دسترسی داشته باشند — چه آنلاین، چه آفلاین."
+    ],
+    "en": [
+      "Roozegaar Calendar (Web Edition) is a modern, lightweight Progressive Web App (PWA) that allows users to view and manage Persian (Jalali) and Gregorian dates simultaneously.",
+      "It is designed to run directly in your browser and can be installed on desktop or mobile devices for an app-like experience — even offline.",
+      "Users can easily add, edit, or delete personal events, all stored locally in the browser for privacy and quick access.",
+      "With a responsive design, dark/light theme toggle, and bilingual support (FA/EN), it delivers a smooth and accessible experience across devices.",
+      "Roozegaar Calendar PWA is the perfect solution for users who need a clean, portable, and offline-ready dual-calendar on the go."
+    ]
+  },
+  "features": [
+    { "fa": "نمایش همزمان تقویم شمسی و میلادی", "en": "Simultaneous Persian & Gregorian calendar display" },
+    { "fa": "افزودن، ویرایش و حذف رویدادها", "en": "Add, edit, and delete events" },
+    { "fa": "ذخیره رویدادها در مرورگر (Local Storage)", "en": "Local Storage event saving" },
+    { "fa": "پشتیبانی از حالت آفلاین", "en": "Offline support" },
+    { "fa": "نصب به عنوان اپلیکیشن PWA", "en": "Installable as a PWA app" },
+    { "fa": "تم تیره و روشن", "en": "Dark and light theme toggle" },
+    { "fa": "طراحی واکنش‌گرا (موبایل، تبلت، دسکتاپ)", "en": "Responsive design for mobile, tablet, and desktop" },
+    { "fa": "دو زبانه (فارسی و انگلیسی)", "en": "Bilingual (Persian & English)" },
+    { "fa": "افزودن رویداد با لمس طولانی روی روزها", "en": "Add events via long-press on day cells" },
+    { "fa": "پشتیبانی کامل از مرورگرهای مدرن", "en": "Full support for modern browsers" }
+  ],
+  "screenshots": {
+    "fa": [
+      "",
+      "",
+      ""
+    ],
+    "en": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "translations": {
+    "version": {
+      "fa": "نسخه",
+      "en": "Version"
+    },
+    "learn_more_tooltip": {
+      "fa": "اطلاعات بیشتر",
+      "en": "Learn more"
+    },
+    "download_tooltip": {
+      "fa": "مشاهده آنلاین / نصب PWA",
+      "en": "Open / Install PWA"
+    },
+    "screenshots_title": {
+      "fa": "تصاویر",
+      "en": "Screenshots"
+    },
+    "comments_title": {
+      "fa": "دیدگاه",
+      "en": "Comment"
+    }
+  }
+}
