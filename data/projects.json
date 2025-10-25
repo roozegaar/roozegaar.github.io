@@ -171,11 +171,11 @@
           "en": "Dark and light theme toggle"
         }
       ],
-      "image": "https://raw.githubusercontent.com/MEHDIMYADI/roozegaar-calendar/refs/heads/main/screenshots/RoozegaarEN1.png",
-      "repo": "MEHDIMYADI/roozegaar-calendar",
+      "image": "https://raw.githubusercontent.com/MEHDIMYADI/calendar/refs/heads/main/screenshots/RoozegaarEN1.png",
+      "repo": "roozegaar/calendar",
       "overview_link": "roozegaar-calendar-pwa.html",
-      "details_link": "https://roozegaar.github.io/roozegaar-calendar/",
-      "download_link": "https://roozegaar.github.io/roozegaar-calendar/",
+      "details_link": "https://roozegaar.github.io/calendar/",
+      "download_link": "https://roozegaar.github.io/calendar/",
       "publish": "true"
     },
     {
