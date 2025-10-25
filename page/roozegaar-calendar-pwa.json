@@ -3,10 +3,10 @@
     "fa": "تقویم روزگار (نسخه وب PWA)", 
     "en": "Roozegaar Calendar (PWA Edition)" 
   },
-  "repo": "/roozegaar/calendar",
+  "repo": "roozegaar/calendar",
   "repo_link": "https://roozegaar.github.io/calendar/",
   "download_link": "https://roozegaar.github.io/calendar/",
-  "icon": "https://raw.githubusercontent.com/MEHDIMYADI/calendar/refs/heads/main/screenshots/RoozegaarEN1.png",
+  "icon": "https://raw.githubusercontent.com/roozegaar/calendar/refs/heads/main/screenshots/RoozegaarEN1.png",
   "platform": "Web / PWA",
   "category": "Productivity",
   "version": "1.0.0",
@@ -76,14 +76,14 @@
   ],
   "screenshots": {
     "fa": [
-      "https://raw.githubusercontent.com/MEHDIMYADI/calendar/refs/heads/main/screenshots/RoozegaarFA1.png",
-      "https://raw.githubusercontent.com/MEHDIMYADI/calendar/refs/heads/main/screenshots/RoozegaarFA2.png",
-      "https://raw.githubusercontent.com/MEHDIMYADI/calendar/refs/heads/main/screenshots/RoozegaarFA3.png"
+      "https://raw.githubusercontent.com/roozegaar/calendar/refs/heads/main/screenshots/RoozegaarFA1.png",
+      "https://raw.githubusercontent.com/roozegaar/calendar/refs/heads/main/screenshots/RoozegaarFA2.png",
+      "https://raw.githubusercontent.com/roozegaar/calendar/refs/heads/main/screenshots/RoozegaarFA3.png"
     ],
     "en": [
-      "https://raw.githubusercontent.com/MEHDIMYADI/calendar/refs/heads/main/screenshots/RoozegaarEN1.png",
-      "https://raw.githubusercontent.com/MEHDIMYADI/calendar/refs/heads/main/screenshots/RoozegaarEN2.png",
-      "https://raw.githubusercontent.com/MEHDIMYADI/calendar/refs/heads/main/screenshots/RoozegaarEN3.png"
+      "https://raw.githubusercontent.com/roozegaar/calendar/refs/heads/main/screenshots/RoozegaarEN1.png",
+      "https://raw.githubusercontent.com/roozegaar/calendar/refs/heads/main/screenshots/RoozegaarEN2.png",
+      "https://raw.githubusercontent.com/roozegaar/calendar/refs/heads/main/screenshots/RoozegaarEN3.png"
     ]
   },
   "translations": {
