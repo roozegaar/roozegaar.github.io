@@ -219,6 +219,68 @@
       "details_link": "https://github.com/MEHDIMYADI/Debloater-Pro?tab=readme-ov-file#debloater-pro---windows-optimization-tool",
       "download_link": "https://github.com/MEHDIMYADI/Debloater-Pro/releases",
 	  "publish": "false"
-    }
+    },
+	  {
+	  "title": {
+	    "fa": "افزونه‌ی اکسل روزگار",
+	    "en": "Roozgar Excel Add-in"
+	  },
+	  "platform": { 
+	    "fa": "آفیس 2024", 
+	    "en": "Office 2024" 
+	  },      
+	  "desc": {
+	    "fa": "ابزاری کارآمد برای کار با تاریخ‌های شمسی در اکسل که امکان تبدیل و قالب‌بندی خودکار تاریخ، درج شماره ردیف و ساعت، و سفارشی‌سازی نمایش تاریخ و زمان را فراهم می‌کند.",
+	    "en": "A powerful Excel add-in for working with Persian dates, enabling automatic date conversion and formatting, auto-inserting row numbers and time, and customizing date and time display."
+	  },
+	  "features": [
+	    {
+	      "fa": "درج خودکار شماره ردیف در سلول مشخص‌شده هنگام وارد کردن داده",
+	      "en": "Automatically insert row numbers in specified cells when entering data"
+	    },
+	    {
+	      "fa": "درج خودکار تاریخ شمسی با فرمت‌های مختلف",
+	      "en": "Automatically insert Persian dates in various formats"
+	    },
+	    {
+	      "fa": "سفارشی‌سازی قالب تاریخ (نام ماه، روز هفته، شماره هفته و غیره)",
+	      "en": "Customize date formats (month name, weekday, week number, etc.)"
+	    },
+	    {
+	      "fa": "درج خودکار ساعت با فرمت 12 یا 24 ساعته",
+	      "en": "Automatically insert time in 12- or 24-hour format"
+	    },
+	    {
+	      "fa": "ذخیره و بارگذاری تنظیمات افزونه برای استفاده مجدد",
+	      "en": "Save and load add-in settings for future use"
+	    },
+	    {
+	      "fa": "نمایش آیکون افزونه در نوار ریبون برای دسترسی سریع",
+	      "en": "Display the add-in icon in the ribbon for quick access"
+	    },
+	    {
+	      "fa": "نمایش تقویم ماهانه برای انتخاب دقیق تاریخ",
+	      "en": "Show a monthly calendar for precise date selection"
+	    },
+	    {
+	      "fa": "امکان تغییر سلول تاریخ در صورتی که جمعه باشد",
+	      "en": "Change date cell if it falls on Friday"
+	    },
+	    {
+	      "fa": "ویرایش سریع حروف در سلول‌های انتخاب شده",
+	      "en": "Quickly edit characters in selected cells"
+	    },
+	    {
+	      "fa": "رمزگذاری یا حذف رمز گروهی Sheetها",
+	      "en": "Encrypt or remove password for multiple sheets"
+	    }
+	  ],
+	  "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYCiotx_QA0WdpQjOjnzAKlIp0fov1h-DJYHRBYoF-xa-CBaol0UXWlgQY8AkVPKCanwv8Pgjc8D3zkOL-Wjhg_DBf9IzeddVU=s1600-rw-v1",
+	  "repo": "MEHDIMYADI/RoozegaarExcelAddin-Releases",
+	  "overview_link": "roozegaar-excel-addin.html",
+	  "details_link": "https://drive.google.com/file/d/1eNtkQw8os4myNM52yhKyPeDkLAeuQo6_/view?usp=drive_link",
+	  "download_link": "https://drive.google.com/file/d/1eNtkQw8os4myNM52yhKyPeDkLAeuQo6_/view?usp=drive_link",
+	  "publish": "true"
+	}
   ]
 }
