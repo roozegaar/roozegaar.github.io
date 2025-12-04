@@ -1,0 +1,84 @@
+{
+  "title": { 
+    "fa": "افزونه‌ی اکسل روزگار", 
+    "en": "Roozgar Excel Add-in" 
+  },
+  "repo": "MEHDIMYADI/RoozegaarExcelAddin-Releases",
+  "repo_link": "https://drive.google.com/file/d/1eNtkQw8os4myNM52yhKyPeDkLAeuQo6_/view?usp=drive_link",
+  "download_link": "https://drive.google.com/file/d/1eNtkQw8os4myNM52yhKyPeDkLAeuQo6_/view?usp=drive_link",
+  "icon": "https://raw.githubusercontent.com/MEHDIMYADI/Roozgar-Excel-Addin/refs/heads/master/Screenshots/screenshot.png",
+  "platform": "Office 2024",
+  "category": "Productivity",
+  "version": "1.0.0",
+  "meta_description": {
+    "fa": "افزونه‌ی اکسل روزگار: ابزار کار با تاریخ‌های شمسی، درج خودکار تاریخ، ساعت و شماره ردیف در اکسل",
+    "en": "Roozgar Excel Add-in: Work with Persian dates, automatically insert date, time, and row numbers in Excel"
+  },
+  "seoData": {
+    "fa": {
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "author": {
+          "@type": "Person",
+          "name": "Mehdi Dimyadi",
+          "url": "https://github.com/MEHDIMYADI"
+        },
+        "datePublished": "2025-12-04"
+      }
+    },
+    "en": {
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "author": {
+          "@type": "Person",
+          "name": "Mehdi Dimyadi",
+          "url": "https://github.com/MEHDIMYADI"
+        },
+        "datePublished": "2025-12-04"
+      }
+    }
+  },
+  "description": {
+    "fa": [
+      "افزونه‌ی اکسل روزگار ابزاری کارآمد برای کار با تاریخ‌های شمسی در اکسل است که امکان تبدیل و قالب‌بندی خودکار تاریخ، درج شماره ردیف و ساعت را فراهم می‌کند.",
+      "کاربران می‌توانند قالب تاریخ را سفارشی کنند، تنظیمات افزونه را ذخیره و بارگذاری نمایند و از قابلیت‌های نمایش تقویم ماهانه و تغییر خودکار تاریخ‌ها استفاده کنند.",
+      "این افزونه تجربه‌ای ساده و کاربردی در محیط اکسل فراهم می‌کند و دسترسی سریع به تنظیمات آن از طریق نوار ریبون ممکن است."
+    ],
+    "en": [
+      "Roozgar Excel Add-in is a powerful tool for working with Persian dates in Excel, allowing automatic date conversion, formatting, and inserting row numbers and time.",
+      "Users can customize date formats, save and load add-in settings, and use features like monthly calendar display and automatic date adjustments.",
+      "This add-in provides a simple and practical experience in Excel, with quick access to settings via the ribbon."
+    ]
+  },
+  "features": [
+    { "fa": "درج خودکار شماره ردیف هنگام وارد کردن داده", "en": "Automatically insert row numbers when entering data" },
+    { "fa": "درج خودکار تاریخ شمسی با فرمت‌های مختلف", "en": "Automatically insert Persian dates in various formats" },
+    { "fa": "سفارشی‌سازی قالب تاریخ (نام ماه، روز هفته، شماره هفته و غیره)", "en": "Customize date formats (month name, weekday, week number, etc.)" },
+    { "fa": "درج خودکار ساعت با فرمت 12 یا 24 ساعته", "en": "Automatically insert time in 12- or 24-hour format" },
+    { "fa": "ذخیره و بارگذاری تنظیمات افزونه برای استفاده مجدد", "en": "Save and load add-in settings for future use" },
+    { "fa": "نمایش آیکون افزونه در نوار ریبون برای دسترسی سریع", "en": "Display add-in icon in the ribbon for quick access" },
+    { "fa": "نمایش تقویم ماهانه برای انتخاب دقیق تاریخ", "en": "Show monthly calendar for precise date selection" },
+    { "fa": "امکان تغییر تاریخ در صورتی که جمعه باشد", "en": "Change date cell if it falls on Friday" },
+    { "fa": "ویرایش سریع حروف در سلول‌های انتخاب شده", "en": "Quickly edit characters in selected cells" },
+    { "fa": "رمزگذاری یا حذف رمز گروهی Sheetها", "en": "Encrypt or remove password for multiple sheets" }
+  ],
+  "screenshots": {
+    "fa": [
+      "https://placehold.co/600x400/800080/FFF?text=Roozegaar%20Excel%20Add-in",
+      "https://placehold.co/600x400/800080/FFF?text=Roozegaar%20Excel%20Add-in"
+    ],
+    "en": [
+      "https://placehold.co/600x400/800080/FFF?text=Roozegaar%20Excel%20Add-in",
+      "https://placehold.co/600x400/800080/FFF?text=Roozegaar%20Excel%20Add-in"
+    ]
+  },
+  "translations": {
+    "version": { "fa": "نسخه", "en": "Version" },
+    "learn_more_tooltip": { "fa": "اطلاعات بیشتر", "en": "Learn more" },
+    "download_tooltip": { "fa": "دانلود", "en": "Download" },
+    "screenshots_title": { "fa": "تصاویر", "en": "Screenshots" },
+    "comments_title": { "fa": "دیدگاه", "en": "Comment" }
+  }
+}
