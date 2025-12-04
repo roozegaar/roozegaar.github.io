@@ -1,18 +1,18 @@
 {
   "title": { 
     "fa": "افزونه‌ی اکسل روزگار", 
-    "en": "Roozgar Excel Add-in" 
+    "en": "Roozgaar Excel Add-in" 
   },
   "repo": "MEHDIMYADI/RoozegaarExcelAddin-Releases",
   "repo_link": "https://drive.google.com/file/d/1eNtkQw8os4myNM52yhKyPeDkLAeuQo6_/view?usp=drive_link",
   "download_link": "https://drive.google.com/file/d/1eNtkQw8os4myNM52yhKyPeDkLAeuQo6_/view?usp=drive_link",
-  "icon": "https://raw.githubusercontent.com/MEHDIMYADI/Roozgar-Excel-Addin/refs/heads/master/Screenshots/screenshot.png",
+  "icon": "https://placehold.co/600x400/800080/FFF?text=Roozegaar Excel Add-in",
   "platform": "Office 2024",
   "category": "Productivity",
   "version": "1.0.0",
   "meta_description": {
     "fa": "افزونه‌ی اکسل روزگار: ابزار کار با تاریخ‌های شمسی، درج خودکار تاریخ، ساعت و شماره ردیف در اکسل",
-    "en": "Roozgar Excel Add-in: Work with Persian dates, automatically insert date, time, and row numbers in Excel"
+    "en": "Roozgaar Excel Add-in: Work with Persian dates, automatically insert date, time, and row numbers in Excel"
   },
   "seoData": {
     "fa": {
@@ -47,7 +47,7 @@
       "این افزونه تجربه‌ای ساده و کاربردی در محیط اکسل فراهم می‌کند و دسترسی سریع به تنظیمات آن از طریق نوار ریبون ممکن است."
     ],
     "en": [
-      "Roozgar Excel Add-in is a powerful tool for working with Persian dates in Excel, allowing automatic date conversion, formatting, and inserting row numbers and time.",
+      " Excel Add-in is a powerful tool for working with Persian dates in Excel, allowing automatic date conversion, formatting, and inserting row numbers and time.",
       "Users can customize date formats, save and load add-in settings, and use features like monthly calendar display and automatic date adjustments.",
       "This add-in provides a simple and practical experience in Excel, with quick access to settings via the ribbon."
     ]
