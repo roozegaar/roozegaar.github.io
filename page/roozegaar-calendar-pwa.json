@@ -1,6 +1,6 @@
 {
   "title": { 
-    "fa": "تقویم روزگار (نسخه وب PWA)", 
+    "fa": "گاه‌شمار روزگار (نسخه وب PWA)", 
     "en": "Roozegaar Calendar (PWA Edition)" 
   },
   "repo": "roozegaar/calendar",
@@ -11,7 +11,7 @@
   "category": "Productivity",
   "version": "1.0.0",
   "meta_description": {
-    "fa": "نسخه PWA تقویم روزگار: تقویم دو زبانه، سبک و قابل نصب روی مرورگر با پشتیبانی آفلاین و مدیریت رویدادها.",
+    "fa": "نسخه PWA گاه‌شمار روزگار: گاه‌شمار دو زبانه، سبک و قابل نصب روی مرورگر با پشتیبانی آفلاین و مدیریت رویدادها.",
     "en": "Roozegaar Calendar PWA: A lightweight bilingual calendar with offline support, event management, and installable web experience."
   },
   "seoData": {
@@ -19,7 +19,7 @@
       "schema": {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "تقویم روزگار (PWA)",
+        "name": "گاه‌شمار روزگار (PWA)",
         "author": {
           "@type": "Person",
           "name": "Mehdi Dimyadi",
@@ -48,11 +48,11 @@
   },
   "description": {
     "fa": [
-      "تقویم روزگار (نسخه وب) یک اپلیکیشن پیش‌رونده (PWA) سبک و مدرن است که امکان مشاهده و مدیریت تاریخ‌های شمسی و میلادی را به‌صورت همزمان فراهم می‌کند.",
+      "گاه‌شمار روزگار (نسخه وب) یک اپلیکیشن پیش‌رونده (PWA) سبک و مدرن است که امکان مشاهده و مدیریت تاریخ‌های شمسی و میلادی را به‌صورت همزمان فراهم می‌کند.",
       "این نسخه برای اجرا در مرورگر طراحی شده و قابلیت نصب روی دسکتاپ یا موبایل را دارد. پس از نصب، حتی بدون اتصال اینترنت هم قابل استفاده است.",
       "کاربران می‌توانند رویدادهای شخصی خود را به سادگی اضافه، ویرایش یا حذف کنند و همه داده‌ها در مرورگر به‌صورت محلی ذخیره می‌شوند.",
       "با رابط کاربری واکنش‌گرا، پشتیبانی از حالت تیره/روشن، و دو زبان فارسی و انگلیسی، تجربه‌ای روان و کاربردی را در هر دستگاهی ارائه می‌دهد.",
-      "تقویم روزگار PWA گزینه‌ای ایده‌آل برای افرادی است که می‌خواهند همیشه و همه‌جا به تقویم شمسی و رویدادهای خود دسترسی داشته باشند — چه آنلاین، چه آفلاین."
+      "گاه‌شمار روزگار PWA گزینه‌ای ایده‌آل برای افرادی است که می‌خواهند همیشه و همه‌جا به گاه‌شمار شمسی و رویدادهای خود دسترسی داشته باشند — چه آنلاین، چه آفلاین."
     ],
     "en": [
       "Roozegaar Calendar (Web Edition) is a modern, lightweight Progressive Web App (PWA) that allows users to view and manage Persian (Jalali) and Gregorian dates simultaneously.",
@@ -63,7 +63,7 @@
     ]
   },
   "features": [
-    { "fa": "نمایش همزمان تقویم شمسی و میلادی", "en": "Simultaneous Persian & Gregorian calendar display" },
+    { "fa": "نمایش همزمان گاه‌شمار شمسی و میلادی", "en": "Simultaneous Persian & Gregorian calendar display" },
     { "fa": "افزودن، ویرایش و حذف رویدادها", "en": "Add, edit, and delete events" },
     { "fa": "ذخیره رویدادها در مرورگر (Local Storage)", "en": "Local Storage event saving" },
     { "fa": "پشتیبانی از حالت آفلاین", "en": "Offline support" },

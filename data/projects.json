@@ -20,7 +20,7 @@
   "projects": [
     {
       "title": {
-        "fa": "تقویم روزگار",
+        "fa": "گاه‌شمار روزگار",
         "en": "Roozegaar Calendar"
       },
       "platform": { 
@@ -28,12 +28,12 @@
         "en": "Windows" 
       },
       "desc": {
-        "fa": "اپلیکیشن تقویم فارسی مدرن با پشتیبانی از تقویم شمسی، میلادی و قمری همراه با مدیریت رویدادها و یادآوری‌ها.",
+        "fa": "اپلیکیشن گاه‌شمار فارسی مدرن با پشتیبانی از گاه‌شمار شمسی، میلادی و قمری همراه با مدیریت رویدادها و یادآوری‌ها.",
         "en": "A modern Persian calendar app supporting Solar, Gregorian, and Hijri calendars with event management and reminders."
       },
       "features": [
         {
-          "fa": "پشتیبانی از چند تقویم (شمسی، میلادی، قمری)",
+          "fa": "پشتیبانی از چند گاه‌شمار (شمسی، میلادی، قمری)",
           "en": "Multi-calendar support (Solar, Gregorian, Hijri)"
         },
         {
@@ -134,7 +134,7 @@
     },
 	{
       "title": {
-        "fa": "تقویم روزگار (نسخه PWA)",
+        "fa": "گاه‌شمار روزگار (نسخه PWA)",
         "en": "Roozegaar Calendar (PWA Edition)"
       },
       "platform": { 
@@ -142,12 +142,12 @@
         "en": "Web / PWA" 
       },
       "desc": {
-        "fa": "نسخه وب و قابل نصب تقویم روزگار با پشتیبانی از تقویم شمسی و میلادی، مدیریت رویدادها، حالت آفلاین و تم تیره/روشن.",
+        "fa": "نسخه وب و قابل نصب گاه‌شمار روزگار با پشتیبانی از گاه‌شمار شمسی و میلادی، مدیریت رویدادها، حالت آفلاین و تم تیره/روشن.",
         "en": "Web installable version of Roozegaar Calendar with Persian & Gregorian support, event management, offline mode, and dark/light themes."
       },
       "features": [
         {
-          "fa": "پشتیبانی از تقویم شمسی و میلادی",
+          "fa": "پشتیبانی از گاه‌شمار شمسی و میلادی",
           "en": "Supports Persian and Gregorian calendars"
         },
         {
@@ -259,7 +259,7 @@
 	      "en": "Display the add-in icon in the ribbon for quick access"
 	    },
 	    {
-	      "fa": "نمایش تقویم ماهانه برای انتخاب دقیق تاریخ",
+	      "fa": "نمایش گاه‌شمار ماهانه برای انتخاب دقیق تاریخ",
 	      "en": "Show a monthly calendar for precise date selection"
 	    },
 	    {
