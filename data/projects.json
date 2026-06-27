@@ -133,6 +133,68 @@
 	  "publish": "true"
     },
 	{
+  "title": {
+    "fa": "مسدودساز اینترنت روزگار",
+    "en": "Roozegaar Internet Blocker"
+	  },
+	  "platform": {
+	    "fa": "ویندوز",
+	    "en": "Windows"
+	  },
+	  "desc": {
+	    "fa": "نرم‌افزار سبک و مدرن مبتنی بر WinUI 3 برای مدیریت و کنترل دسترسی اینترنت برنامه‌های ویندوز از طریق Windows Defender Firewall.",
+	    "en": "A lightweight and modern WinUI 3 application for managing and controlling internet access of Windows applications using Windows Defender Firewall."
+	  },
+	  "features": [
+	    {
+	      "fa": "مدیریت دسترسی اینترنت برنامه‌های ویندوز",
+	      "en": "Manage internet access for Windows applications"
+	    },
+	    {
+	      "fa": "مسدودسازی و بازگردانی اینترنت برای فایل‌های اجرایی",
+	      "en": "Block and restore internet access for executables"
+	    },
+	    {
+	      "fa": "استفاده از Windows Defender Firewall برای مدیریت قوانین",
+	      "en": "Uses Windows Defender Firewall for rule management"
+	    },
+	    {
+	      "fa": "افزودن و حذف آسان برنامه‌ها از لیست کنترل",
+	      "en": "Easy add and remove applications from control list"
+	    },
+	    {
+	      "fa": "نمایش وضعیت دسترسی اینترنت هر برنامه",
+	      "en": "Show internet access status for each application"
+	    },
+	    {
+	      "fa": "فعال و غیرفعال کردن قوانین فایروال با یک کلیک",
+	      "en": "Enable or disable firewall rules with one click"
+	    },
+	    {
+	      "fa": "بدون نیاز به سرویس پس‌زمینه یا پایگاه داده",
+	      "en": "No background service or database required"
+	    },
+	    {
+	      "fa": "نسخه‌های Installer و Portable برای استفاده انعطاف‌پذیر",
+	      "en": "Installer and Portable versions for flexible usage"
+	    },
+	    {
+	      "fa": "رابط کاربری مدرن مبتنی بر WinUI 3",
+	      "en": "Modern WinUI 3-based user interface"
+	    },
+	    {
+	      "fa": "سازگاری کامل با Windows 10 و Windows 11",
+	      "en": "Full compatibility with Windows 10 and Windows 11"
+	    }
+	  ],
+	  "image": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/refs/heads/main/image/Screenshot%201%20EN.png",
+	  "repo": "MEHDIMYADI/RoozegaarInternetBlocker-Releases",
+	  "overview_link": "roozegaar-internet-blocker.html",
+	  "details_link": "https://github.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases",
+	  "download_link": "https://github.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/releases",
+	  "publish": "true"
+	},
+	{
       "title": {
         "fa": "گاه‌شمار روزگار (نسخه PWA)",
         "en": "Roozegaar Calendar (PWA Edition)"
