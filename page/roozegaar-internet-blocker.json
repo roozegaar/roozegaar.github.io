@@ -1,0 +1,120 @@
+{
+  "title": { 
+    "fa": "مسدودکننده اینترنت روزگار", 
+    "en": "Roozegaar Internet Blocker" 
+  },
+  "repo": "MEHDIMYADI/RoozegaarInternetBlocker-Releases",
+  "repo_link": "https://github.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases?tab=readme-ov-file#roozegaar-calendar",
+  "download_link": "https://github.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/releases",
+  "icon": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/refs/heads/main/image/Screenshot%201%20EN.png",
+  "platform": "Windows",
+  "category": "Productivity",
+  "version": "1.0.0.0",
+  "meta_description": {
+    "fa": "Roozegaar Internet Blocker یک نرم‌افزار سبک برای ویندوز است که با WinUI 3 توسعه یافته و امکان مدیریت دسترسی اینترنت برنامه‌های ویندوز را به ساده‌ترین شکل فراهم می‌کند.",
+    "en": "Roozegaar Internet Blocker is a lightweight Windows application built with WinUI 3 that provides a simple and reliable way to control internet access for desktop applications."
+  },
+  "seoData": {
+    "fa": {
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "author": {
+          "@type": "Person",
+          "name": "Mehdi Dimyadi",
+          "url": "https://github.com/MEHDIMYADI"
+        },
+        "datePublished": "2025-10-11"
+      }
+    },
+    "en": {
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "author": {
+          "@type": "Person",
+          "name": "Mehdi Dimyadi",
+          "url": "https://github.com/MEHDIMYADI"
+        },
+        "datePublished": "2026-06-27"
+      }
+    }
+  },
+  "description": {
+    "fa": [
+      "کنترل اینترنت برنامه‌ها در یک نگاه. مسدودکننده اینترنت روزگار یک نرم‌افزار مدرن مبتنی بر WinUI 3 است که امکان مدیریت دسترسی برنامه‌های ویندوز به اینترنت را از طریق Windows Defender Firewall فراهم می‌کند.",
+      "مسدودسازی یا بازگردانی دسترسی اینترنت برای هر فایل اجرایی تنها با چند کلیک انجام می‌شود و بدون نیاز به تنظیمات پیچیده، کنترل کامل شبکه را در اختیار کاربر قرار می‌دهد.",
+      "تمامی قوانین فایروال به‌صورت مستقیم در Windows Defender Firewall ایجاد و مدیریت می‌شوند و هیچ وابستگی به پایگاه داده یا سرویس‌های جانبی وجود ندارد.",
+      "بخش مدیریت برنامه‌ها امکان افزودن فایل‌های اجرایی به لیست کنترل و حذف آن‌ها را فراهم می‌کند تا کاربر بتواند برنامه‌های تحت مدیریت خود را سازمان‌دهی کند.",
+      "وضعیت دسترسی اینترنت هر برنامه به‌صورت لحظه‌ای نمایش داده می‌شود تا کاربر همیشه از وضعیت اتصال یا قطع ارتباط برنامه‌ها مطلع باشد.",
+      "فعال یا غیرفعال کردن قوانین فایروال بدون حذف آن‌ها امکان‌پذیر است و تنها با یک کلیک می‌توان وضعیت دسترسی را تغییر داد.",
+      "نسخه‌های Installer و Portable در دسترس هستند تا کاربر بتواند بسته به نیاز خود، نرم‌افزار را نصب کند یا بدون نصب اجرا نماید.",
+      "رابط کاربری مدرن مبتنی بر WinUI 3 تجربه‌ای روان، سبک و هماهنگ با طراحی ویندوز ارائه می‌دهد و مصرف منابع سیستم را در حداقل نگه می‌دارد.",
+      "این نرم‌افزار بدون نیاز به سرویس پس‌زمینه، درایور یا پایگاه داده اجرا می‌شود و کاملاً سبک و سریع طراحی شده است.",
+      "مسدودکننده اینترنت روزگار با تکیه بر Windows Defender Firewall، راهکاری امن، سریع و پایدار برای کنترل دسترسی اینترنت برنامه‌ها در ویندوز 10 و 11 ارائه می‌دهد."
+    ],
+    "en": [
+      "Control application internet access at a glance. Roozegaar Internet Blocker is a modern WinUI 3 application that manages Windows application network access using Windows Defender Firewall.",
+      "Blocking or restoring internet access for any executable is done with just a few clicks, giving users full control over network connectivity without complex settings.",
+      "All firewall rules are created and managed directly through Windows Defender Firewall, with no dependency on databases or external services.",
+      "The application management section allows users to add executable files to the control list and remove them whenever needed.",
+      "The current internet access status of each application is displayed in real time so users can always monitor connectivity state.",
+      "Firewall rules can be enabled or disabled without deleting them, allowing instant switching of access state with a single click.",
+      "Installer and Portable versions are available so users can choose between installation or direct execution without setup.",
+      "The modern WinUI 3 interface provides a smooth, lightweight, and Windows-native experience with minimal system resource usage.",
+      "The application runs without any background service, driver, or database, keeping it fast and lightweight.",
+      "Roozegaar Internet Blocker leverages Windows Defender Firewall to provide a secure, fast, and reliable way to control application internet access on Windows 10 and Windows 11."
+    ]
+  },
+
+"features": [
+  { "fa": "مدیریت دسترسی اینترنت برنامه‌های ویندوز", "en": "Manage internet access for Windows applications" },
+  { "fa": "مسدودسازی و بازگردانی اینترنت برای فایل‌های اجرایی", "en": "Block and restore internet access for executables" },
+  { "fa": "استفاده از Windows Defender Firewall برای مدیریت قوانین", "en": "Uses Windows Defender Firewall for rule management" },
+  { "fa": "بدون نیاز به سرویس پس‌زمینه یا درایور اضافی", "en": "No background service or additional driver required" },
+  { "fa": "افزودن و حذف آسان برنامه‌ها از لیست کنترل", "en": "Easy add and remove applications from control list" },
+  { "fa": "نمایش وضعیت دسترسی اینترنت هر برنامه", "en": "Real-time internet access status per application" },
+  { "fa": "فعال و غیرفعال کردن قوانین فایروال با یک کلیک", "en": "Enable or disable firewall rules with one click" },
+  { "fa": "نسخه‌های Installer و Portable برای استفاده انعطاف‌پذیر", "en": "Installer and Portable versions for flexible usage" },
+  { "fa": "رابط کاربری مدرن مبتنی بر WinUI 3", "en": "Modern WinUI 3-based user interface" },
+  { "fa": "سازگاری کامل با Windows 10 و Windows 11", "en": "Full support for Windows 10 and Windows 11" }
+],
+
+"screenshots": {
+    "fa": [
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/refs/heads/main/image/Screenshot%201%20EN.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/refs/heads/main/image/Screenshot%202%20EN.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/refs/heads/main/image/Screenshot%203%20EN.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/refs/heads/main/image/Screenshot%204%20EN.png"
+    ],
+    "en": [
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/refs/heads/main/image/Screenshot%201%20EN.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/refs/heads/main/image/Screenshot%202%20EN.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/refs/heads/main/image/Screenshot%203%20EN.png",
+    "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/refs/heads/main/image/Screenshot%204%20EN.png"
+    ]
+  },
+    
+  "translations": {
+    "version": {
+      "fa": "نسخه",
+      "en": "Version"
+    },
+    "learn_more_tooltip": {
+      "fa": "اطلاعات بیشتر",
+      "en": "Learn more"
+    },
+    "download_tooltip": {
+      "fa": "دانلود",
+      "en": "Download"
+    },
+    "screenshots_title": {
+      "fa": "تصاویر",
+      "en": "Screenshots"
+    },
+    "comments_title": {
+      "fa": "دیدگاه",
+      "en": "Comment"
+    }
+  }
+}
