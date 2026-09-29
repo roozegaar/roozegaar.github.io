@@ -226,49 +226,111 @@ async function getProjectTaglines(lang) {
 let twTimer = null;
 
 function injectTypewriter(container) {
-    const p = container.querySelector('p');
-    if (!p) return;
+    const intro = container.closest('.intro');
+    if (!intro) return;
 
-    if (!container.querySelector('.typewriter-line')) {
-        const line = document.createElement('div');
-        line.className = 'typewriter-line';
-        line.innerHTML = `<span class="typewriter-wrap"><span class="typewriter-text"></span><span class="typewriter-cursor">&nbsp;</span></span>`;
-        p.insertAdjacentElement('afterend', line);
-    }
+    if (intro.querySelector('.hero-typewriters')) return;
 
-    runTypewriter(container);
+    const wrap = document.createElement('div');
+    wrap.className = 'hero-typewriters';
+
+    const positions = [
+        { top: '18%', left: '17%' },
+        { top: '38%', left: '78%' },
+        { top: '68%', left: '18%' },
+        { top: '76%', left: '72%' },
+    ];
+
+    positions.forEach((pos, index) => {
+        const item = document.createElement('div');
+        item.className = 'hero-typewriter';
+        item.dataset.index = index;
+
+        item.style.top = pos.top;
+        item.style.left = pos.left;
+
+        item.style.setProperty(
+            '--float-x',
+            `${(Math.random() * 16 - 8).toFixed(0)}px`
+        );
+
+        item.style.setProperty(
+            '--float-y',
+            `${(Math.random() * 16 - 8).toFixed(0)}px`
+        );
+
+        item.style.animationDelay = `${(Math.random() * 2).toFixed(2)}s`;
+
+        item.innerHTML = `
+            <span class="typewriter-text"></span>
+            <span class="typewriter-cursor"></span>
+        `;
+
+        wrap.appendChild(item);
+    });
+
+    intro.insertBefore(wrap, intro.firstChild);
+
+    runMultipleTypewriters(intro);
 }
 
-async function runTypewriter(container) {
-    if (twTimer) clearTimeout(twTimer);
-    const textEl = container.querySelector('.typewriter-text');
-    if (!textEl) return;
+let twTimers = [];
+
+async function runMultipleTypewriters(intro) {
+    twTimers.forEach(clearTimeout);
+    twTimers = [];
 
     const lang = document.documentElement.lang === 'fa' ? 'fa' : 'en';
     const lines = await getProjectTaglines(lang);
-    let lineIndex = 0, charIndex = 0, deleting = false;
 
-    function step() {
-        const full = lines[lineIndex];
-        if (!deleting) {
-            charIndex++;
-            textEl.textContent = full.slice(0, charIndex);
-            if (charIndex === full.length) {
-                deleting = true;
-                twTimer = setTimeout(step, 1600);
-                return;
+    const items = [...intro.querySelectorAll('.hero-typewriter')];
+
+    if (!items.length || !lines.length) return;
+
+    items.forEach((item, index) => {
+        const textEl = item.querySelector('.typewriter-text');
+        if (!textEl) return;
+
+        let lineIndex = (index * 2) % lines.length;
+        let charIndex = 0;
+        let deleting = false;
+
+        setTimeout(() => {
+            function step() {
+                const full = lines[lineIndex] || '';
+
+                if (!deleting) {
+                    charIndex++;
+                    textEl.textContent = full.slice(0, charIndex);
+
+                    if (charIndex >= full.length) {
+                        deleting = true;
+
+                        const timer = setTimeout(step, 4500);
+                        twTimers.push(timer);
+                        return;
+                    }
+                } else {
+                    charIndex--;
+                    textEl.textContent = full.slice(0, charIndex);
+
+                    if (charIndex <= 0) {
+                        deleting = false;
+                        lineIndex = (lineIndex + 1) % lines.length;
+                    }
+                }
+
+                const speed = deleting
+                    ? 28 + Math.random() * 20
+                    : 45 + Math.random() * 35;
+
+                const timer = setTimeout(step, speed);
+                twTimers.push(timer);
             }
-        } else {
-            charIndex--;
-            textEl.textContent = full.slice(0, charIndex);
-            if (charIndex === 0) {
-                deleting = false;
-                lineIndex = (lineIndex + 1) % lines.length;
-            }
-        }
-        twTimer = setTimeout(step, deleting ? 30 : 55);
-    }
-    step();
+
+            step();
+        }, index * 900);
+    });
 }
 
 /* ---------- Keep everything in sync when the language toggle is used ---------- */
@@ -282,7 +344,7 @@ function watchLangChanges() {
             if (container) {
                 const intro = container.closest('.intro');
                 tickClock(intro?.querySelector('.hero-clock'));
-                runTypewriter(container);
+                runMultipleTypewriters(container.closest('.intro'));
             }
         }
     });

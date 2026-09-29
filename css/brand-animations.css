@@ -34,13 +34,13 @@
 .hero-clock {
     position: absolute;
     z-index: 2;
-    bottom: 16px;
-    inset-inline-end: 16px;
+    bottom: 4px;
+    inset-inline-end: 4px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 0.4rem 0.8rem;
-    border-radius: 12px;
+    border-radius: 12px 0px 30px 12px;
     background: rgba(255, 255, 255, 0.14);
     border: 1px solid rgba(255, 255, 255, 0.28);
     backdrop-filter: blur(8px);
@@ -52,6 +52,9 @@
     transform: translateY(14px);
     animation: heroUp 0.8s ease forwards;
     animation-delay: 0.5s;
+}
+[dir="rtl"] .hero-clock {
+    border-radius: 0px 12px 12px 30px;
 }
 .hero-clock .hc-date {
     font-size: 0.7rem;
@@ -87,16 +90,6 @@
     100% { transform: translateY(0); opacity: 1; }
 }
 
-@media (max-width: 600px) {
-    .hero-clock {
-        bottom: 10px;
-        inset-inline-end: 10px;
-        padding: 0.32rem 0.6rem;
-        gap: 6px;
-    }
-    .hero-clock .hc-date { display: none; } /* keep only the time on small screens */
-}
-
 /* ============ Floating product icons ============ */
 .hero-icons {
     position: absolute;
@@ -117,20 +110,123 @@
     50%      { transform: translate(var(--dx, 14px), var(--dy, -18px)) rotate(var(--dr, 6deg)); }
 }
 
-/* ============ Rotating typewriter tagline ============ */
-.typewriter-wrap {
-    display: inline-block;
-    min-height: 1.4em;
+/* ============ Floating background typewriters ============ */
+.hero-typewriters {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
 }
-.typewriter-cursor {
+/*
+ * Each typewriter behaves like a floating background element,
+ * similar to the product icons.
+ */
+.hero-typewriter {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+    max-width: min(360px, 32vw);
+    padding: 0.38rem 0.72rem;
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15px;
+    line-height: 1.5;
+    /*
+     * Very subtle glass/background effect.
+     * It should feel like part of the hero background,
+     * not like a foreground button.
+     */
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 999px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    white-space: nowrap;
+    overflow: visible;
+    opacity: 0;
+    transform:
+        translate(
+            var(--float-x, 0px),
+            var(--float-y, 0px)
+        );
+    animation:
+        typewriterAppear 1s ease forwards,
+        typewriterFloat 7s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+/* Text inside each floating typewriter */
+.hero-typewriter .typewriter-text {
     display: inline-block;
-    width: 2px;
-    margin-inline-start: 2px;
+    min-width: 1px;
+    min-height: 1em;
+    overflow: visible;
+    text-overflow: nowrap;
+}
+/* Cursor */
+.hero-typewriter .typewriter-cursor {
+    display: inline-block;
+    width: 1px;
+    height: 0.95em;
+    margin-inline-start: 5px;
+    flex: 0 0 1px;
     background: currentColor;
-    animation: caretBlink 0.9s steps(1) infinite;
+    opacity: 0.8;
+    animation: typewriterCaret 0.8s steps(1) infinite;
 }
-@keyframes caretBlink {
-    50% { opacity: 0; }
+/* Appear */
+@keyframes typewriterAppear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* Gentle floating */
+@keyframes typewriterFloat {
+    0%,
+    100% {
+        transform:
+            translate(
+                var(--float-x, 0px),
+                var(--float-y, 0px)
+            );
+    }
+    50% {
+        transform:
+            translate(
+                calc(var(--float-x, 0px) * -1),
+                calc(var(--float-y, 0px) * -1)
+            );
+    }
+}
+/* Cursor blink */
+@keyframes typewriterCaret {
+    0%,
+    45% {
+        opacity: 0.65;
+    }
+    46%,
+    100% {
+        opacity: 0;
+    }
+}
+@media (max-width: 600px) {
+    .hero-typewriter {
+        width: max-content;
+        max-width: min(260px, 72vw);
+        font-size: 0.64rem;
+        padding: 0.28rem 0.55rem;
+        color: rgba(255, 255, 255, 0.34);
+        background: rgba(255, 255, 255, 0.035);
+        border-color: rgba(255, 255, 255, 0.08);
+    }
+    .hero-typewriters {
+        opacity: 0.85;
+    }
 }
 
 /* ============ Dark mode: a meaningful night sky ============ */
