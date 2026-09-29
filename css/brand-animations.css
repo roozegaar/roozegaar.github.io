@@ -1,0 +1,159 @@
+/*
+  ----------------------------------------------------------------------------
+  © 2026 Mehdi Dimyadi
+  Roozegaar Projects Collection
+  All rights reserved.
+
+  Author: Mehdi Dimyadi
+  GitHub: https://github.com/MEHDIMYADI
+
+  Description:
+  This file is part of the Roozegaar Projects, including web, JSON,
+  CSS, and JavaScript files. You may use, modify, and distribute this code
+  in accordance with the project license.
+
+  ----------------------------------------------------------------------------
+
+  brand-animations.css — Roozegaar brand identity styling (homepage hero only)
+  Load after animations.css:
+    <link rel="stylesheet" href="css/brand-animations.css">
+*/
+
+/* ============ Respect users who prefer reduced motion ============ */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============ Live clock/date badge — bottom corner of .intro ============ */
+/* inset-inline-end resolves automatically per direction:
+   left corner in RTL (fa), right corner in LTR (en). */
+.hero-clock {
+    position: absolute;
+    z-index: 2;
+    bottom: 16px;
+    inset-inline-end: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: heroUp 0.8s ease forwards;
+    animation-delay: 0.5s;
+}
+.hero-clock .hc-date {
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+.hero-clock .hc-time {
+    /* Force left-to-right rendering regardless of the page's overall
+       direction, so the RTL bidi algorithm never reorders H/M/S. */
+    direction: ltr;
+    unicode-bidi: isolate;
+    font-size: 0.76rem;
+    font-variant-numeric: tabular-nums;
+    display: inline-flex;
+    gap: 1px;
+}
+.hero-clock .hc-sep {
+    animation: colonPulse 1s steps(2) infinite;
+}
+@keyframes colonPulse {
+    50% { opacity: 0.25; }
+}
+.hero-clock .hc-digit {
+    display: inline-block;
+    min-width: 1ch;
+}
+.hero-clock .hc-digit.tick {
+    animation: digitTick 0.35s ease;
+}
+@keyframes digitTick {
+    0%   { transform: translateY(0); opacity: 1; }
+    40%  { transform: translateY(-40%); opacity: 0.3; }
+    41%  { transform: translateY(40%); }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .hero-clock {
+        bottom: 10px;
+        inset-inline-end: 10px;
+        padding: 0.32rem 0.6rem;
+        gap: 6px;
+    }
+    .hero-clock .hc-date { display: none; } /* keep only the time on small screens */
+}
+
+/* ============ Floating product icons ============ */
+.hero-icons {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+.hero-icons i {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.28);
+    font-size: 1.8rem;
+    animation: iconDrift 7s ease-in-out infinite;
+    will-change: transform;
+}
+@keyframes iconDrift {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50%      { transform: translate(var(--dx, 14px), var(--dy, -18px)) rotate(var(--dr, 6deg)); }
+}
+
+/* ============ Rotating typewriter tagline ============ */
+.typewriter-wrap {
+    display: inline-block;
+    min-height: 1.4em;
+}
+.typewriter-cursor {
+    display: inline-block;
+    width: 2px;
+    margin-inline-start: 2px;
+    background: currentColor;
+    animation: caretBlink 0.9s steps(1) infinite;
+}
+@keyframes caretBlink {
+    50% { opacity: 0; }
+}
+
+/* ============ Dark mode: a meaningful night sky ============ */
+[data-theme="dark"] .intro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1.5px 1.5px at 15% 25%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 35% 65%, #fff, transparent),
+        radial-gradient(1px 1px at 55% 15%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 75% 45%, #fff, transparent),
+        radial-gradient(1px 1px at 90% 75%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 25% 85%, #fff, transparent),
+        radial-gradient(1px 1px at 65% 90%, #fff, transparent);
+    opacity: 0;
+    animation: starsFadeIn 1.2s ease forwards;
+    pointer-events: none;
+}
+@keyframes starsFadeIn {
+    to { opacity: 0.7; }
+}
+
+@media (max-width: 600px) {
+    .hero-icons i { font-size: 1.3rem; }
+}

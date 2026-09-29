@@ -1,0 +1,115 @@
+/*
+  ----------------------------------------------------------------------------
+  © 2026 Mehdi Dimyadi
+  Roozegaar Projects Collection
+  All rights reserved.
+
+  Author: Mehdi Dimyadi
+  GitHub: https://github.com/MEHDIMYADI
+
+  Description:
+  This file is part of the Roozegaar Projects, including web, JSON,
+  CSS, and JavaScript files. You may use, modify, and distribute this code
+  in accordance with the project license.
+
+  ----------------------------------------------------------------------------
+
+  project-animations.css — Roozegaar project animations and styling 
+  Load after animations.css: 
+    <link rel="stylesheet" href="css/project-animations.css">
+*/
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============ Shimmer skeletons on cards ============ */
+.project-page-card {
+  position: relative;
+  min-height: 120px;
+}
+.sk-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: var(--card-bg, #fff);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-radius: inherit;
+  transition: opacity 0.4s ease;
+}
+.sk-overlay.sk-fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+.sk-bar {
+  height: 14px;
+  border-radius: 6px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: rgba(128, 128, 128, 0.18);
+}
+.sk-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: skShimmer 1.3s infinite;
+}
+[data-theme="dark"] .sk-bar::after {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.09), transparent);
+}
+@keyframes skShimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.sk-bar-title { height: 22px; width: 55%; margin-bottom: 6px; }
+.sk-bar-icon  { height: 130px; border-radius: 12px; }
+
+/* ============ Card entry after skeleton removal ============ */
+.project-page-card.card-in {
+  animation: cardMaterialize 0.6s cubic-bezier(.2,.7,.3,1) both;
+}
+@keyframes cardMaterialize {
+  0%   { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ Project icon pop-in upon image loading ============ */
+#icon {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(.3,1.4,.5,1);
+}
+#icon.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============ Sequential entry of screenshots ============ */
+.project-screenshots img {
+  opacity: 0;
+  transform: translateY(14px) scale(0.96);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.project-screenshots img.shot-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ============ Opening modal with scale + fade ============ */
+.modal .modal-image {
+  transform: scale(0.85);
+  opacity: 0;
+  transition: transform 0.35s cubic-bezier(.2,.8,.3,1), opacity 0.3s ease;
+}
+.modal.modal-pop .modal-image {
+  transform: scale(1);
+  opacity: 1;
+}

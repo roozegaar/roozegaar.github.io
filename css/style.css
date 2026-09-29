@@ -1,6 +1,6 @@
 /*
   ----------------------------------------------------------------------------
-  © 2025 Mehdi Dimyadi
+  © 2026 Mehdi Dimyadi
   Roozegaar Projects Collection
   All rights reserved.
 
@@ -487,6 +487,10 @@ footer {
 .footer-link:hover {
 	color: white;
 	text-decoration: underline;
+}
+#site-version {
+	font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+	font-variant-numeric: normal;
 }
 .noscript-container {
   position: fixed;

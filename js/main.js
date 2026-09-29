@@ -1,6 +1,6 @@
 /*
   ----------------------------------------------------------------------------
-  © 2025 Mehdi Dimyadi
+  © 2026 Mehdi Dimyadi
   Roozegaar Projects Collection
   All rights reserved.
 
@@ -665,6 +665,12 @@ function updateProgressBar(percent) {
     }
 }
 
+const jalaliYearFormatter = new Intl.DateTimeFormat('fa-IR-u-ca-persian', { year: 'numeric' });
+
+function getJalaliYear(date) {
+    return jalaliYearFormatter.formatToParts(date).find(p => p.type === 'year')?.value;
+}
+
 function updateCopyright(lang) {
     const p = document.getElementById('footer-copyright');
     if(!p) return;
@@ -673,8 +679,7 @@ function updateCopyright(lang) {
     let yearText = '';
 
     if(lang === 'fa') {
-        const jYear = toJalali(now.getFullYear(), now.getMonth() + 1, now.getDate()).jy;
-        yearText = jYear;
+        yearText = getJalaliYear(now);
     } else {
         yearText = now.getFullYear();
     }
@@ -683,21 +688,27 @@ function updateCopyright(lang) {
         ? "کپی‌برداری از بخش یا کل مطالب روزگار تنها با کسب مجوز کتبی امکان‌پذیر است." 
         : "Copying any part or all of Roozegaar’s content is only permitted with written authorization.";
     p.textContent = `${baseText} © ${yearText}`;
+
+    loadSiteVersion(); 
 }
 
-function toJalali(gy, gm, gd) {
-    const g_d_m = [0,31,59,90,120,151,181,212,243,273,304,334];
-    let gy2 = (gm > 2) ? (gy + 1) : gy;
-    let days = 355666 + (365 * gy) + Math.floor((gy2 + 3)/4) - Math.floor((gy2 + 99)/100) + Math.floor((gy2 + 399)/400) + gd + g_d_m[gm-1];
-    let jy = -1595 + (33 * Math.floor(days/12053));
-    days %= 12053;
-    jy += 4 * Math.floor(days/1461);
-    days %= 1461;
-    if(days > 365){
-        jy += Math.floor((days-1)/365);
-        days = (days-1)%365;
+async function loadSiteVersion() {
+    const el = document.getElementById('site-version');
+    if (!el || el.dataset.loaded) return; // already loaded once this session
+ 
+    const cached = sessionStorage.getItem('site-version-cache');
+    if (cached) el.textContent = cached;
+ 
+    try {
+        const res = await fetch('https://api.github.com/repos/roozegaar/roozegaar.github.io/tags');
+        if (!res.ok) throw new Error('GitHub API error');
+        const tags = await res.json();
+        const text = tags?.[0]?.name || 'v1.0.0';
+        el.textContent = text;
+        el.dataset.loaded = '1';
+        sessionStorage.setItem('site-version-cache', text);
+    } catch (err) {
+        console.warn('loadSiteVersion:', err.message);
+        el.textContent = cached || '';
     }
-    let jm = (days < 186) ? 1 + Math.floor(days/31) : 7 + Math.floor((days-186)/30);
-    let jd = 1 + ((days < 186) ? (days%31) : ((days-186)%30));
-    return { jy, jm, jd };
 }
