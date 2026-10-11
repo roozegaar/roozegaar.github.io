@@ -15,17 +15,24 @@
     "overview_tooltip": {
       "fa": "نمای کلی نرم‌افزار",
       "en": "Software overview"
+    },
+    "more_features": {
+      "fa": "{n} ویژگی دیگر",
+      "en": "+{n} more"
     }
   },
   "projects": [
     {
+      "id": "roozegaar-calendar",
+      "date": "2025-10-11",
+      "icon": "fa-solid fa-calendar-days",
       "title": {
         "fa": "گاه‌شمار روزگار",
         "en": "Roozegaar Calendar"
       },
-      "platform": { 
-        "fa": "ویندوز", 
-        "en": "Windows" 
+      "platform": {
+        "fa": "ویندوز",
+        "en": "Windows"
       },
       "desc": {
         "fa": "اپلیکیشن گاه‌شمار فارسی مدرن با پشتیبانی از گاه‌شمار شمسی، میلادی و قمری همراه با مدیریت رویدادها و یادآوری‌ها.",
@@ -54,17 +61,20 @@
       "overview_link": "roozegaar-calendar.html",
       "details_link": "https://github.com/MEHDIMYADI/RoozegaarCalendar-Releases?tab=readme-ov-file#roozegaar-calendar",
       "download_link": "https://github.com/MEHDIMYADI/RoozegaarCalendar-Releases/releases",
-	  "publish": "true"
+      "publish": "true"
     },
     {
+      "id": "roozegaar-finance",
+      "date": "2025-10-11",
+      "icon": "fa-solid fa-sack-dollar",
       "title": {
         "fa": "سامانه مالی روزگار",
         "en": "Roozegaar Finance Platform"
       },
-      "platform": { 
-        "fa": "ویندوز", 
-        "en": "Windows" 
-      },      
+      "platform": {
+        "fa": "ویندوز",
+        "en": "Windows"
+      },
       "desc": {
         "fa": "نرم‌افزار جامع مدیریت مالی و حسابداری برای ویندوز با داشبوردهای هوشمند، مدیریت تراکنش‌ها، موجودی کالا، و گزارش‌های مالی.",
         "en": "A comprehensive financial management and accounting software for Windows with smart dashboards, transaction management, inventory control, and financial reporting."
@@ -92,17 +102,20 @@
       "overview_link": "roozegaar-finance.html",
       "details_link": "https://github.com/MEHDIMYADI/RoozegaarFinance-Releases?tab=readme-ov-file#roozegaar-finance-platform",
       "download_link": "https://github.com/MEHDIMYADI/RoozegaarFinance-Releases/releases",
-	  "publish": "true"
+      "publish": "true"
     },
     {
+      "id": "roozegaar-voice-assistant",
+      "date": "2025-10-11",
+      "icon": "fa-solid fa-microphone-lines",
       "title": {
         "fa": "دستیار صوتی روزگار",
         "en": "Roozegaar Voice Assistant"
       },
-      "platform": { 
-        "fa": "ویندوز", 
-        "en": "Windows" 
-      },      
+      "platform": {
+        "fa": "ویندوز",
+        "en": "Windows"
+      },
       "desc": {
         "fa": "دستیار صوتی مدرن برای ویندوز با پشتیبانی از زبان‌های فارسی و انگلیسی، تشخیص گفتار در لحظه، فرمان‌های صوتی سفارشی و نشانه‌گذاری صوتی.",
         "en": "A modern voice assistant for Windows supporting Persian and English languages, real-time speech recognition, custom voice commands, and spoken punctuation."
@@ -130,78 +143,84 @@
       "overview_link": "roozegaar-voice-assistant.html",
       "details_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases?tab=readme-ov-file#roozegaar-voice-assistant",
       "download_link": "https://github.com/MEHDIMYADI/RoozegaarVoiceAssistant-Releases/releases",
-	  "publish": "true"
+      "publish": "true"
     },
-	{
-  "title": {
-    "fa": "مسدودساز اینترنت روزگار",
-    "en": "Roozegaar Internet Blocker"
-	  },
-	  "platform": {
-	    "fa": "ویندوز",
-	    "en": "Windows"
-	  },
-	  "desc": {
-	    "fa": "نرم‌افزار سبک و مدرن مبتنی بر WinUI 3 برای مدیریت و کنترل دسترسی اینترنت برنامه‌های ویندوز از طریق Windows Defender Firewall.",
-	    "en": "A lightweight and modern WinUI 3 application for managing and controlling internet access of Windows applications using Windows Defender Firewall."
-	  },
-	  "features": [
-	    {
-	      "fa": "مدیریت دسترسی اینترنت برنامه‌های ویندوز",
-	      "en": "Manage internet access for Windows applications"
-	    },
-	    {
-	      "fa": "مسدودسازی و بازگردانی اینترنت برای فایل‌های اجرایی",
-	      "en": "Block and restore internet access for executables"
-	    },
-	    {
-	      "fa": "استفاده از Windows Defender Firewall برای مدیریت قوانین",
-	      "en": "Uses Windows Defender Firewall for rule management"
-	    },
-	    {
-	      "fa": "افزودن و حذف آسان برنامه‌ها از لیست کنترل",
-	      "en": "Easy add and remove applications from control list"
-	    },
-	    {
-	      "fa": "نمایش وضعیت دسترسی اینترنت هر برنامه",
-	      "en": "Show internet access status for each application"
-	    },
-	    {
-	      "fa": "فعال و غیرفعال کردن قوانین فایروال با یک کلیک",
-	      "en": "Enable or disable firewall rules with one click"
-	    },
-	    {
-	      "fa": "بدون نیاز به سرویس پس‌زمینه یا پایگاه داده",
-	      "en": "No background service or database required"
-	    },
-	    {
-	      "fa": "نسخه‌های Installer و Portable برای استفاده انعطاف‌پذیر",
-	      "en": "Installer and Portable versions for flexible usage"
-	    },
-	    {
-	      "fa": "رابط کاربری مدرن مبتنی بر WinUI 3",
-	      "en": "Modern WinUI 3-based user interface"
-	    },
-	    {
-	      "fa": "سازگاری کامل با Windows 10 و Windows 11",
-	      "en": "Full compatibility with Windows 10 and Windows 11"
-	    }
-	  ],
-	  "image": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/refs/heads/main/image/Screenshot%201%20EN.png",
-	  "repo": "MEHDIMYADI/RoozegaarInternetBlocker-Releases",
-	  "overview_link": "roozegaar-internet-blocker.html",
-	  "details_link": "https://github.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases",
-	  "download_link": "https://github.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/releases",
-	  "publish": "true"
-	},
-	{
+    {
+      "id": "roozegaar-internet-blocker",
+      "date": "2026-06-27",
+      "icon": "fa-solid fa-shield-halved",
+      "title": {
+        "fa": "مسدودساز اینترنت روزگار",
+        "en": "Roozegaar Internet Blocker"
+      },
+      "platform": {
+        "fa": "ویندوز",
+        "en": "Windows"
+      },
+      "desc": {
+        "fa": "نرم‌افزار سبک و مدرن مبتنی بر WinUI 3 برای مدیریت و کنترل دسترسی اینترنت برنامه‌های ویندوز از طریق Windows Defender Firewall.",
+        "en": "A lightweight and modern WinUI 3 application for managing and controlling internet access of Windows applications using Windows Defender Firewall."
+      },
+      "features": [
+        {
+          "fa": "مدیریت دسترسی اینترنت برنامه‌های ویندوز",
+          "en": "Manage internet access for Windows applications"
+        },
+        {
+          "fa": "مسدودسازی و بازگردانی اینترنت برای فایل‌های اجرایی",
+          "en": "Block and restore internet access for executables"
+        },
+        {
+          "fa": "استفاده از Windows Defender Firewall برای مدیریت قوانین",
+          "en": "Uses Windows Defender Firewall for rule management"
+        },
+        {
+          "fa": "افزودن و حذف آسان برنامه‌ها از لیست کنترل",
+          "en": "Easy add and remove applications from control list"
+        },
+        {
+          "fa": "نمایش وضعیت دسترسی اینترنت هر برنامه",
+          "en": "Show internet access status for each application"
+        },
+        {
+          "fa": "فعال و غیرفعال کردن قوانین فایروال با یک کلیک",
+          "en": "Enable or disable firewall rules with one click"
+        },
+        {
+          "fa": "بدون نیاز به سرویس پس‌زمینه یا پایگاه داده",
+          "en": "No background service or database required"
+        },
+        {
+          "fa": "نسخه‌های Installer و Portable برای استفاده انعطاف‌پذیر",
+          "en": "Installer and Portable versions for flexible usage"
+        },
+        {
+          "fa": "رابط کاربری مدرن مبتنی بر WinUI 3",
+          "en": "Modern WinUI 3-based user interface"
+        },
+        {
+          "fa": "سازگاری کامل با Windows 10 و Windows 11",
+          "en": "Full compatibility with Windows 10 and Windows 11"
+        }
+      ],
+      "image": "https://raw.githubusercontent.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/refs/heads/main/image/Screenshot%201%20EN.png",
+      "repo": "MEHDIMYADI/RoozegaarInternetBlocker-Releases",
+      "overview_link": "roozegaar-internet-blocker.html",
+      "details_link": "https://github.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases",
+      "download_link": "https://github.com/MEHDIMYADI/RoozegaarInternetBlocker-Releases/releases",
+      "publish": "true"
+    },
+    {
+      "id": "roozegaar-calendar-pwa",
+      "date": "2025-10-15",
+      "icon": "fa-solid fa-globe",
       "title": {
         "fa": "گاه‌شمار روزگار (نسخه PWA)",
         "en": "Roozegaar Calendar (PWA Edition)"
       },
-      "platform": { 
-        "fa": "وب / PWA", 
-        "en": "Web / PWA" 
+      "platform": {
+        "fa": "وب / PWA",
+        "en": "Web / PWA"
       },
       "desc": {
         "fa": "نسخه وب و قابل نصب گاه‌شمار روزگار با پشتیبانی از گاه‌شمار شمسی و میلادی، مدیریت رویدادها، حالت آفلاین و تم تیره/روشن.",
@@ -241,14 +260,17 @@
       "publish": "true"
     },
     {
+      "id": "debloater-pro",
+      "date": "2025-10-11",
+      "icon": "fa-solid fa-broom",
       "title": {
         "fa": "سبک‌ساز حرفه‌ای",
         "en": "Debloater Pro"
       },
-      "platform": { 
-        "fa": "ویندوز", 
-        "en": "Windows" 
-      },      
+      "platform": {
+        "fa": "ویندوز",
+        "en": "Windows"
+      },
       "desc": {
         "fa": "ابزار جامع بهینه‌سازی ویندوز برای حذف برنامه‌های اضافی، افزایش حریم خصوصی، مدیریت سرویس‌ها، اعمال تنظیمات سیستم و انجام وظایف نگهداری به‌صورت آسان.",
         "en": "A comprehensive Windows optimization tool to remove bloatware, enhance privacy, manage services, apply system tweaks, and perform maintenance tasks with ease."
@@ -280,69 +302,72 @@
       "overview_link": "debloater-pro.html",
       "details_link": "https://github.com/MEHDIMYADI/Debloater-Pro?tab=readme-ov-file#debloater-pro---windows-optimization-tool",
       "download_link": "https://github.com/MEHDIMYADI/Debloater-Pro/releases",
-	  "publish": "false"
+      "publish": "false"
     },
-	  {
-	  "title": {
-	    "fa": "افزونه‌ی اکسل روزگار",
-	    "en": "Roozgaar Excel Add-in"
-	  },
-	  "platform": { 
-	    "fa": "آفیس 2024", 
-	    "en": "Office 2024" 
-	  },      
-	  "desc": {
-	    "fa": "ابزاری کارآمد برای کار با تاریخ‌های شمسی در اکسل که امکان تبدیل و قالب‌بندی خودکار تاریخ، درج شماره ردیف و ساعت، و سفارشی‌سازی نمایش تاریخ و زمان را فراهم می‌کند.",
-	    "en": "A powerful Excel add-in for working with Persian dates, enabling automatic date conversion and formatting, auto-inserting row numbers and time, and customizing date and time display."
-	  },
-	  "features": [
-	    {
-	      "fa": "درج خودکار شماره ردیف در سلول مشخص‌شده هنگام وارد کردن داده",
-	      "en": "Automatically insert row numbers in specified cells when entering data"
-	    },
-	    {
-	      "fa": "درج خودکار تاریخ شمسی با فرمت‌های مختلف",
-	      "en": "Automatically insert Persian dates in various formats"
-	    },
-	    {
-	      "fa": "سفارشی‌سازی قالب تاریخ (نام ماه، روز هفته، شماره هفته و غیره)",
-	      "en": "Customize date formats (month name, weekday, week number, etc.)"
-	    },
-	    {
-	      "fa": "درج خودکار ساعت با فرمت 12 یا 24 ساعته",
-	      "en": "Automatically insert time in 12- or 24-hour format"
-	    },
-	    {
-	      "fa": "ذخیره و بارگذاری تنظیمات افزونه برای استفاده مجدد",
-	      "en": "Save and load add-in settings for future use"
-	    },
-	    {
-	      "fa": "نمایش آیکون افزونه در نوار ریبون برای دسترسی سریع",
-	      "en": "Display the add-in icon in the ribbon for quick access"
-	    },
-	    {
-	      "fa": "نمایش گاه‌شمار ماهانه برای انتخاب دقیق تاریخ",
-	      "en": "Show a monthly calendar for precise date selection"
-	    },
-	    {
-	      "fa": "امکان تغییر سلول تاریخ در صورتی که جمعه باشد",
-	      "en": "Change date cell if it falls on Friday"
-	    },
-	    {
-	      "fa": "ویرایش سریع حروف در سلول‌های انتخاب شده",
-	      "en": "Quickly edit characters in selected cells"
-	    },
-	    {
-	      "fa": "رمزگذاری یا حذف رمز گروهی Sheetها",
-	      "en": "Encrypt or remove password for multiple sheets"
-	    }
-	  ],
-	  "image": "https://placehold.co/600x400/800080/FFF?text=Roozegaar Excel Add-in",
-	  "repo": "MEHDIMYADI/RoozegaarExcelAddin-Releases",
-	  "overview_link": "roozegaar-excel-addin.html",
-	  "details_link": "https://drive.google.com/file/d/1eNtkQw8os4myNM52yhKyPeDkLAeuQo6_/view?usp=drive_link",
-	  "download_link": "https://drive.google.com/file/d/1eNtkQw8os4myNM52yhKyPeDkLAeuQo6_/view?usp=drive_link",
-	  "publish": "true"
-	}
+    {
+      "id": "roozegaar-excel-addin",
+      "date": "2025-12-04",
+      "icon": "fa-solid fa-file-excel",
+      "title": {
+        "fa": "افزونه‌ی اکسل روزگار",
+        "en": "Roozgaar Excel Add-in"
+      },
+      "platform": {
+        "fa": "آفیس 2024",
+        "en": "Office 2024"
+      },
+      "desc": {
+        "fa": "ابزاری کارآمد برای کار با تاریخ‌های شمسی در اکسل که امکان تبدیل و قالب‌بندی خودکار تاریخ، درج شماره ردیف و ساعت، و سفارشی‌سازی نمایش تاریخ و زمان را فراهم می‌کند.",
+        "en": "A powerful Excel add-in for working with Persian dates, enabling automatic date conversion and formatting, auto-inserting row numbers and time, and customizing date and time display."
+      },
+      "features": [
+        {
+          "fa": "درج خودکار شماره ردیف در سلول مشخص‌شده هنگام وارد کردن داده",
+          "en": "Automatically insert row numbers in specified cells when entering data"
+        },
+        {
+          "fa": "درج خودکار تاریخ شمسی با فرمت‌های مختلف",
+          "en": "Automatically insert Persian dates in various formats"
+        },
+        {
+          "fa": "سفارشی‌سازی قالب تاریخ (نام ماه، روز هفته، شماره هفته و غیره)",
+          "en": "Customize date formats (month name, weekday, week number, etc.)"
+        },
+        {
+          "fa": "درج خودکار ساعت با فرمت 12 یا 24 ساعته",
+          "en": "Automatically insert time in 12- or 24-hour format"
+        },
+        {
+          "fa": "ذخیره و بارگذاری تنظیمات افزونه برای استفاده مجدد",
+          "en": "Save and load add-in settings for future use"
+        },
+        {
+          "fa": "نمایش آیکون افزونه در نوار ریبون برای دسترسی سریع",
+          "en": "Display the add-in icon in the ribbon for quick access"
+        },
+        {
+          "fa": "نمایش گاه‌شمار ماهانه برای انتخاب دقیق تاریخ",
+          "en": "Show a monthly calendar for precise date selection"
+        },
+        {
+          "fa": "امکان تغییر سلول تاریخ در صورتی که جمعه باشد",
+          "en": "Change date cell if it falls on Friday"
+        },
+        {
+          "fa": "ویرایش سریع حروف در سلول‌های انتخاب شده",
+          "en": "Quickly edit characters in selected cells"
+        },
+        {
+          "fa": "رمزگذاری یا حذف رمز گروهی Sheetها",
+          "en": "Encrypt or remove password for multiple sheets"
+        }
+      ],
+      "image": "https://placehold.co/600x400/800080/FFF?text=Roozegaar Excel Add-in",
+      "repo": "MEHDIMYADI/RoozegaarExcelAddin-Releases",
+      "overview_link": "roozegaar-excel-addin.html",
+      "details_link": "https://drive.google.com/file/d/1eNtkQw8os4myNM52yhKyPeDkLAeuQo6_/view?usp=drive_link",
+      "download_link": "https://drive.google.com/file/d/1eNtkQw8os4myNM52yhKyPeDkLAeuQo6_/view?usp=drive_link",
+      "publish": "true"
+    }
   ]
 }

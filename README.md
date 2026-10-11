@@ -65,3 +65,19 @@ Special thanks to the developers of **Brackets** on Windows and **Acode** on And
 
 </details>
 
+
+## Adding a project (content data)
+
+Projects live in `data/projects.json` and are shown on the home page as a timeline,
+newest first. Every entry needs:
+
+| Field | Meaning |
+| --- | --- |
+| `id` | Slug; matches the page file name and `page/<id>.json` |
+| `date` | Publish date, `YYYY-MM-DD` (a time like `2026-06-27T18:30:00Z` is also accepted) |
+| `icon` | Font Awesome classes used for the timeline node and hero |
+| `publish` | Set to `"false"` to hide the entry |
+
+Dates are stored in the Gregorian calendar. The Persian view is produced by the
+browser (`Intl.DateTimeFormat` with the `persian` calendar), so no converter code is needed.
+Entries sharing the same date keep their order in the file.

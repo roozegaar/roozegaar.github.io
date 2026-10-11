@@ -1,40 +1,43 @@
-<section id="project">
+<section class="section section-project">
   <div class="container">
-    <h2 class="section-title" id="section-title"></h2>
-    <div class="project-row">
-      <div class="project-description-column project-page-card project-content">
-        <h2 id="project-title"></h2>
-        <div id="project-description"></div>
-        <ul id="project-features" class="project-features"></ul>
-      </div>
-      <div class="project-info-column project-page-card">
-        <img id="icon" class="project-image" alt="Project Icon">
-        <div class="project-download-info">
-            <span class="project-version">
-                <span id="version"></span>: 
-                <span class="ver-text" id="project-version-text">...</span>
-            </span>
-            <a id="repo-btn" class="download-btn" title="">
-                <i class="fas fa-info-circle"></i>
-            </a>
-            <a id="download-btn" class="download-btn" title="">
-                <i class="fas fa-download"></i>
-            </a>
+    <div class="project-layout">
+      <article class="panel project-main is-loading" data-reveal>
+        <h2 class="panel-title"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span data-i18n="about_project"></span></h2>
+        <div id="project-description" class="prose"></div>
+        <h3 class="panel-subtitle"><i class="fa-solid fa-check-double" aria-hidden="true"></i><span data-i18n="key_features"></span></h3>
+        <ul id="project-features" class="check-list"></ul>
+      </article>
+
+      <aside class="panel project-aside is-loading" data-reveal>
+        <div class="aside-media">
+          <img id="icon" class="project-image" alt="" decoding="async">
         </div>
-      </div>
+        <dl class="meta-list">
+          <div><dt><i class="fa-solid fa-code-branch" aria-hidden="true"></i><span id="version" data-i18n="version"></span></dt><dd><span class="ver-text is-loading" id="project-version-text">…</span></dd></div>
+          <div><dt><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span data-i18n="published"></span></dt><dd id="meta-date">—</dd></div>
+          <div><dt><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span data-i18n="platform"></span></dt><dd id="meta-platform">—</dd></div>
+          <div><dt><i class="fa-solid fa-folder-open" aria-hidden="true"></i><span data-i18n="category"></span></dt><dd id="meta-category">—</dd></div>
+        </dl>
+        <div class="aside-actions">
+          <a id="download-btn" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-download" aria-hidden="true"></i><span data-i18n="download"></span></a>
+          <a id="repo-btn" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-circle-info" aria-hidden="true"></i><span data-i18n="learn_more"></span></a>
+        </div>
+      </aside>
     </div>
 
-    <h2 class="section-title" id="screenshots"></h2>
-    <div class="project-screenshots project-page-card" id="project-screenshots"></div>
-    
-    <h2 class="section-title" id="comment"></h2>
-    <div class="project-comments project-page-card" id="comments">
+    <h2 class="section-title section-title--left" id="screenshots" data-reveal="fade"></h2>
+    <div class="gallery" id="project-screenshots"></div>
+
+    <h2 class="section-title section-title--left" id="comment" data-reveal="fade"></h2>
+    <div class="panel project-comments" id="comments" data-reveal>
       <div id="giscus-loading" class="giscus-loading"><span data-i18n="loading_comments"></span></div>
     </div>
   </div>
 
-  <div class="modal" id="imageModal">
-    <button class="close-modal">&times;</button>
-    <img class="modal-image" id="modalImage">
+  <div class="lightbox" id="imageModal" role="dialog" aria-modal="true" hidden>
+    <button class="lb-btn lb-close close-modal" type="button" data-i18n-label="close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <button class="lb-btn lb-prev" type="button" data-i18n-label="prev"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+    <button class="lb-btn lb-next" type="button" data-i18n-label="next"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+    <figure class="lb-figure"><img class="modal-image" id="modalImage" alt=""><figcaption class="lb-count"></figcaption></figure>
   </div>
 </section>

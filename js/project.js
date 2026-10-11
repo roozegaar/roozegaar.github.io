@@ -14,124 +14,89 @@
 
   ----------------------------------------------------------------------------
 
-  project.js — Behavior for project detail pages
-  Load after main.js, on project pages only:
-    <script src="js/project.js"></script>
-  Does not modify main.js; only observes the changes main.js makes.
+  project.js: screenshot lightbox and image loading on project pages.
 */
 
-document.addEventListener('DOMContentLoaded', () => {
-  waitForEl('#project-title').then(() => {
-    injectSkeletons();
-    setupIconPop();
-    setupGalleryReveal();
-    setupModalPop();
-  });
-});
+(() => {
+  'use strict';
 
-function waitForEl(selector) {
-  return new Promise((resolve) => {
-    const el = document.querySelector(selector);
-    if (el) return resolve(el);
-    const mo = new MutationObserver(() => {
-      const found = document.querySelector(selector);
-      if (found) { mo.disconnect(); resolve(found); }
+  const doc = document;
+  let box, img, count, items = [], index = 0, opener = null, touchX = null;
+
+  RZ.ready.then(() => {
+    box = RZ.$('#imageModal');
+    if (!box) return;
+    img = RZ.$('#modalImage', box);
+    count = RZ.$('.lb-count', box);
+
+    doc.addEventListener('click', onClick);
+    doc.addEventListener('keydown', onKey);
+    box.addEventListener('touchstart', (e) => { touchX = e.changedTouches[0].clientX; }, { passive: true });
+    box.addEventListener('touchend', (e) => {
+      if (touchX == null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      touchX = null;
+      if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
     });
-    mo.observe(document.body, { childList: true, subtree: true });
-  });
-}
-
-/* ---------- Skeleton until data arrives, then a soft card entrance ---------- */
-function injectSkeletons() {
-  const cards = document.querySelectorAll('.project-page-card');
-  if (!cards.length) return;
-
-  cards.forEach((card) => {
-    const overlay = document.createElement('div');
-    overlay.className = 'sk-overlay';
-
-    if (card.querySelector('#icon')) {
-      overlay.innerHTML = `<div class="sk-bar sk-bar-icon"></div><div class="sk-bar" style="width:60%"></div>`;
-    } else {
-      overlay.innerHTML = `
-        <div class="sk-bar sk-bar-title"></div>
-        <div class="sk-bar"></div>
-        <div class="sk-bar" style="width:92%"></div>
-        <div class="sk-bar" style="width:88%"></div>
-        <div class="sk-bar" style="width:70%"></div>
-      `;
-    }
-    card.appendChild(overlay);
-  });
-
-  const titleEl = document.getElementById('project-title');
-  if (!titleEl) return;
-
-  const reveal = () => {
-    document.querySelectorAll('.sk-overlay').forEach((o) => {
-      o.classList.add('sk-fade-out');
-      setTimeout(() => o.remove(), 420);
+    doc.addEventListener('load', markLoaded, true);
+    RZ.$$('#icon').forEach((el) => { if (el.complete && el.naturalWidth) el.classList.add('loaded'); });
+    doc.addEventListener('rz:render', () => {
+      RZ.$$('#icon').forEach((el) => { if (el.complete && el.naturalWidth) el.classList.add('loaded'); });
     });
-    document.querySelectorAll('.project-page-card').forEach((card, i) => {
-      card.classList.add('card-in');
-      card.style.animationDelay = `${i * 110}ms`;
-    });
-  };
-
-  const mo = new MutationObserver(() => {
-    if (titleEl.textContent.trim()) {
-      mo.disconnect();
-      reveal();
-    }
   });
-  mo.observe(titleEl, { childList: true, characterData: true, subtree: true });
 
-  // Handles the (rare) case where data was already present before the observer attached
-  if (titleEl.textContent.trim()) {
-    mo.disconnect();
-    reveal();
+  function markLoaded(e) {
+    if (e.target.id === 'icon') e.target.classList.add('loaded');
   }
-}
 
-/* ---------- Project icon pop-in ---------- */
-function setupIconPop() {
-  const icon = document.getElementById('icon');
-  if (!icon) return;
-
-  const markLoaded = () => icon.classList.add('loaded');
-  icon.addEventListener('load', markLoaded);
-  if (icon.complete && icon.naturalWidth) markLoaded();
-}
-
-/* ---------- Staggered entrance for screenshot thumbnails ---------- */
-function setupGalleryReveal() {
-  const gallery = document.getElementById('project-screenshots');
-  if (!gallery) return;
-
-  const mo = new MutationObserver(() => {
-    Array.from(gallery.children).forEach((img, i) => {
-      if (img.dataset.revealed) return;
-      img.dataset.revealed = '1';
-      requestAnimationFrame(() => {
-        img.style.transitionDelay = `${i * 65}ms`;
-        img.classList.add('shot-in');
-      });
-    });
-  });
-  mo.observe(gallery, { childList: true });
-}
-
-/* ---------- Scale + fade for the screenshot lightbox modal ---------- */
-function setupModalPop() {
-  const modal = document.getElementById('imageModal');
-  if (!modal) return;
-
-  const mo = new MutationObserver(() => {
-    if (modal.style.display === 'flex') {
-      modal.classList.add('modal-pop');
-    } else {
-      modal.classList.remove('modal-pop');
+  function onClick(e) {
+    const shot = e.target.closest('.shot');
+    if (shot) {
+      items = RZ.$$('.shot img').map((i) => i.currentSrc || i.src);
+      opener = shot;
+      open(Number(shot.dataset.index) || 0);
+      return;
     }
-  });
-  mo.observe(modal, { attributes: true, attributeFilter: ['style'] });
-}
+    if (box.hidden) return;
+    if (e.target.closest('.lb-close') || e.target === box) close();
+    else if (e.target.closest('.lb-prev')) step(-1);
+    else if (e.target.closest('.lb-next')) step(1);
+  }
+
+  function onKey(e) {
+    if (!box || box.hidden) return;
+    const rtl = doc.documentElement.dir === 'rtl';
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') step(rtl ? -1 : 1);
+    else if (e.key === 'ArrowLeft') step(rtl ? 1 : -1);
+  }
+
+  function open(i) {
+    index = i;
+    show();
+    box.hidden = false;
+    doc.body.classList.add('no-scroll');
+    requestAnimationFrame(() => requestAnimationFrame(() => box.classList.add('open')));
+    RZ.$('.lb-close', box).focus({ preventScroll: true });
+  }
+
+  function close() {
+    box.classList.remove('open');
+    doc.body.classList.remove('no-scroll');
+    setTimeout(() => { box.hidden = true; }, 300);
+    opener?.focus({ preventScroll: true });
+  }
+
+  function step(dir) {
+    index = (index + dir + items.length) % items.length;
+    show();
+  }
+
+  function show() {
+    img.src = items[index];
+    count.textContent = `${index + 1} / ${items.length}`;
+    const multi = items.length > 1;
+    RZ.$('.lb-prev', box).hidden = !multi;
+    RZ.$('.lb-next', box).hidden = !multi;
+  }
+})();

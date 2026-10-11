@@ -14,118 +14,150 @@
 
   ----------------------------------------------------------------------------
 
-  enhance.js — Additive behavior layer for Roozegaar
-  Runs after main.js and tracks elements that main.js builds dynamically.
-  Load after main.js:
-    <script src="js/enhance.js"></script>
+  enhance.js: scroll and pointer behavior.
+  Reads the DOM that main.js renders and never writes application state.
 */
 
-document.addEventListener('DOMContentLoaded', () => {
-  setupScrollReveal();
-  setupRipple();
-  setupThemeLangSpin();
-  setupCardSpotlight();
-  setupBackToTop();
-});
+(() => {
+  'use strict';
 
-/* ---------- 1) Staggered scroll-reveal for cards ---------- */
-function setupScrollReveal() {
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        io.unobserve(entry.target);
-      }
+  const doc = document;
+  const root = doc.documentElement;
+  const $ = (s, c = doc) => c.querySelector(s);
+  const $$ = (s, c = doc) => Array.from(c.querySelectorAll(s));
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+  root.classList.add('js-ready');
+
+  /* ---------------------------------------------------------------- */
+  /* Scroll reveal                                                    */
+  /* ---------------------------------------------------------------- */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('in-view');
+      revealObserver.unobserve(entry.target);
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
-  function markAndObserve(el, index) {
-    el.classList.add('reveal');
-    el.style.transitionDelay = `${Math.min(index * 70, 420)}ms`;
-    io.observe(el);
+  function observeReveals() {
+    $$('[data-reveal]:not(.in-view):not([data-observed])').forEach((el) => {
+      el.dataset.observed = '1';
+      revealObserver.observe(el);
+    });
   }
+  doc.addEventListener('rz:render', observeReveals);
+  doc.addEventListener('rz:ready', observeReveals);
 
-  function revealContainer(container) {
-    if (!container) return;
-    Array.from(container.children).forEach((child, i) => markAndObserve(child, i));
-  }
-
-  // Project/feature cards are injected dynamically, so wait for them via MutationObserver
-  ['#projectsGrid', '.features'].forEach(sel => {
-    const target = document.querySelector(sel);
-    if (!target) return;
-
-    if (target.children.length) revealContainer(target);
-
-    const mo = new MutationObserver(() => revealContainer(target));
-    mo.observe(target, { childList: true });
-  });
-
-  // Section titles get a soft entrance too
-  document.querySelectorAll('.section-title').forEach((el, i) => markAndObserve(el, i));
-}
-
-/* ---------- 2) Button ripple effect ---------- */
-function setupRipple() {
-  document.body.addEventListener('click', (e) => {
-    const btn = e.target.closest('.cta-button, .download-btn');
+  /* ---------------------------------------------------------------- */
+  /* Button ripple                                                    */
+  /* ---------------------------------------------------------------- */
+  doc.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn, .download-btn');
     if (!btn) return;
-
     const rect = btn.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
-    const ripple = document.createElement('span');
-    ripple.className = 'ripple';
-    ripple.style.width = ripple.style.height = `${size}px`;
-    ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
-    ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
-
-    btn.appendChild(ripple);
-    ripple.addEventListener('animationend', () => ripple.remove());
-  });
-}
-
-/* ---------- 3) Soft spin for the theme icon and language toggle ---------- */
-function setupThemeLangSpin() {
-  const themeBtn = document.querySelector('.theme-toggle');
-  const langBtn = document.querySelector('.lang-toggle');
-
-  themeBtn?.addEventListener('click', () => {
-    themeBtn.classList.remove('spin');
-    void themeBtn.offsetWidth; // restart the CSS animation
-    themeBtn.classList.add('spin');
+    const dot = doc.createElement('span');
+    dot.className = 'ripple';
+    dot.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX - rect.left - size / 2}px;top:${e.clientY - rect.top - size / 2}px`;
+    btn.appendChild(dot);
+    dot.addEventListener('animationend', () => dot.remove());
   });
 
-  langBtn?.addEventListener('click', () => {
-    langBtn.classList.remove('spin');
-    void langBtn.offsetWidth;
-    langBtn.classList.add('spin');
-  });
-}
-
-/* ---------- 4) Mouse-following spotlight on cards ---------- */
-function setupCardSpotlight() {
-  document.body.addEventListener('mousemove', (e) => {
-    const card = e.target.closest('.project-card, .feature-card');
+  /* ---------------------------------------------------------------- */
+  /* Card light and tilt                                              */
+  /* ---------------------------------------------------------------- */
+  let tiltFrame = 0;
+  doc.addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse' || !finePointer.matches) return;
+    const card = e.target.closest('[data-tilt]');
     if (!card) return;
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
-    card.style.setProperty('--my', `${e.clientY - rect.top}px`);
-  });
-}
 
-/* ---------- 5) Back-to-top button ---------- */
-function setupBackToTop() {
-  const btn = document.createElement('button');
-  btn.id = 'backToTop';
-  btn.setAttribute('aria-label', 'Back to top');
-  btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-  document.body.appendChild(btn);
+    cancelAnimationFrame(tiltFrame);
+    tiltFrame = requestAnimationFrame(() => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      card.style.setProperty('--my', `${e.clientY - r.top}px`);
+      if (card.dataset.tilt !== 'soft' && !reduceMotion.matches) {
+        card.style.setProperty('--rx', `${((0.5 - py) * 7).toFixed(2)}deg`);
+        card.style.setProperty('--ry', `${((px - 0.5) * 9).toFixed(2)}deg`);
+      }
+    });
+  }, { passive: true });
 
-  window.addEventListener('scroll', () => {
-    btn.classList.toggle('show', window.scrollY > 400);
+  doc.addEventListener('pointerout', (e) => {
+    const card = e.target.closest?.('[data-tilt]');
+    if (!card || card.contains(e.relatedTarget)) return;
+    card.style.setProperty('--rx', '0deg');
+    card.style.setProperty('--ry', '0deg');
   });
 
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
+  /* ---------------------------------------------------------------- */
+  /* Back to top (with a progress ring)                               */
+  /* ---------------------------------------------------------------- */
+  const topBtn = doc.createElement('button');
+  topBtn.id = 'backToTop';
+  topBtn.type = 'button';
+  topBtn.innerHTML = `
+    <svg viewBox="0 0 52 52" aria-hidden="true"><circle class="ring-bg" cx="26" cy="26" r="23"/><circle class="ring-fg" cx="26" cy="26" r="23"/></svg>
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>`;
+  doc.body.appendChild(topBtn);
+  topBtn.addEventListener('click', () => scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' }));
+
+  const syncTopLabel = () => topBtn.setAttribute('aria-label', (window.RZ && RZ.dict.back_to_top) || 'Back to top');
+  doc.addEventListener('rz:render', syncTopLabel);
+
+  /* ---------------------------------------------------------------- */
+  /* Scroll-driven state (single rAF-throttled handler)               */
+  /* ---------------------------------------------------------------- */
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    const y = scrollY;
+    const max = Math.max(1, root.scrollHeight - innerHeight);
+    root.style.setProperty('--scroll', clamp(y / max).toFixed(4));
+
+    $('.site-header')?.classList.toggle('scrolled', y > 24);
+    topBtn.classList.toggle('show', y > 520);
+
+    // Timeline progress line and passed nodes
+    const wrap = $('.timeline-wrap');
+    if (wrap) {
+      const r = wrap.getBoundingClientRect();
+      const line = innerHeight * 0.6;
+      wrap.style.setProperty('--tl-progress', `${clamp((line - r.top) / r.height) * 100}%`);
+      $$('.tl-node', wrap).forEach((n) => {
+        n.classList.toggle('is-passed', n.getBoundingClientRect().top + 24 < line);
+      });
+    }
+
+    // Scroll spy for in-page navigation links
+    const links = $$('.nav-links a[href^="#"]');
+    if (links.length) {
+      let current = null;
+      const probe = innerHeight * 0.35;
+      links.forEach((a) => {
+        const t = $(a.getAttribute('href'));
+        if (t && t.getBoundingClientRect().top <= probe) current = a;
+      });
+      links.forEach((a) => a.classList.toggle('active', a === current));
+    }
+  }
+
+  function request() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }
+
+  addEventListener('scroll', request, { passive: true });
+  addEventListener('resize', request);
+  doc.addEventListener('rz:render', request);
+  doc.addEventListener('rz:ready', request);
+  request();
+})();

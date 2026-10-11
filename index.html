@@ -18,26 +18,42 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+      /* Apply language, direction and theme before first paint to avoid a flash. */
+      (function () {
+        try {
+          var d = document.documentElement, h = location.hash.slice(1).toLowerCase();
+          var l = (h === 'fa' || h === 'en') ? h : (localStorage.getItem('language') || (/^fa/i.test(navigator.language) ? 'fa' : 'en'));
+          var t = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          d.lang = l; d.dir = l === 'fa' ? 'rtl' : 'ltr'; d.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
     <title data-i18n="title">ROOZEGAAR | Projects, Software & Useful Tools</title>
-
     <meta name="description" content="Roozegaar; a collection of projects, software, and useful tools developed with a focus on creativity, simplicity, and a better user experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ROOZEGAAR">
+    <meta property="og:title" content="ROOZEGAAR">
+    <meta property="og:description" content="Yesterday is history, tomorrow is a mystery, today is a gift!">
+    <meta property="og:image" content="https://roozegaar.ir/images/icon-512.png">
+    <meta property="og:url" content="https://roozegaar.ir/">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/brand-animations.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
     <link rel="manifest" href="data/manifest.json">
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#1a202c" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" id="themeColor" content="#f3f7f7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="ROOZEGAAR">
     <link rel="apple-touch-icon" href="images/icon-512.png">
 </head>
-<body data-header-section="main">
+<body data-header-section="main" data-page="home">
     <noscript>
       <div class="noscript-container" role="alert" aria-live="assertive">
         <div class="noscript-box">
@@ -52,22 +68,55 @@
       </div>
     </noscript>
     <div id="progress-bar"></div>
-    <!-- Header -->
-    <div id="header"></div>
-    <!-- Intro Section -->
-    <section class="intro" id="home">
-        <div class="container">
+    <div class="ambient" aria-hidden="true"><i></i><i></i></div>
+
+    <div id="header" data-component="components/header.html"></div>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-bg" aria-hidden="true">
+          <span class="hero-stars"></span>
+          <span class="hero-orb"></span>
+          <span class="hero-glow glow-a"></span>
+          <span class="hero-glow glow-b"></span>
+          <div class="hero-icons"></div>
+          <div class="hero-tags"></div>
+        </div>
+
+        <div class="container hero-inner">
+          <div class="hero-content">
+            <span class="hero-eyebrow" data-i18n="tagline"></span>
             <h1 data-i18n="intro_title"></h1>
             <p data-i18n="intro_desc"></p>
-            <a href="#projects" class="cta-button" data-i18n="explore_projects"></a>
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-light cta-button"><i class="fa-solid fa-layer-group" aria-hidden="true"></i><span data-i18n="explore_projects"></span></a>
+              <a href="#features" class="btn btn-glass"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span data-i18n="view_features"></span></a>
+            </div>
+          </div>
         </div>
-    </section>
-    <!-- Projects Section -->
-    <div id="projects"></div>
-    <!-- Features Section -->
-    <div id="features"></div>
-    <!-- Footer -->
-    <div id="footer"></div>
+
+        <div class="hero-clock" aria-hidden="true">
+          <span class="hc-date"></span>
+          <span class="hc-time" dir="ltr">
+            <span class="hc-digit" data-p="h">00</span><span class="hc-sep">:</span><span class="hc-digit" data-p="m">00</span><span class="hc-sep">:</span><span class="hc-digit" data-p="s">00</span>
+          </span>
+        </div>
+
+        <a class="hero-cue" href="#projects" data-i18n-label="scroll_down"><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></a>
+
+    <div class="waves" aria-hidden="true">
+      <svg viewBox="0 0 2880 120" preserveAspectRatio="none"><path class="wave w1" d="M0 64C360 14 1080 114 1440 64C1800 14 2520 114 2880 64V120H0Z"/></svg>
+      <svg viewBox="0 0 2880 120" preserveAspectRatio="none"><path class="wave w2" d="M0 78C360 118 1080 38 1440 78C1800 118 2520 38 2880 78V120H0Z"/></svg>
+      <svg viewBox="0 0 2880 120" preserveAspectRatio="none"><path class="wave w3" d="M0 92C360 62 1080 118 1440 92C1800 62 2520 118 2880 92V120H0Z"/></svg>
+    </div>
+      </section>
+
+      <div id="projects" data-component="components/projects.html"></div>
+      <div id="features" data-component="components/features.html"></div>
+    </main>
+
+    <div id="footer" data-component="components/footer.html"></div>
+
     <script src="js/main.js"></script>
     <script src="js/enhance.js"></script>
     <script src="js/brand.js"></script>

@@ -18,49 +18,66 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+      /* Apply language, direction and theme before first paint to avoid a flash. */
+      (function () {
+        try {
+          var d = document.documentElement, h = location.hash.slice(1).toLowerCase();
+          var l = (h === 'fa' || h === 'en') ? h : (localStorage.getItem('language') || (/^fa/i.test(navigator.language) ? 'fa' : 'en'));
+          var t = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          d.lang = l; d.dir = l === 'fa' ? 'rtl' : 'ltr'; d.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+    <title>ROOZEGAAR</title>
+    <meta name="description" content="ROOZEGAAR project">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/project.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/brand-animations.css">
+    <link rel="stylesheet" href="css/project.css">
     <link rel="stylesheet" href="css/project-animations.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="data/manifest.json">
+    <meta name="theme-color" id="themeColor" content="#f3f7f7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ROOZEGAAR">
+    <link rel="apple-touch-icon" href="images/icon-512.png">
 </head>
-<body data-header-section="blog" data-project-section="roozegaar-internet-blocker">
+<body data-header-section="blog" data-page="project" data-project-section="roozegaar-internet-blocker">
     <noscript>
       <div class="noscript-container" role="alert" aria-live="assertive">
         <div class="noscript-box">
           <div class="noscript-message" dir="rtl">
-            <p><strong>جاوا اسکریپت برای نمایش این سایت ضروری است.</strong></p>
-            <p>لطفاً جاوا اسکریپت را فعال و صفحه را بارگذاری کنید.</p>
+            <p><strong>لطفاً برای استفاده از این سایت، JavaScript را فعال کنید.</strong></p>
           </div>
           <hr>
           <div class="noscript-message" dir="ltr">
-            <p><strong>JavaScript is required to view this site properly.</strong></p>
-            <p>Please enable JavaScript and reload the page.</p>
+            <p><strong>Please enable JavaScript to use this site.</strong></p>
           </div>
         </div>
       </div>
     </noscript>
     <div id="progress-bar"></div>
-    <!-- Header -->
-    <div id="header"></div>
-    <!-- Intro Section -->
-    <section class="intro">
-        <div class="container">
-            <h1 data-i18n="intro_title"></h1>
-            <p data-i18n="intro_desc"></p>
-            <a href="#project" class="cta-button" data-i18n="explore_project"></a>
-        </div>
-    </section>
-    <!-- Project Section -->
-    <div id="project"></div>
-    <!-- Footer -->
-    <div id="footer"></div>
+    <div class="ambient" aria-hidden="true"><i></i><i></i></div>
+
+    <div id="header" data-component="components/header.html"></div>
+
+    <main>
+      <div id="projectHero" data-component="components/project-hero.html"></div>
+      <div id="project" data-component="components/project.html"></div>
+    </main>
+
+    <div id="footer" data-component="components/footer.html"></div>
+
     <script src="js/main.js"></script>
     <script src="js/enhance.js"></script>
+    <script src="js/brand.js"></script>
     <script src="js/project.js"></script>
 </body>
 </html>
