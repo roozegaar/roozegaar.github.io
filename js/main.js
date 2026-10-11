@@ -160,6 +160,82 @@
 
   const cleanTag = (t) => (t ? String(t).replace(/^v/i, '') : '—');
 
+    /* ------------------------------------------------------------------ */
+  /* Repository stars (cached and rate-limit safe)                      */
+  /* ------------------------------------------------------------------ */
+  const STAR_TTL = 6 * 60 * 60 * 1000;
+  const starInflight = new Map();
+  let starsBlockedUntil = 0;
+
+  function readStarCache(repo) {
+    try { return JSON.parse(localStorage.getItem(`rz:stars:${repo}`)); } catch { return null; }
+  }
+
+  function repoStars(repo) {
+    if (!repo) return Promise.resolve(null);
+    const cached = readStarCache(repo);
+    if (cached && Date.now() - cached.t < STAR_TTL) return Promise.resolve(cached.v);
+    if (Date.now() < starsBlockedUntil) return Promise.resolve(cached ? cached.v : null);
+    if (starInflight.has(repo)) return starInflight.get(repo);
+
+    const job = (async () => {
+      try {
+        const res = await fetch(`https://api.github.com/repos/${repo}`);
+        if (res.status === 403 || res.status === 429) {
+          starsBlockedUntil = Date.now() + 10 * 60 * 1000;
+        } else if (res.ok) {
+          const count = (await res.json()).stargazers_count;
+          if (Number.isFinite(count)) {
+            try { localStorage.setItem(`rz:stars:${repo}`, JSON.stringify({ v: count, t: Date.now() })); } catch {}
+            return count;
+          }
+        }
+      } catch (err) { console.warn('repoStars:', repo, err.message); }
+      return cached ? cached.v : null;
+    })().finally(() => starInflight.delete(repo));
+
+    starInflight.set(repo, job);
+    return job;
+  }
+
+  // Resolves with { repo: count }; gives up waiting after `timeout` ms.
+  async function collectStars(projects, timeout = 2500) {
+    const out = {};
+    const jobs = projects.filter((p) => isPublished(p) && p.repo)
+      .map((p) => repoStars(p.repo).then((n) => { if (n != null) out[p.repo] = n; }));
+    await Promise.race([Promise.allSettled(jobs), new Promise((r) => setTimeout(r, timeout))]);
+    return out;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* Timeline sort mode                                                 */
+  /* ------------------------------------------------------------------ */
+  const SORTS = ['newest', 'oldest', 'popular'];
+  let sortMode = (() => {
+    try { const v = localStorage.getItem('rz:sort'); return SORTS.includes(v) ? v : 'newest'; } catch { return 'newest'; }
+  })();
+  let timelineToken = 0;
+
+  function syncSortButtons() {
+    $$('.sort-btn').forEach((b) => {
+      const on = b.dataset.sort === sortMode;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-checked', String(on));
+    });
+  }
+
+  function bindSort() {
+    $$('.sort-btn').forEach((btn) => btn.addEventListener('click', async () => {
+      if (btn.dataset.sort === sortMode) return;
+      sortMode = btn.dataset.sort;
+      try { localStorage.setItem('rz:sort', sortMode); } catch {}
+      syncSortButtons();
+      await renderTimeline();
+      emit('rz:render');
+    }));
+    syncSortButtons();
+  }
+
   /* ------------------------------------------------------------------ */
   /* Components                                                         */
   /* ------------------------------------------------------------------ */
@@ -260,22 +336,31 @@
   /* ------------------------------------------------------------------ */
   /* Home: timeline of projects                                         */
   /* ------------------------------------------------------------------ */
-  function sortedProjects(list) {
-    return list
-      .map((p, i) => ({ p, i, t: parseDate(p.date)?.getTime() ?? -Infinity }))
-      .filter(({ p }) => isPublished(p))
-      .sort((a, b) => b.t - a.t || a.i - b.i)
-      .map(({ p }) => p);
+  function sortedProjects(list, mode = 'newest', stars = {}) {
+    const rows = list
+      .map((p, i) => ({ p, i, t: parseDate(p.date)?.getTime() ?? -Infinity, s: stars[p.repo] ?? -1 }))
+      .filter(({ p }) => isPublished(p));
+    const byDate = (a, b) => b.t - a.t || a.i - b.i;
+    const compare = {
+      newest: byDate,
+      oldest: (a, b) => a.t - b.t || a.i - b.i,
+      popular: (a, b) => b.s - a.s || byDate(a, b),
+    }[mode] || byDate;
+    return rows.sort(compare).map(({ p }) => p);
   }
 
   async function renderTimeline() {
     const list = $('#projectsGrid');
     if (!list) return;
 
+    const token = ++timelineToken;
     const data = await getJSON('data/projects.json');
     const lang = RZ.lang;
     const tr = data.translations;
-    const items = sortedProjects(data.projects);
+    const stars = sortMode === 'popular' ? await collectStars(data.projects) : {};
+    if (token !== timelineToken) return;
+    const items = sortedProjects(data.projects, sortMode, stars);
+    const showYears = sortMode !== 'popular';
 
     let lastYear = null;
     let side = 0;
@@ -284,7 +369,7 @@
 
     items.forEach((p) => {
       const d = formatDate(p.date, lang);
-      if (d && d.year !== lastYear) {
+      if (showYears && d && d.year !== lastYear) {
         lastYear = d.year;
         html.push(`<li class="tl-year" data-reveal="fade"><span>${esc(d.year)}</span></li>`);
       }
@@ -304,6 +389,7 @@
               <img src="${esc(p.image)}" alt="${esc(title)}" loading="lazy" decoding="async">
               <span class="media-fallback"><i class="${esc(p.icon || 'fa-solid fa-cube')}"></i></span>
               <span class="chip">${esc(pick(p.platform, lang))}</span>
+              <span class="chip chip-stars" hidden title="${esc(dict.stars_title || '')}"><i class="fa-solid fa-star" aria-hidden="true"></i><b></b></span>
             </a>
             <div class="tl-body">
               <h3 class="tl-title"><a href="${esc(p.overview_link)}">${esc(title)}</a></h3>
@@ -333,6 +419,16 @@
       const finish = (v) => { verEl.textContent = v; verEl.classList.remove('is-loading'); };
       if (p.repo) latestTag(p.repo).then((t) => finish(cleanTag(t ?? p.version)));
       else finish(p.version || '—');
+
+      const chip = $('.chip-stars', card);
+      if (chip && p.repo) {
+        const fmt = new Intl.NumberFormat(lang === 'fa' ? 'fa-IR' : 'en-US', { notation: 'compact' });
+        (stars[p.repo] != null ? Promise.resolve(stars[p.repo]) : repoStars(p.repo)).then((n) => {
+          if (n == null || token !== timelineToken) return;
+          $('b', chip).textContent = fmt.format(n);
+          chip.hidden = false;
+        });
+      }
     });
   }
 
@@ -435,7 +531,7 @@
     }
 
     injectSEO(project, meta, lang, intro);
-    loadGiscus(slug, lang);
+    loadGiscus(slug);
   }
 
   function injectSEO(project, meta, lang, intro) {
@@ -467,26 +563,53 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* Comments (giscus)                                                  */
+  /* Comments (giscus): lazy start, readiness watchdog, automatic retry */
   /* ------------------------------------------------------------------ */
+  const GISCUS_ORIGIN = 'https://giscus.app';
+  const giscus = { slug: null, started: false, ready: false, tries: 0, timer: 0 };
   const giscusTheme = () => `https://roozegaar.ir/css/giscus-theme-${RZ.theme}.css`;
 
   function giscusMessage(config) {
     const frame = $('iframe.giscus-frame');
     if (!frame) return false;
-    frame.contentWindow.postMessage({ giscus: { setConfig: config } }, 'https://giscus.app');
+    frame.contentWindow.postMessage({ giscus: { setConfig: config } }, GISCUS_ORIGIN);
     return true;
   }
 
-  function loadGiscus(slug, lang) {
+  // Any message from the widget proves the iframe is alive and rendering.
+  addEventListener('message', (e) => {
+    if (e.origin !== GISCUS_ORIGIN || !e.data || typeof e.data !== 'object' || !e.data.giscus) return;
+    if (giscus.ready) return;
+    giscus.ready = true;
+    clearTimeout(giscus.timer);
+    const loading = $('#giscus-loading');
+    if (loading) loading.hidden = true;
+    giscusMessage({ lang: RZ.lang, theme: giscusTheme() });   // catch up if the theme or language changed meanwhile
+  });
+
+  function showGiscusStatus(failed) {
+    const box = $('#giscus-loading');
+    if (!box) return;
+    box.hidden = false;
+    if (!failed) {
+      box.innerHTML = '<span data-i18n="loading_comments"></span>';
+      applyI18n(box);
+      return;
+    }
+    box.innerHTML = `<p>${esc(dict.comments_failed || '')}</p><button type="button" class="btn btn-outline giscus-retry">${esc(dict.retry || 'Retry')}</button>`;
+    $('.giscus-retry', box).addEventListener('click', () => { giscus.tries = 0; startGiscus(); });
+  }
+
+  function startGiscus() {
     const box = $('#comments');
     if (!box) return;
-    if (giscusMessage({ lang, theme: giscusTheme() })) return;
-    if ($('script[src*="giscus.app"]', box)) return;
+    giscus.ready = false;
+    clearTimeout(giscus.timer);
+    $$('.giscus, iframe.giscus-frame, script[src*="giscus.app"]', box).forEach((n) => n.remove());
+    showGiscusStatus(false);
 
-    const loading = $('#giscus-loading');
     const s = doc.createElement('script');
-    s.src = 'https://giscus.app/client.js';
+    s.src = `${GISCUS_ORIGIN}/client.js`;
     s.async = true;
     s.crossOrigin = 'anonymous';
     Object.entries({
@@ -495,19 +618,44 @@
       'data-category': 'Q&A',
       'data-category-id': 'DIC_kwDOP6luH84CwZKt',
       'data-mapping': 'specific',
-      'data-term': slug,
+      'data-term': giscus.slug,
       'data-strict': '0',
       'data-reactions-enabled': '1',
       'data-emit-metadata': '0',
       'data-input-position': 'bottom',
       'data-theme': giscusTheme(),
-      'data-lang': lang,
-      'data-loading': 'lazy',
+      'data-lang': RZ.lang,
     }).forEach(([k, v]) => s.setAttribute(k, v));
-    s.onload = () => { if (loading) setTimeout(() => (loading.style.display = 'none'), 1200); };
-    s.onerror = () => { if (loading) loading.textContent = lang === 'fa' ? '❌ بارگذاری دیدگاه‌ها با خطا مواجه شد!' : '❌ Failed to load comments!'; };
+    s.onerror = () => retryGiscus();
     box.appendChild(s);
+
+    // No sign of life from the widget: try again, then offer a manual retry.
+    giscus.timer = setTimeout(retryGiscus, 9000 + giscus.tries * 3000);
   }
+
+  function retryGiscus() {
+    if (giscus.ready) return;
+    if (++giscus.tries < 3) startGiscus();
+    else showGiscusStatus(true);
+  }
+
+  function loadGiscus(slug) {
+    const box = $('#comments');
+    if (!box) return;
+    giscus.slug = slug;
+    if (giscusMessage({ lang: RZ.lang, theme: giscusTheme() }) || giscus.started) return;
+    giscus.started = true;
+
+    const go = () => { giscus.tries = 0; startGiscus(); };
+    if (!('IntersectionObserver' in window)) { go(); return; }
+    new IntersectionObserver((entries, obs) => {
+      if (entries.some((en) => en.isIntersecting)) { obs.disconnect(); go(); }
+    }, { rootMargin: '600px 0px' }).observe(box);
+  }
+
+  addEventListener('online', () => {
+    if (giscus.started && !giscus.ready) { giscus.tries = 0; startGiscus(); }
+  });
 
   /* ------------------------------------------------------------------ */
   /* Theme                                                              */
@@ -618,6 +766,7 @@
     dict = await getDict(lang);
     await loadComponents();
     bindHeader();
+    bindSort();
     await renderAll();
 
     resolveReady();

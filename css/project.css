@@ -134,8 +134,8 @@
 .shot:hover::after, .shot:focus-visible::after { opacity: 1; }
 
 /* Comments */
-.project-comments { min-height: 180px; margin-bottom: 1rem; }
-.giscus-loading { text-align: center; padding: 1rem; color: var(--muted); font-size: 0.95rem; }
+.project-comments { min-height: 0; margin-bottom: 1rem; }
+.giscus-loading { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; padding: 2rem 1rem; text-align: center; color: var(--muted); font-size: 0.95rem; }
 .giscus-frame { width: 100%; border: 0; }
 
 /* Lightbox */
